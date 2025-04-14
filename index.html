@@ -19,15 +19,28 @@
       transition: transform 0.3s ease-in-out;
     }
     .nav-link {
-      transition: color 0.3s, border-bottom 0.3s;
+      transition: all 0.3s;
     }
     .nav-link:hover {
       color: #93c5fd;
       border-bottom: 2px solid #93c5fd;
     }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 overflow-x-hidden">
 
   <!-- Navbar -->
   <header id="navbar" class="bg-[#1a1a40] text-white p-4 fixed w-full z-50 navbar-visible">
@@ -52,20 +65,25 @@
       <a href="#start" class="nav-link block text-blue-400 font-semibold">Start a Chapter</a>
     </div>
   </header>
-  <div class="pt-20"></div>
+  <div class="h-[4.5rem]"></div>
 
-  <!-- Hero Section with Nashua Background -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 tracking-wider leading-relaxed" data-aos="fade-up">EconEd</h1>
-      <p class="text-lg md:text-xl max-w-2xl tracking-wide leading-loose" data-aos="fade-up" data-aos-delay="200">
+  <!-- Hero Section -->
+  <section class="relative min-h-screen bg-cover bg-center" style="background-image: url('nashua-hero.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight" data-aos="fade-up">EconEd</h1>
+      <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide" data-aos="fade-up" data-aos-delay="200">
         Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
       </p>
       <a href="#start" class="mt-10 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition" data-aos="fade-up" data-aos-delay="400">Start a Chapter</a>
+      <div class="scroll-indicator">
+        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" class="pt-10 pb-16 px-4 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-4">About EconEd</h2>
     <p class="text-lg max-w-3xl mx-auto text-gray-700">
@@ -73,7 +91,7 @@
     </p>
   </section>
 
-  <!-- Chapters Section -->
+  <!-- Chapters -->
   <section id="chapters" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
@@ -94,7 +112,7 @@
     </div>
   </section>
 
-  <!-- Start a Chapter Section -->
+  <!-- Start a Chapter -->
   <section id="start" class="py-16 px-4 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6">How to Start a Chapter</h2>
     <ol class="text-lg text-gray-700 max-w-2xl mx-auto space-y-4 text-left">
@@ -106,12 +124,11 @@
     <a href="https://example.com" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">Start a Chapter</a>
   </section>
 
-  <!-- Team Section -->
+  <!-- Team -->
   <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Team Members with placeholder images -->
         <div class="bg-white p-6 rounded-lg shadow">
           <img src="placeholder.jpg" alt="Karthik Suresh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Karthik Suresh</h3>
@@ -146,7 +163,7 @@
     </div>
   </section>
 
-  <!-- Donate Section -->
+  <!-- Donate -->
   <section class="py-16 px-4 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
     <p class="text-lg max-w-xl mx-auto text-gray-700 mb-6">Help us continue spreading financial literacy to students by donating to our cause.</p>
@@ -162,14 +179,10 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      offset: 100,
-    });
+    AOS.init({ duration: 800, offset: 100 });
 
     let lastScrollY = window.scrollY;
     const navbar = document.getElementById('navbar');
-
     window.addEventListener('scroll', () => {
       if (window.scrollY > lastScrollY) {
         navbar.classList.remove('navbar-visible');
