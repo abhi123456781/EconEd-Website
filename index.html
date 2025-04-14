@@ -25,19 +25,18 @@
       transform-origin: center;
       height: 2px;
       width: 100%;
-      background-color: #FFD700; /* gold color */
+      background-color: #facc15; /* match EconEd gold */
       transition: transform 0.4s ease;
     }
     .nav-link:hover {
-      color: #FFD700;
+      color: #facc15;
     }
     .nav-link:hover::after {
       transform: translateX(-50%) scaleX(1);
     }
     #mobile-menu a.nav-link {
       padding: 0.5rem 1rem;
-     >
-</head> border: 2px solid transparent;
+      border: 2px solid transparent;
       border-radius: 0.5rem;
       display: inline-block;
       margin: 0.25rem 0;
@@ -50,10 +49,19 @@
     }
     .scroll-indicator { position: absolute; bottom: 2rem; animation: bounce 2s infinite; }
     @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-    .circle-text { width: 200px; height: 200px; position: absolute; top: 30%; right: 10%; animation: spin 15s linear infinite; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .circle-text {
+      width: 240px;
+      height: 240px;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: spin 15s linear infinite;
+    }
+    @keyframes spin { 0% { transform: translateX(-50%) rotate(0deg); } 100% { transform: translateX(-50%) rotate(360deg); } }
     section[id] { scroll-margin-top: 100px; }
-  </style
+  </style>
+</head>
 <body class="bg-[#f0f8ff] text-gray-900 overflow-x-hidden">
   <header id="navbar" class="bg-white text-black p-6 fixed w-full z-50 navbar-visible shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -82,19 +90,9 @@
     </div>
   </header>
 
-  <section class="relative min-h-screen bg-cover bg-center pt-24" style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4">
-      <h1 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight" data-aos="fade-up">EconEd</h1>
-      <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide" data-aos="fade-up" data-aos-delay="200">
-        Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-      </p>
-      <a href="#start" class="mt-10 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition" data-aos="fade-up" data-aos-delay="400">Apply Now</a>
-      <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
-      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400">
+  <section class="relative min-h-screen bg-cover bg-center pt-36" style="background-image: url('nashua-hero.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-start items-center text-white text-center px-4">
+      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
         <defs>
           <path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
         </defs>
@@ -104,6 +102,18 @@
           </textPath>
         </text>
       </svg>
+      <div class="mt-60" data-aos="fade-up">
+        <h1 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight">EconEd</h1>
+        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide" data-aos="fade-up" data-aos-delay="200">
+          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+        </p>
+        <a href="#start" class="mt-10 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition" data-aos="fade-up" data-aos-delay="400">Apply Now</a>
+      </div>
+      <div class="scroll-indicator">
+        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
     </div>
   </section>
 
