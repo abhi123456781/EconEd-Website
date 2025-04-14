@@ -38,6 +38,18 @@
         transform: translateY(10px);
       }
     }
+    .circle-text {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 30%;
+      right: 10%;
+      animation: spin 15s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body class="bg-white text-gray-800 overflow-x-hidden">
@@ -65,21 +77,30 @@
       <a href="#start" class="nav-link block text-blue-400 font-semibold">Start a Chapter</a>
     </div>
   </header>
-  <div class="h-[4.5rem]"></div>
 
   <!-- Hero Section -->
-  <section class="relative min-h-screen bg-cover bg-center" style="background-image: url('nashua-hero.jpg');">
+  <section class="relative min-h-screen bg-cover bg-center pt-20" style="background-image: url('nashua-hero.jpg');">
     <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4">
-      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight" data-aos="fade-up">EconEd</h1>
+      <h1 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight" data-aos="fade-up">ECONED</h1>
       <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide" data-aos="fade-up" data-aos-delay="200">
         Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
       </p>
-      <a href="#start" class="mt-10 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition" data-aos="fade-up" data-aos-delay="400">Start a Chapter</a>
+      <a href="#start" class="mt-10 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition" data-aos="fade-up" data-aos-delay="400">Apply Now</a>
       <div class="scroll-indicator">
         <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
       </div>
+      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400">
+        <defs>
+          <path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
+        </defs>
+        <text font-size="14" fill="currentColor">
+          <textPath xlink:href="#circle">
+            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
+          </textPath>
+        </text>
+      </svg>
     </div>
   </section>
 
