@@ -7,9 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     .navbar-hidden {
       transform: translateY(-100%);
       transition: transform 0.3s ease-in-out;
@@ -22,8 +20,8 @@
       transition: all 0.3s;
     }
     .nav-link:hover {
-      color: #93c5fd;
-      border-bottom: 2px solid #93c5fd;
+      color: #1e40af;
+      border-bottom: 2px solid #1e40af;
     }
     .scroll-indicator {
       position: absolute;
@@ -31,12 +29,8 @@
       animation: bounce 2s infinite;
     }
     @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(10px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
     }
     .circle-text {
       width: 200px;
@@ -52,34 +46,38 @@
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 overflow-x-hidden">
+<body class="bg-[#f0f8ff] text-gray-900 overflow-x-hidden">
 
   <!-- Navbar -->
-  <header id="navbar" class="bg-[#1a1a40] text-white p-4 fixed w-full z-50 navbar-visible">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">EconEd</h1>
-      <div class="hidden md:flex space-x-4">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#chapters" class="nav-link">Chapters</a>
-        <a href="#team" class="nav-link">Team</a>
-        <a href="#start" class="nav-link text-blue-400 font-semibold">Start a Chapter</a>
+  <header id="navbar" class="bg-white text-black p-6 fixed w-full z-50 navbar-visible shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
+      <div class="hidden md:flex space-x-10 text-sm font-semibold">
+        <a href="#" class="nav-link text-yellow-600">HOME</a>
+        <a href="#about" class="nav-link">ABOUT US</a>
+        <a href="#chapters" class="nav-link">CHAPTERS</a>
+        <a href="#team" class="nav-link">TEAM</a>
+        <a href="#start" class="nav-link">START A CHAPTER</a>
+        <a href="#" class="nav-link">DONATE</a>
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2">
-      <a href="#about" class="nav-link block">About</a>
-      <a href="#chapters" class="nav-link block">Chapters</a>
-      <a href="#team" class="nav-link block">Team</a>
-      <a href="#start" class="nav-link block text-blue-400 font-semibold">Start a Chapter</a>
+    <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
+      <a href="#" class="nav-link text-yellow-600">HOME</a>
+      <a href="#about" class="nav-link">ABOUT US</a>
+      <a href="#chapters" class="nav-link">CHAPTERS</a>
+      <a href="#team" class="nav-link">TEAM</a>
+      <a href="#start" class="nav-link">START A CHAPTER</a>
+      <a href="#" class="nav-link">DONATE</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="relative min-h-screen bg-cover bg-center pt-20" style="background-image: url('nashua-hero.jpg');">
+  <section class="relative min-h-screen bg-cover bg-center pt-24" style="background-image: url('https://images.unsplash.com/photo-1601597111501-41a1c8f6c130?auto=format&fit=crop&w=1600&q=80');">
     <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4">
       <h1 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight" data-aos="fade-up">ECONED</h1>
       <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide" data-aos="fade-up" data-aos-delay="200">
@@ -87,8 +85,8 @@
       </p>
       <a href="#start" class="mt-10 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition" data-aos="fade-up" data-aos-delay="400">Apply Now</a>
       <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </div>
       <svg viewBox="0 0 200 200" class="circle-text text-yellow-400">
@@ -113,19 +111,19 @@
   </section>
 
   <!-- Chapters -->
-  <section id="chapters" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
+  <section id="chapters" class="bg-white py-16 px-4" data-aos="fade-up">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div class="bg-blue-100 p-6 rounded-lg shadow">
           <h3 class="text-xl font-semibold">Dallas</h3>
           <p class="text-gray-600">Texas</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div class="bg-blue-100 p-6 rounded-lg shadow">
           <h3 class="text-xl font-semibold">Acton</h3>
           <p class="text-gray-600">Massachusetts</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div class="bg-blue-100 p-6 rounded-lg shadow">
           <h3 class="text-xl font-semibold">Hollis</h3>
           <p class="text-gray-600">New Hampshire</p>
         </div>
@@ -134,7 +132,7 @@
   </section>
 
   <!-- Start a Chapter -->
-  <section id="start" class="py-16 px-4 text-center" data-aos="fade-up">
+  <section id="start" class="py-16 px-4 text-center bg-yellow-50" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6">How to Start a Chapter</h2>
     <ol class="text-lg text-gray-700 max-w-2xl mx-auto space-y-4 text-left">
       <li>1. Fill out the “Start a Chapter” form.</li>
@@ -142,66 +140,19 @@
       <li>3. Once approved, you’ll receive a starter kit & onboarding.</li>
       <li>4. Begin hosting events, tutoring, and growing your chapter!</li>
     </ol>
-    <a href="https://example.com" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">Start a Chapter</a>
-  </section>
-
-  <!-- Team -->
-  <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Karthik Suresh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Karthik Suresh</h3>
-          <p class="text-blue-600 font-semibold">Co-Founder</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in finance and economics.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Steve Long" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Steve Long</h3>
-          <p class="text-blue-600 font-semibold">Co-Founder</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in finance.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Abhi Mareedu" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Abhi Mareedu</h3>
-          <p class="text-blue-600 font-semibold">Tech Development Lead</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in Computer Science.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Harrison Joshi" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Harrison Joshi</h3>
-          <p class="text-blue-600 font-semibold">Social Media Lead</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in Business and Computer Science.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Arya Somusandaram" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Arya Somusandaram</h3>
-          <p class="text-blue-600 font-semibold">Intern</p>
-          <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Donate -->
-  <section class="py-16 px-4 text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
-    <p class="text-lg max-w-xl mx-auto text-gray-700 mb-6">Help us continue spreading financial literacy to students by donating to our cause.</p>
-    <a href="https://example.com/donate" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">Donate</a>
+    <a href="https://example.com" class="mt-8 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-lg transition">Start a Chapter</a>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#1a1a40] text-white py-6 px-4 text-center">
-    <p class="mb-1">📧 Email: <a href="mailto:theelevationproject@gmail.com" class="underline">theelevationproject@gmail.com</a></p>
+  <footer class="bg-white text-black py-6 px-4 text-center border-t">
+    <p class="mb-1">📧 Email: <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">theelevationproject@gmail.com</a></p>
     <p class="mb-1">📞 Karthik: (603) 852-9473 | Steve: (978) 566-4416</p>
-    <p class="text-sm text-gray-400 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, offset: 100 });
-
     let lastScrollY = window.scrollY;
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -214,7 +165,6 @@
       }
       lastScrollY = window.scrollY;
     });
-
     document.getElementById('menu-toggle').addEventListener('click', () => {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
