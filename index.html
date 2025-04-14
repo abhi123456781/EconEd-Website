@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EconEd | Elevating Financial Literacy</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     html {
       scroll-behavior: smooth;
@@ -13,38 +14,29 @@
 </head>
 <body class="bg-white text-gray-800">
 
-  <!-- Navbar -->
-  <header class="bg-[#1a1a40] text-white p-4">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">EconEd</h1>
-      <nav class="space-x-4">
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#chapters" class="hover:underline">Chapters</a>
-        <a href="#team" class="hover:underline">Team</a>
-        <a href="#start" class="hover:underline font-semibold text-blue-400">Start a Chapter</a>
-      </nav>
+  <!-- Hero Section with Nashua Background -->
+  <section class="relative h-screen bg-cover bg-center" style="background-image: url('71284BFA-4037-4F07-9FC0-4E387D4FD304.jpeg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">EconEd</h1>
+      <p class="text-lg md:text-xl max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+        Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+      </p>
+      <a href="#start" class="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition" data-aos="fade-up" data-aos-delay="400">Start a Chapter</a>
     </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="bg-[#1a1a40] text-white text-center py-20 px-6">
-    <h2 class="text-4xl font-bold mb-4">Empowering the Next Generation of Economic Leaders</h2>
-    <p class="text-lg mb-6">Free tutoring, real-world impact, and grassroots financial literacy.</p>
-    <a href="#start" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">Start a Chapter</a>
   </section>
 
-  <!-- About -->
-  <section id="about" class="px-4 py-12 max-w-4xl mx-auto text-center">
+  <!-- About Section -->
+  <section id="about" class="py-16 px-4 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-4">About EconEd</h2>
-    <p class="text-lg text-gray-700">
+    <p class="text-lg max-w-3xl mx-auto text-gray-700">
       EconEd is a nonprofit organization that invokes financial literacy and basic economic understanding to the youth. We achieve this by going down to local middle and elementary schools weekly and also through our website that offers free tutoring.
     </p>
   </section>
 
-  <!-- Chapters -->
-  <section id="chapters" class="bg-gray-100 py-12 px-4">
+  <!-- Chapters Section -->
+  <section id="chapters" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8">Our Chapters</h2>
+      <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white p-6 rounded-lg shadow">
           <h3 class="text-xl font-semibold">Dallas</h3>
@@ -63,51 +55,40 @@
   </section>
 
   <!-- How to Start a Chapter -->
-  <section id="start" class="py-12 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">How to Start a Chapter</h2>
-      <ol class="text-left text-lg text-gray-700 space-y-4 max-w-2xl mx-auto">
-        <li>1. Fill out the “Start a Chapter” form.</li>
-        <li>2. We’ll review your submission within 2–3 days.</li>
-        <li>3. Once approved, you’ll receive a starter kit & onboarding.</li>
-        <li>4. Begin hosting events, tutoring, and growing your chapter!</li>
-      </ol>
-      <a href="https://example.com" target="_blank" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">Start a Chapter</a>
+  <section id="start" class="py-16 px-4 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6">How to Start a Chapter</h2>
+    <ol class="text-lg text-gray-700 max-w-2xl mx-auto space-y-4 text-left">
+      <li>1. Fill out the “Start a Chapter” form.</li>
+      <li>2. We’ll review your submission within 2–3 days.</li>
+      <li>3. Once approved, you’ll receive a starter kit & onboarding.</li>
+      <li>4. Begin hosting events, tutoring, and growing your chapter!</li>
+    </ol>
+    <a href="https://example.com" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">Start a Chapter</a>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Repeat this block for each team member -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="CA61FFBE-D84F-4F3F-AFC3-9DDE39B64912_1_105_c.jpeg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Karthik Suresh</h3>
+          <p class="text-blue-600 font-semibold">Co-Founder</p>
+          <p class="text-gray-700">Junior at Nashua South with interests in finance and economics.</p>
+        </div>
+        <!-- Add other team members the same way -->
+        <!-- ... -->
+      </div>
     </div>
   </section>
 
-  <!-- Team -->
-  <section id="team" class="bg-gray-100 py-12 px-4">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-bold">Karthik Suresh</h3>
-          <p class="text-blue-600 font-semibold mb-2">Co-Founder</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in finance and economics.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-bold">Steve Long</h3>
-          <p class="text-blue-600 font-semibold mb-2">Co-Founder</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in finance.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-bold">Abhi Mareedu</h3>
-          <p class="text-blue-600 font-semibold mb-2">Tech Development Lead</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in Computer Science.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-bold">Harrison Joshi</h3>
-          <p class="text-blue-600 font-semibold mb-2">Social Media Lead</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in Business and Computer Science.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-bold">Arya Somusandaram</h3>
-          <p class="text-blue-600 font-semibold mb-2">Intern</p>
-          <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
-        </div>
-      </div>
-    </div>
+  <!-- Donate Section -->
+  <section class="py-16 px-4 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
+    <p class="text-lg max-w-xl mx-auto text-gray-700 mb-6">Help us continue spreading financial literacy to students by donating to our cause.</p>
+    <a href="https://example.com/donate" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">Donate</a>
   </section>
 
   <!-- Footer -->
@@ -117,5 +98,12 @@
     <p class="text-sm text-gray-400 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      offset: 100,
+    });
+  </script>
 </body>
 </html>
