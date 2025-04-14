@@ -210,28 +210,35 @@
   </footer>
 
   <script>
-    AOS.init({ duration: 800, offset: 100 });
-  
-    let lastScrollY = window.scrollY;
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > lastScrollY) {
-        navbar.classList.remove('navbar-visible');
-        navbar.classList.add('navbar-hidden');
-      } else {
-        navbar.classList.remove('navbar-hidden');
-        navbar.classList.add('navbar-visible');
-      }
-      lastScrollY = window.scrollY;
-    });
-  
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
-  
-    // Redirect 'Start a Chapter' button to the Google Form
     document.addEventListener("DOMContentLoaded", () => {
+      // AOS animation init
+      AOS.init({ duration: 800, offset: 100 });
+  
+      // Navbar scroll visibility toggle
+      const navbar = document.getElementById('navbar');
+      let lastScrollY = window.scrollY;
+  
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY) {
+          navbar.classList.remove('navbar-visible');
+          navbar.classList.add('navbar-hidden');
+        } else {
+          navbar.classList.remove('navbar-hidden');
+          navbar.classList.add('navbar-visible');
+        }
+        lastScrollY = window.scrollY;
+      });
+  
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (menuToggle && menu) {
+        menuToggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+  
+      // Set Start a Chapter link
       const startBtn = document.querySelector("a[href='#start']");
       if (startBtn) {
         startBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSf9DhsnXA43yKs1oI6W_rHHg4633ga9NVR7fnsuVduic7LIYA/viewform");
