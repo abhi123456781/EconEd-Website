@@ -47,7 +47,7 @@
       color: #000;
       border-color: #facc15;
     }
-    .scroll-indicator { position: absolute; bottom: 1rem; animation: bounce 2s infinite; }
+    .scroll-indicator { position: absolute; bottom: 2rem; animation: bounce 2s infinite; }
     @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
     .circle-text {
       width: 240px;
@@ -71,7 +71,7 @@
         <a href="#about" class="nav-link">ABOUT US</a>
         <a href="#chapters" class="nav-link">CHAPTERS</a>
         <a href="#team" class="nav-link">TEAM</a>
-        <a href="#chapter-info" class="nav-link">START A CHAPTER</a>
+        <a href="#start" class="nav-link">START A CHAPTER</a>
         <a href="#donate" class="nav-link">DONATE</a>
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
@@ -112,7 +112,7 @@
         </a>
       </div>
       <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-10 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </div>
@@ -184,7 +184,7 @@
     </div>
   </section>
 
-  <section id="chapter-info" class="py-16 px-4 text-center bg-yellow-50" data-aos="fade-up">
+  <section id="start" class="py-16 px-4 text-center bg-yellow-50" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6">How to Start a Chapter</h2>
     <ol class="text-lg text-gray-700 max-w-2xl mx-auto space-y-4 text-left">
       <li>1. Fill out the “Start a Chapter” form.</li>
@@ -209,41 +209,24 @@
     <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // AOS animation init
-      AOS.init({ duration: 800, offset: 100 });
-  
-      // Navbar scroll visibility toggle
-      const navbar = document.getElementById('navbar');
-      let lastScrollY = window.scrollY;
-  
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > lastScrollY) {
-          navbar.classList.remove('navbar-visible');
-          navbar.classList.add('navbar-hidden');
-        } else {
-          navbar.classList.remove('navbar-hidden');
-          navbar.classList.add('navbar-visible');
-        }
-        lastScrollY = window.scrollY;
-      });
-  
-      // Mobile menu toggle
-      const menuToggle = document.getElementById('menu-toggle');
+    AOS.init({ duration: 800, offset: 100 });
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY) {
+        navbar.classList.remove('navbar-visible');
+        navbar.classList.add('navbar-hidden');
+      } else {
+        navbar.classList.remove('navbar-hidden');
+        navbar.classList.add('navbar-visible');
+      }
+      lastScrollY = window.scrollY;
+    });
+    document.getElementById('menu-toggle').addEventListener('click', () => {
       const menu = document.getElementById('mobile-menu');
-      if (menuToggle && menu) {
-        menuToggle.addEventListener('click', () => {
-          menu.classList.toggle('hidden');
-        });
-      }
-  
-      // Set Start a Chapter link
-      const startBtn = document.querySelector("a[href='#start']");
-      if (startBtn) {
-        startBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSf9DhsnXA43yKs1oI6W_rHHg4633ga9NVR7fnsuVduic7LIYA/viewform");
-        startBtn.setAttribute("target", "_blank");
-      }
+      menu.classList.toggle('hidden');
     });
   </script>
 </body>
