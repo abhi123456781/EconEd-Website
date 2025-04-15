@@ -6,6 +6,7 @@
   <title>EconEd | Elevating Financial Literacy</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     html { scroll-behavior: smooth; }
     .navbar-hidden { transform: translateY(-100%); transition: transform 0.3s ease-in-out; }
@@ -60,33 +61,17 @@
     }
     @keyframes spin { 0% { transform: translateX(-50%) rotate(0deg); } 100% { transform: translateX(-50%) rotate(360deg); } }
     section[id] { scroll-margin-top: 100px; }
-    
-    .social-buttons a.instagram:hover { color: #e4405f; }
-    .social-buttons {
-  margin-top: 1rem;
-}
-
-.social-buttons a {
-  font-size: 1.5rem;
-  margin: 0 10px;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-.social-buttons a:hover {
-  color: #e4405f;
-}
-    social-buttons a i {
-  font-size: 2rem;
-  transition: transform 0.3s ease;
-}
-
-.social-buttons a:hover i {
-  color: #e4405f;
-  transform: scale(1.2);
-}
+    .social-icons a {
+      display: inline-block;
+      margin: 0 0.5rem;
+      font-size: 1.25rem;
+      color: white;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #c68a1f;
+    }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="bg-[#f0f8ff] text-gray-900 overflow-x-hidden">
   <header id="navbar" class="bg-white text-black p-6 fixed w-full z-50 navbar-visible shadow-md">
@@ -258,11 +243,6 @@
       menu.classList.toggle('hidden');
     });
   </script>
-  <a href="https://www.instagram.com/econ.ed/" 
-   target="_blank" 
-   rel="noopener noreferrer"
-   class="fixed bottom-4 right-4 bg-white text-pink-600 rounded-full shadow-lg p-4 text-2xl hover:bg-pink-100 transition z-50">
-  <i class="fab fa-instagram"></i>
-</a>
+  
 </body>
 </html>
