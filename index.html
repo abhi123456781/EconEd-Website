@@ -216,41 +216,6 @@
     </a>
   </section>
 
-  <section id="donate" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
-      <p class="text-lg text-gray-700 mb-6">Help us continue spreading financial literacy to students by donating to our cause. Every dollar supports tutoring programs, chapter outreach, and educational resources.</p>
-      <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">Donate Now</a>
-    </div>
-  </section>
-
-  <footer class="bg-white text-black py-6 px-4 text-center border-t">
-    <p class="mb-1">📧 Email: <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">theelevationproject@gmail.com</a></p>
-    <p class="mb-1">📞 Karthik: (603) 852-9473 | Steve: (978) 566-4416</p>
-    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
-    
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, offset: 100 });
-    let lastScrollY = window.scrollY;
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > lastScrollY) {
-        navbar.classList.remove('navbar-visible');
-        navbar.classList.add('navbar-hidden');
-      } else {
-        navbar.classList.remove('navbar-hidden');
-        navbar.classList.add('navbar-visible');
-      }
-      lastScrollY = window.scrollY;
-    });
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
-  </script>
   <section id="tutoring" class="bg-gray-50 py-16 px-4 text-center" data-aos="fade-up">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-bold mb-6">Online Tutoring</h2>
@@ -298,6 +263,43 @@
       </div>
     </div>
   </section>
+
+  <section id="donate" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
+      <p class="text-lg text-gray-700 mb-6">Help us continue spreading financial literacy to students by donating to our cause. Every dollar supports tutoring programs, chapter outreach, and educational resources.</p>
+      <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">Donate Now</a>
+    </div>
+  </section>
+
+  <footer class="bg-white text-black py-6 px-4 text-center border-t">
+    <p class="mb-1">📧 Email: <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">theelevationproject@gmail.com</a></p>
+    <p class="mb-1">📞 Karthik: (603) 852-9473 | Steve: (978) 566-4416</p>
+    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+    
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, offset: 100 });
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY) {
+        navbar.classList.remove('navbar-visible');
+        navbar.classList.add('navbar-hidden');
+      } else {
+        navbar.classList.remove('navbar-hidden');
+        navbar.classList.add('navbar-visible');
+      }
+      lastScrollY = window.scrollY;
+    });
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
