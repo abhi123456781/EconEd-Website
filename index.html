@@ -62,7 +62,7 @@
     section[id] { scroll-margin-top: 100px; }
     
     .social-buttons a.instagram:hover { color: #e4405f; }
-    social-buttons {
+    .social-buttons {
   margin-top: 1rem;
 }
 
@@ -75,6 +75,15 @@
 
 .social-buttons a:hover {
   color: #e4405f;
+}
+    social-buttons a i {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.social-buttons a:hover i {
+  color: #e4405f;
+  transform: scale(1.2);
 }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -226,9 +235,7 @@
     <p class="mb-1">📧 Email: <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">theelevationproject@gmail.com</a></p>
     <p class="mb-1">📞 Karthik: (603) 852-9473 | Steve: (978) 566-4416</p>
     <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
-    <div class="social-buttons">
-  <a href="https://www.instagram.com/econ.ed/" target="_blank"><i class="fab fa-instagram"></i></a>
-</div>
+    
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -251,5 +258,11 @@
       menu.classList.toggle('hidden');
     });
   </script>
+  <a href="https://www.instagram.com/econ.ed/" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="fixed bottom-4 right-4 bg-white text-pink-600 rounded-full shadow-lg p-4 text-2xl hover:bg-pink-100 transition z-50">
+  <i class="fab fa-instagram"></i>
+</a>
 </body>
 </html>
