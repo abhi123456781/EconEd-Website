@@ -60,9 +60,22 @@
     }
     @keyframes spin { 0% { transform: translateX(-50%) rotate(0deg); } 100% { transform: translateX(-50%) rotate(360deg); } }
     section[id] { scroll-margin-top: 100px; }
-    }
     
     .social-buttons a.instagram:hover { color: #e4405f; }
+    social-buttons {
+  margin-top: 1rem;
+}
+
+.social-buttons a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-buttons a:hover {
+  color: #e4405f;
+}
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
