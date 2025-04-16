@@ -8,56 +8,28 @@
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/aos.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body class="bg-gray-50 text-gray-900">
-
-<header id="navbar" class="bg-white shadow fixed top-0 w-full z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <div class="text-2xl font-bold text-yellow-600">EconEd</div>
-    <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="board.html" class="nav-link">Board</a>
-      <a href="chapters.html" class="nav-link">Chapters</a>
-      <a href="tutoring.html" class="nav-link">Tutoring</a>
-      <a href="volunteering.html" class="nav-link">Volunteering</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="donate.html" class="nav-link">Donate</a>
-    </nav>
-    <button id="menu-toggle" class="md:hidden">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</header>
-
-<div class="fixed bottom-4 left-4 z-50 flex flex-col space-y-2 text-white">
-  <a href="#" class="hover:text-yellow-600"><i class="fab fa-tiktok fa-2x"></i></a>
-  <a href="#" class="hover:text-red-600"><i class="fab fa-youtube fa-2x"></i></a>
-  <a href="#" class="hover:text-pink-600"><i class="fab fa-instagram fa-2x"></i></a>
-  <a href="#" class="hover:text-blue-600"><i class="fab fa-linkedin fa-2x"></i></a>
-</div>
-
-<section class="relative h-screen bg-cover bg-center" style="background-image:url('assets/nashua-hero.jpg')">
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-  <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-    <!-- Spinning circle -->
-    <svg viewBox="0 0 200 200" class="circle-text w-48 h-48 mb-8 animate-spin-slow text-yellow-400">
-      <defs><path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
-      <text font-size="14"><textPath xlink:href="#circle">ELEVATING YOUNG ENTREPRENEURS • </textPath></text>
-    </svg>
-    <h1 class="text-5xl font-extrabold">EconEd</h1>
-    <p class="mt-4 text-xl max-w-2xl">Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.</p>
-    <a href="chapters.html" class="mt-6 px-6 py-3 border border-yellow-400 text-yellow-400 rounded-full">Start a Chapter</a>
-  </div>
-</section>
-
-<section class='py-12 text-center'><p>Home page placeholder content.</p></section>
 <script>
+  // initialize AOS
   AOS.init({ duration: 800, offset: 100 });
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('hidden');
+
+  // Navbar hide/show on scroll
+  let lastY = window.scrollY;
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > lastY) {
+      navbar.classList.add("navbar-hidden");
+      navbar.classList.remove("navbar-visible");
+    } else {
+      navbar.classList.add("navbar-visible");
+      navbar.classList.remove("navbar-hidden");
+    }
+    lastY = window.scrollY;
+  });
+
+  // Mobile menu toggle
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("hidden");
   });
 </script>
 </body>
