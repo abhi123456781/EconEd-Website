@@ -4,15 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Board</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/aos.js"></script>
+  
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // initialize AOS
   AOS.init({ duration: 800, offset: 100 });
 
-  // Navbar hide/show on scroll
   let lastY = window.scrollY;
   const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
@@ -26,11 +24,11 @@
     lastY = window.scrollY;
   });
 
-  // Mobile menu toggle
   document.getElementById("menu-toggle").addEventListener("click", () => {
     const nav = document.querySelector("nav");
     nav.classList.toggle("hidden");
   });
 </script>
+
 </body>
 </html>
