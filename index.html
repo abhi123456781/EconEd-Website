@@ -7,7 +7,8 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html { scroll-behavior: smooth; }
     .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
@@ -39,7 +40,7 @@
     @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
     section[id] { scroll-margin-top: 100px; }
     .social-icons a {
-      display: inline-block; margin: 0 .25rem; font-size: 1.25rem; color: white;
+      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
       transition: color .3s;
     }
     .social-icons a:hover { color: #c68a1f; }
@@ -90,13 +91,16 @@
   </div>
 
   <!-- Hero -->
-  <section class="relative min-h-screen bg-cover bg-center pt-36" style="background-image: url('nashua-hero.jpg');">
+  <section class="relative min-h-screen bg-cover bg-center pt-36"
+           style="background-image: url('nashua-hero.jpg');">
     <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
       <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs><path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
+        <defs>
+          <path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+        </defs>
         <text font-size="14" fill="currentColor">
           <textPath xlink:href="#circle">
-            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
+            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
           </textPath>
         </text>
       </svg>
@@ -119,93 +123,37 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="pt-10 pb-16 px-4 text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">About EconEd</h2>
-    <p class="text-lg max-w-3xl mx-auto text-gray-700">
-      EconEd is a nonprofit organization that invokes financial literacy and basic economic understanding to the youth.
-      We achieve this by going down to local middle and elementary schools weekly and also through our website that offers free tutoring.
-    </p>
-  </section>
-
-  <!-- Chapters -->
-  <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-4 bg-gray-100 rounded shadow">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Dallas Chapter Image</div>
-          <h3 class="mt-4 font-semibold text-lg">Dallas Chapter</h3>
+  <!-- Our Story -->
+  <section id="story" class="bg-gray-50 py-16 px-4 text-center" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto space-y-8">
+      <h2 class="text-3xl font-bold">Our Story</h2>
+      <p class="text-lg text-gray-700">
+        EconEd began as a small student‑led financial literacy initiative in Nashua, NH. Today we bring together bright young minds nationwide—teaching economics, hosting events, and providing free tutoring to empower the next generation of economic leaders.
+      </p>
+      <img src="placeholder-story.jpg" alt="Our Story" class="w-full h-auto rounded-lg shadow" />
+      <div class="space-y-4 text-left">
+        <div class="flex items-center text-xl font-semibold text-yellow-600">
+          <span class="mr-3">01</span> Our Story
         </div>
-        <div class="p-4 bg-gray-100 rounded shadow">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Acton Chapter Image</div>
-          <h3 class="mt-4 font-semibold text-lg">Acton Chapter</h3>
+        <div class="flex items-center text-lg font-semibold text-gray-500">
+          <span class="mr-3">02</span> Our Members
         </div>
-        <div class="p-4 bg-gray-100 rounded shadow">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Hollis Chapter Image</div>
-          <h3 class="mt-4 font-semibold text-lg">Hollis Chapter</h3>
+        <div class="flex items-center text-lg font-semibold text-gray-500">
+          <span class="mr-3">03</span> Past Speakers
+        </div>
+        <div class="mt-4 text-gray-700">
+          <p>
+            From a single chapter to chapters coast‑to‑coast, we’ve grown by empowering students with real‑world economic skills and experiences.
+          </p>
+          <a href="#" class="inline-flex items-center text-yellow-600 font-semibold mt-2">
+            Learn more
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Karthik Suresh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Karthik Suresh</h3>
-          <p class="text-blue-600 font-semibold">Co-Founder</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in finance and economics.</p>
-        </div>
-        <!-- …other team members… -->
-      </div>
-    </div>
-  </section>
-
-  <!-- How to Start a Chapter -->
-  <section id="start" class="py-16 px-4 text-center bg-yellow-50" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6">How to Start a Chapter</h2>
-    <ol class="text-lg text-gray-700 max-w-2xl mx-auto space-y-4 text-left">
-      <li>1. Fill out the “Start a Chapter” form.</li>
-      <li>2. We’ll review your submission within 2–3 days.</li>
-      <li>3. Once approved, you’ll receive a starter kit & onboarding.</li>
-      <li>4. Begin hosting events, tutoring, and growing your chapter!</li>
-    </ol>
-    <a href="contact.html"
-       class="mt-8 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-lg transition">
-      Start a Chapter
-    </a>
-  </section>
-
-  <!-- Online Tutoring -->
-  <section id="tutoring" class="bg-gray-50 py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Online Tutoring</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        We offer online tutoring sessions to promote financial literacy and economics for students of all ages.
-        Our volunteers are trained and passionate about educating the next generation of economic leaders.
-      </p>
-      <a href="#"
-         class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
-        Register to Become a Tutor
-      </a>
-    </div>
-  </section>
-
-  <!-- Donate -->
-  <section id="donate" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        Help us continue spreading financial literacy to students by donating to our cause.
-      </p>
-      <a href="donate.html"
-         class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
-        Donate Now
-      </a>
     </div>
   </section>
 
@@ -236,8 +184,10 @@
         }
         lastY = window.scrollY;
       });
-      document.getElementById("menu-toggle").addEventListener("click", () => {
-        document.getElementById("mobile-menu").classList.toggle("hidden");
+      document.getElementById("menu-toggle")
+              .addEventListener("click", () => {
+        document.getElementById("mobile-menu")
+                .classList.toggle("hidden");
       });
     });
   </script>
