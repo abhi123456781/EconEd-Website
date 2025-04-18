@@ -88,10 +88,13 @@
   </div>
 
   <!-- Hero -->
-  <section class="relative min-h-screen bg-cover bg-center pt-36" style="background-image: url('nashua-hero.jpg');">
+  <section class="relative bg-cover bg-center pt-36 pb-48 min-h-screen" style="background-image: url('nashua-hero.jpg');">
     <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
+
+      <!-- Spinning text -->
       <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs><path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
+        <defs><path id="circle"
+          d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
         <text font-size="14" fill="currentColor">
           <textPath xlink:href="#circle">
             ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
@@ -111,34 +114,33 @@
         </a>
       </div>
 
+      <!-- Stats (now in flow, just below CTA) -->
+      <div data-aos="fade-up" data-aos-offset="150" data-aos-duration="600"
+           class="mt-12 grid grid-cols-3 gap-8 max-w-4xl w-full mx-auto">
+        <div>
+          <h3 class="text-5xl font-bold text-yellow-400">100+</h3>
+          <p class="text-lg">Members Nationally</p>
+        </div>
+        <div>
+          <h3 class="text-5xl font-bold text-yellow-400">3</h3>
+          <p class="text-lg">Partners</p>
+        </div>
+        <div>
+          <h3 class="text-5xl font-bold text-yellow-400">5</h3>
+          <p class="text-lg">Chapters</p>
+        </div>
+      </div>
+
       <!-- Scroll Indicator -->
-      <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="scroll-indicator mt-12">
+        <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M19 9l-7 7-7-7"/>
         </svg>
       </div>
     </div>
-
-    <!-- lifted-up Stats (below CTA, earlier on scroll) -->
-    <div class="absolute bottom-24 w-full">
-      <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="600"
-           class="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center">
-        <div>
-          <h3 class="text-5xl font-bold text-yellow-400">100+</h3>
-          <p class="text-lg text-white">Members Nationally</p>
-        </div>
-        <div>
-          <h3 class="text-5xl font-bold text-yellow-400">3</h3>
-          <p class="text-lg text-white">Partners</p>
-        </div>
-        <div>
-          <h3 class="text-5xl font-bold text-yellow-400">5</h3>
-          <p class="text-lg text-white">Chapters</p>
-        </div>
-      </div>
-    </div>
   </section>
+
 
   <!-- Chapters -->
   <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
@@ -219,6 +221,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       AOS.init({ duration: 800, offset: 100 });
+
       const nav = document.getElementById("navbar");
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {
@@ -229,13 +232,12 @@
         }
         lastY = window.scrollY;
       });
+
       document.getElementById("menu-toggle")
-              .addEventListener("click", () => {
-        document.getElementById("mobile-menu")
-                .classList.toggle("hidden");
-      });
+        .addEventListener("click", () =>
+          document.getElementById("mobile-menu").classList.toggle("hidden")
+        );
     });
   </script>
-
 </body>
 </html>
