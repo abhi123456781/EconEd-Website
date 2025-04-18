@@ -89,38 +89,59 @@
   </div>
 
   <!-- Hero -->
-  <section class="relative min-h-screen bg-cover bg-center pt-36"
-           style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
-      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs>
-          <path id="circle"
-                d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
-        </defs>
-        <text font-size="14" fill="currentColor">
-          <textPath xlink:href="#circle">
-            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
-          </textPath>
-        </text>
+  <!-- Hero -->
+<section class="relative min-h-screen bg-cover bg-center pt-36" style="background-image: url('nashua-hero.jpg');">
+  <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
+    <!-- Rotating circle text -->
+    <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
+      <defs>
+        <path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+      </defs>
+      <text font-size="14" fill="currentColor">
+        <textPath xlink:href="#circle">
+          ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
+        </textPath>
+      </text>
+    </svg>
+
+    <!-- Main Title + CTA -->
+    <div class="mt-[20rem] space-y-8">
+      <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
+      <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
+        Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+      </p>
+      <a href="contact.html"
+         class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+        Apply Now
+      </a>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 9l-7 7-7-7"/>
       </svg>
-      <div class="mt-[20rem] space-y-8">
-        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
-        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
-          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-        </p>
-        <a href="contact.html"
-           class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-          Apply Now
-        </a>
+    </div>
+
+    <!-- ★ New Stats Row ★ -->
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+      <div>
+        <div class="text-4xl md:text-5xl font-bold text-yellow-500">100+</div>
+        <div class="mt-1 text-sm uppercase text-white">Current Members Nationally</div>
       </div>
-      <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7"/>
-        </svg>
+      <div>
+        <div class="text-4xl md:text-5xl font-bold text-yellow-500">3</div>
+        <div class="mt-1 text-sm uppercase text-white">Partners</div>
+      </div>
+      <div>
+        <div class="text-4xl md:text-5xl font-bold text-yellow-500">5</div>
+        <div class="mt-1 text-sm uppercase text-white">Chapters</div>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- Chapters -->
   <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
