@@ -30,9 +30,7 @@
     }
     .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
     @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-    .circle-text {
-      width: 240px; height: 240px; animation: spin 15s linear infinite;
-    }
+    .circle-text { width: 240px; height: 240px; animation: spin 15s linear infinite; }
     @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
     section[id] { scroll-margin-top: 100px; }
     .social-icons a {
@@ -86,37 +84,33 @@
     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
-  <!-- Hero -->
-  <section class="relative bg-cover bg-center min-h-[160vh]" style="background-image: url('nashua-hero.jpg');">
-    <!-- dark overlay + flex container for top-of-hero content -->
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-center items-center text-white text-center px-4 space-y-12 h-screen">
-      <!-- spinning wheel -->
+  <!-- Hero (130vh tall) -->
+  <section class="relative bg-cover bg-center min-h-[130vh]" style="background-image: url('nashua-hero.jpg');">
+    <!-- top‐of‐hero flex, wheel nudged down -->
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4 pt-28 space-y-10 h-screen">
+      <!-- spin wheel -->
       <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs>
-          <path id="circle"
-            d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
-        </defs>
+        <defs><path id="circle"
+          d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
         <text font-size="14" fill="currentColor">
           <textPath xlink:href="#circle">
             ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
           </textPath>
         </text>
       </svg>
-      <!-- main title -->
+      <!-- spaced title/subtitle/button -->
       <h1 class="text-6xl md:text-8xl font-extrabold">EconEd</h1>
-      <!-- subtitle -->
       <p class="text-xl md:text-2xl max-w-3xl leading-relaxed">
         Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
       </p>
-      <!-- Apply button -->
       <a href="contact.html"
          class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3 rounded-full font-semibold transition">
         Apply Now
       </a>
     </div>
 
-    <!-- Stats at bottom of the hero -->
-    <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-16 text-center text-white">
+    <!-- stats appearing after scroll -->
+    <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-16 text-center text-white" data-aos="fade-up">
       <div>
         <h3 class="text-5xl font-bold text-yellow-400">100+</h3>
         <p class="text-lg">Members Nationally</p>
@@ -221,19 +215,16 @@
     document.addEventListener("DOMContentLoaded", () => {
       AOS.init({ duration: 800, offset: 100 });
 
-      // navbar hide/show on scroll
+      // navbar show/hide
       const nav = document.getElementById("navbar");
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {
-        if (window.scrollY > lastY) {
-          nav.classList.replace("navbar-visible","navbar-hidden");
-        } else {
-          nav.classList.replace("navbar-hidden","navbar-visible");
-        }
+        if (window.scrollY > lastY) nav.classList.replace("navbar-visible","navbar-hidden");
+        else           nav.classList.replace("navbar-hidden","navbar-visible");
         lastY = window.scrollY;
       });
 
-      // mobile menu toggle
+      // mobile menu
       document.getElementById("menu-toggle")
         .addEventListener("click", () =>
           document.getElementById("mobile-menu").classList.toggle("hidden")
