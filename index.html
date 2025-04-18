@@ -31,10 +31,9 @@
     .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
     @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
     .circle-text {
-      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
-      transform: translateX(-50%); animation: spin 15s linear infinite;
+      width: 240px; height: 240px; animation: spin 15s linear infinite;
     }
-    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
     section[id] { scroll-margin-top: 100px; }
     .social-icons a {
       display: inline-block; margin: 0 .25rem; font-size: 1.25rem; color: white;
@@ -87,56 +86,57 @@
     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
-  <!-- Hero (taller: 130vh) -->
-  <section class="relative bg-cover bg-center pt-36 pb-48 min-h-[130vh]" style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col items-center text-white text-center px-4">
-      
-      <!-- spinning text -->
+  <!-- Hero -->
+  <section class="relative bg-cover bg-center min-h-[160vh]" style="background-image: url('nashua-hero.jpg');">
+    <!-- dark overlay + flex container for top-of-hero content -->
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-center items-center text-white text-center px-4 space-y-12 h-screen">
+      <!-- spinning wheel -->
       <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs><path id="circle"
-          d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
+        <defs>
+          <path id="circle"
+            d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
+        </defs>
         <text font-size="14" fill="currentColor">
           <textPath xlink:href="#circle">
             ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
           </textPath>
         </text>
       </svg>
+      <!-- main title -->
+      <h1 class="text-6xl md:text-8xl font-extrabold">EconEd</h1>
+      <!-- subtitle -->
+      <p class="text-xl md:text-2xl max-w-3xl leading-relaxed">
+        Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+      </p>
+      <!-- Apply button -->
+      <a href="contact.html"
+         class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3 rounded-full font-semibold transition">
+        Apply Now
+      </a>
+    </div>
 
-      <!-- title & button -->
-      <div class="mt-[18rem] space-y-6">
-        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight">EconEd</h1>
-        <p class="text-xl md:text-2xl max-w-3xl">
-          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-        </p>
-        <a href="contact.html"
-           class="inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-          Apply Now
-        </a>
+    <!-- Stats at bottom of the hero -->
+    <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-16 text-center text-white">
+      <div>
+        <h3 class="text-5xl font-bold text-yellow-400">100+</h3>
+        <p class="text-lg">Members Nationally</p>
       </div>
+      <div>
+        <h3 class="text-5xl font-bold text-yellow-400">3</h3>
+        <p class="text-lg">Partners</p>
+      </div>
+      <div>
+        <h3 class="text-5xl font-bold text-yellow-400">5</h3>
+        <p class="text-lg">Chapters</p>
+      </div>
+    </div>
 
-      <!-- stats (now 100vh down) -->
-      <div data-aos="fade-up" data-aos-offset="100" class="mt-[100vh] grid grid-cols-3 gap-8 max-w-3xl w-full mx-auto">
-        <div>
-          <h3 class="text-5xl font-bold text-yellow-400">100+</h3>
-          <p class="text-lg">Members Nationally</p>
-        </div>
-        <div>
-          <h3 class="text-5xl font-bold text-yellow-400">3</h3>
-          <p class="text-lg">Partners</p>
-        </div>
-        <div>
-          <h3 class="text-5xl font-bold text-yellow-400">5</h3>
-          <p class="text-lg">Chapters</p>
-        </div>
-      </div>
-
-      <!-- scroll cue -->
-      <div class="scroll-indicator mt-12">
-        <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7"/>
-        </svg>
-      </div>
+    <!-- scroll cue -->
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+      <svg class="w-6 h-6 animate-bounce text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 9l-7 7-7-7"/>
+      </svg>
     </div>
   </section>
 
@@ -233,6 +233,7 @@
         lastY = window.scrollY;
       });
 
+      // mobile menu toggle
       document.getElementById("menu-toggle")
         .addEventListener("click", () =>
           document.getElementById("mobile-menu").classList.toggle("hidden")
