@@ -7,7 +7,8 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html { scroll-behavior: smooth; }
     .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
@@ -30,11 +31,14 @@
     }
     .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
     @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-    .circle-text { width: 240px; height: 240px; animation: spin 15s linear infinite; }
-    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    .circle-text {
+      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
+      transform: translateX(-50%); animation: spin 15s linear infinite;
+    }
+    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
     section[id] { scroll-margin-top: 100px; }
     .social-icons a {
-      display: inline-block; margin: 0 .25rem; font-size: 1.25rem; color: white;
+      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
       transition: color .3s;
     }
     .social-icons a:hover { color: #c68a1f; }
@@ -76,7 +80,7 @@
     </div>
   </header>
 
-  <!-- Social icons -->
+  <!-- Floating social icons -->
   <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
     <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
     <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -84,56 +88,39 @@
     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
-  <!-- Hero (130vh tall) -->
-  <section class="relative bg-cover bg-center min-h-[130vh]" style="background-image: url('nashua-hero.jpg');">
-    <!-- top‐of‐hero flex, wheel nudged down -->
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4 pt-28 space-y-10 h-screen">
-      <!-- spin wheel -->
+  <!-- Hero -->
+  <section class="relative min-h-screen bg-cover bg-center pt-36"
+           style="background-image: url('nashua-hero.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
       <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs><path id="circle"
-          d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
+        <defs>
+          <path id="circle"
+                d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+        </defs>
         <text font-size="14" fill="currentColor">
           <textPath xlink:href="#circle">
-            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
+            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
           </textPath>
         </text>
       </svg>
-      <!-- spaced title/subtitle/button -->
-      <h1 class="text-6xl md:text-8xl font-extrabold">EconEd</h1>
-      <p class="text-xl md:text-2xl max-w-3xl leading-relaxed">
-        Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-      </p>
-      <a href="contact.html"
-         class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3 rounded-full font-semibold transition">
-        Apply Now
-      </a>
-    </div>
-
-    <!-- stats appearing after scroll -->
-    <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 grid grid-cols-3 gap-16 text-center text-white" data-aos="fade-up">
-      <div>
-        <h3 class="text-5xl font-bold text-yellow-400">100+</h3>
-        <p class="text-lg">Members Nationally</p>
+      <div class="mt-[20rem] space-y-8">
+        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
+        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
+          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+        </p>
+        <a href="contact.html"
+           class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+          Apply Now
+        </a>
       </div>
-      <div>
-        <h3 class="text-5xl font-bold text-yellow-400">3</h3>
-        <p class="text-lg">Partners</p>
+      <div class="scroll-indicator">
+        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 9l-7 7-7-7"/>
+        </svg>
       </div>
-      <div>
-        <h3 class="text-5xl font-bold text-yellow-400">5</h3>
-        <p class="text-lg">Chapters</p>
-      </div>
-    </div>
-
-    <!-- scroll cue -->
-    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-      <svg class="w-6 h-6 animate-bounce text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M19 9l-7 7-7-7"/>
-      </svg>
     </div>
   </section>
-
 
   <!-- Chapters -->
   <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
@@ -214,22 +201,23 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       AOS.init({ duration: 800, offset: 100 });
-
-      // navbar show/hide
       const nav = document.getElementById("navbar");
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {
-        if (window.scrollY > lastY) nav.classList.replace("navbar-visible","navbar-hidden");
-        else           nav.classList.replace("navbar-hidden","navbar-visible");
+        if (window.scrollY > lastY) {
+          nav.classList.replace("navbar-visible","navbar-hidden");
+        } else {
+          nav.classList.replace("navbar-hidden","navbar-visible");
+        }
         lastY = window.scrollY;
       });
-
-      // mobile menu
       document.getElementById("menu-toggle")
-        .addEventListener("click", () =>
-          document.getElementById("mobile-menu").classList.toggle("hidden")
-        );
+              .addEventListener("click", () => {
+        document.getElementById("mobile-menu")
+                .classList.toggle("hidden");
+      });
     });
   </script>
+
 </body>
 </html>
