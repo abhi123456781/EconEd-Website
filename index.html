@@ -2,21 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EconEd | Home</title>
-  <!-- Tailwind CSS (compiled) -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4/dist/tailwind.min.css" rel="stylesheet">
-  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html { scroll-behavior: smooth; }
     .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
     .navbar-visible { transform: translateY(0); transition: transform .3s ease-in-out; }
-    .nav-link {
-      position: relative; padding-bottom: 4px; transition: color .3s; color: inherit;
-    }
+    .nav-link { position: relative; padding-bottom: 4px; transition: color .3s; color: inherit; }
     .nav-link::after {
       content: ""; position: absolute; left: 50%; bottom: 0;
       transform: translateX(-50%) scaleX(0); transform-origin: center;
@@ -25,8 +22,26 @@
     }
     .nav-link:hover { color: #c68a1f; }
     .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
-    .scroll-indicator svg { animation: bounce 2s infinite; }
+    #mobile-menu a.nav-link {
+      padding: .5rem 1rem; border: 2px solid transparent; border-radius: .5rem;
+      display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
+    }
+    #mobile-menu a.nav-link:hover {
+      background-color: #facc15; color: #000; border-color: #facc15;
+    }
+    .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
     @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+    .circle-text {
+      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
+      transform: translateX(-50%); animation: spin 15s linear infinite;
+    }
+    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
+    section[id] { scroll-margin-top: 100px; }
+    .social-icons a {
+      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
+      transition: color .3s;
+    }
+    .social-icons a:hover { color: #c68a1f; }
   </style>
 </head>
 
@@ -36,8 +51,8 @@
   <header id="navbar" class="bg-white p-6 fixed w-full z-50 navbar-visible shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
-      <nav class="hidden md:flex space-x-10 text-sm font-semibold">
-        <a href="#"                 class="nav-link text-yellow-600">HOME</a>
+      <div class="hidden md:flex space-x-10 text-sm font-semibold">
+        <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
         <a href="about.html"        class="nav-link">ABOUT US</a>
         <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
         <a href="chapters.html"     class="nav-link">CHAPTERS</a>
@@ -45,7 +60,7 @@
         <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
         <a href="contact.html"      class="nav-link">CONTACT</a>
         <a href="donate.html"       class="nav-link">DONATE</a>
-      </nav>
+      </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -54,7 +69,7 @@
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
-      <a href="#"                 class="nav-link text-yellow-600">HOME</a>
+      <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
       <a href="about.html"        class="nav-link">ABOUT US</a>
       <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
       <a href="chapters.html"     class="nav-link">CHAPTERS</a>
@@ -65,64 +80,41 @@
     </div>
   </header>
 
-  <!-- Floating Social Icons -->
-  <div class="fixed bottom-4 left-4 z-50 flex flex-col gap-3">
-    <a href="#"><i class="fab fa-tiktok text-white text-2xl"></i></a>
-    <a href="#"><i class="fab fa-youtube text-white text-2xl"></i></a>
-    <a href="#"><i class="fab fa-instagram text-white text-2xl"></i></a>
-    <a href="#"><i class="fab fa-linkedin text-white text-2xl"></i></a>
+  <!-- Floating social icons -->
+  <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
+    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
   <!-- Hero -->
-  <section class="relative min-h-screen bg-cover bg-center pt-48" style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-start items-center text-white text-center px-4">
-      <!-- Play Wheel -->
-      <div class="mt-12">
-        <svg viewBox="0 0 200 200" class="w-40 h-40 text-yellow-400">
-          <defs>
-            <path id="circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
-          </defs>
-          <text font-size="14" fill="currentColor">
-            <textPath xlink:href="#circle">
-              INSPIRING THE NEXT GENERATION OF LEADERS •
-            </textPath>
-          </text>
-          <circle cx="100" cy="100" r="30" fill="none"/>
-          <polygon points="95,85 105,100 95,115" fill="white"/>
-        </svg>
+  <section class="relative min-h-screen bg-cover bg-center pt-36"
+           style="background-image: url('nashua-hero.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
+      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
+        <defs>
+          <path id="circle"
+                d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+        </defs>
+        <text font-size="14" fill="currentColor">
+          <textPath xlink:href="#circle">
+            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
+          </textPath>
+        </text>
+      </svg>
+      <div class="mt-[20rem] space-y-8">
+        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
+        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
+          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+        </p>
+        <a href="contact.html"
+           class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+          Apply Now
+        </a>
       </div>
-
-      <!-- Title & Tagline -->
-      <h1 class="text-6xl md:text-8xl font-extrabold mt-8 leading-tight">EconEd</h1>
-      <p class="text-xl md:text-2xl max-w-3xl mt-6 leading-relaxed">
-        Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-      </p>
-
-      <!-- Apply Button -->
-      <a href="contact.html"
-         class="mt-8 px-8 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black rounded-full font-semibold transition">
-        Apply Now
-      </a>
-
-      <!-- Stats (fade up on scroll) -->
-      <div class="flex justify-center items-end gap-16 mt-16 opacity-0" data-aos="fade-up">
-        <div class="flex flex-col items-center">
-          <div class="text-5xl md:text-6xl font-bold text-yellow-400">100+</div>
-          <div class="text-sm">Members Nationally</div>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="text-5xl md:text-6xl font-bold text-yellow-400">3</div>
-          <div class="text-sm">Partners</div>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="text-5xl md:text-6xl font-bold text-yellow-400">5</div>
-          <div class="text-sm">Chapters</div>
-        </div>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div class="mt-auto mb-6 scroll-indicator">
-        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="scroll-indicator">
+        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M19 9l-7 7-7-7"/>
         </svg>
@@ -130,20 +122,20 @@
     </div>
   </section>
 
-  <!-- Chapters Section -->
+  <!-- Chapters -->
   <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <a href="https://dallas.example.com" class="block p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
-          <div class="h-32 bg-gray-300 flex items-center justify-center">Dallas, TX</div>
-        </a>
-        <a href="https://acton.example.com" class="block p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
-          <div class="h-32 bg-gray-300 flex items-center justify-center">Acton, MA</div>
-        </a>
-        <a href="https://hollis.example.com" class="block p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
-          <div class="h-32 bg-gray-300 flex items-center justify-center">Hollis, NH</div>
-        </a>
+        <div class="p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
+          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Dallas Chapter</div>
+        </div>
+        <div class="p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
+          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Acton Chapter</div>
+        </div>
+        <div class="p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
+          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Hollis Chapter</div>
+        </div>
       </div>
     </div>
   </section>
@@ -153,31 +145,58 @@
     <div class="max-w-3xl mx-auto space-y-8">
       <h2 class="text-3xl font-bold">Our Story</h2>
       <p class="text-lg text-gray-700">
-        EconEd began as a student‑led financial literacy initiative in Nashua, NH. Today we bring
-        together bright young minds nationwide, teaching economics, hosting events, and providing
-        free tutoring to empower the next generation of economic leaders.
+        EconEd began as a small student‑led financial literacy initiative in Nashua, NH. Today we bring together bright young minds nationwide—teaching economics, hosting events, and providing free tutoring to empower the next generation of economic leaders.
       </p>
-      <img src="placeholder-story.jpg" alt="Our Story" class="w-full h-auto rounded-lg shadow"/>
-      <div class="text-left mx-auto max-w-xl">
-        <div class="flex items-center text-xl font-semibold text-yellow-600 mb-2">
-          <span class="mr-3">01</span>Diversity, Equity & Inclusion
+      <img src="placeholder-story.jpg" alt="Our Story" class="w-full h-auto rounded-lg shadow" />
+    </div>
+  </section>
+
+  <!-- Meet the Team -->
+  <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="placeholder.jpg" alt="Abhi Mareedu" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Abhi Mareedu</h3>
+          <p class="text-blue-600 font-semibold">Tech Development Lead</p>
+          <p class="text-gray-700">Junior at Nashua South with interests in Computer Science.</p>
         </div>
-        <p class="text-gray-700">
-          We believe in equal access and opportunity for every student—cultivating a diverse,
-          equitable, and inclusive community of future economic leaders.
-        </p>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="placeholder.jpg" alt="Harrison Joshi" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Harrison Joshi</h3>
+          <p class="text-blue-600 font-semibold">Social Media Lead</p>
+          <p class="text-gray-700">Junior at Nashua South with interests in Business and Computer Science.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="placeholder.jpg" alt="Arya Somusandaram" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Arya Somusandaram</h3>
+          <p class="text-blue-600 font-semibold">Intern</p>
+          <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="placeholder.jpg" alt="Aarush Potluri" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Arya Somusandaram</h3>
+          <p class="text-blue-600 font-semibold">Intern</p>
+          <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-white text-black py-6 px-4 text-center border-t">
-    <p class="mb-1">📧 <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">theelevationproject@gmail.com</a></p>
+    <p class="mb-1">
+      📧 Email:
+      <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">
+        theelevationproject@gmail.com
+      </a>
+    </p>
     <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
     <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
 
-  <!-- AOS & Nav Scripts -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -192,8 +211,10 @@
         }
         lastY = window.scrollY;
       });
-      document.getElementById("menu-toggle").addEventListener("click", () => {
-        document.getElementById("mobile-menu").classList.toggle("hidden");
+      document.getElementById("menu-toggle")
+              .addEventListener("click", () => {
+        document.getElementById("mobile-menu")
+                .classList.toggle("hidden");
       });
     });
   </script>
