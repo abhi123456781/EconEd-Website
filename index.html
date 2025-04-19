@@ -10,64 +10,67 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    html { scroll-behavior: smooth; }
-    .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
-    .navbar-visible { transform: translateY(0); transition: transform .3s ease-in-out; }
-    .nav-link { position: relative; padding-bottom: 4px; transition: color .3s; color: inherit; }
-    .nav-link::after {
-      content: ""; position: absolute; left: 50%; bottom: 0;
-      transform: translateX(-50%) scaleX(0); transform-origin: center;
-      width: 100%; height: 2px; background-color: #c68a1f;
-      transition: transform .4s ease;
-    }
-    .nav-link:hover { color: #c68a1f; }
-    .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
-    #mobile-menu a.nav-link {
-      padding: .5rem 1rem; border: 2px solid transparent; border-radius: .5rem;
-      display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
-    }
-    #mobile-menu a.nav-link:hover {
-      background-color: #facc15; color: #000; border-color: #facc15;
-    }
-    .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
-    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-    .circle-text {
-      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
-      transform: translateX(-50%); animation: spin 15s linear infinite;
-    }
-    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
-    section[id] { scroll-margin-top: 100px; }
-    .social-icons a {
-      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
-      transition: color .3s;
-    }
-    .social-icons a:hover { color: #c68a1f; }
-
-    /* Additional styles for layout adjustments */
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 80%;
-      padding: 4rem 2rem;
-    }
-    .hero-title {
-      margin-top: 2rem;
-    }
-    .hero-button {
-      margin-top: auto;
-      margin-bottom: 5rem;
-    }
-    .statistics-bar {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      padding: 1rem 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      text-align: center;
-    }
-  </style>
+          html { scroll-behavior: smooth; }
+          .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
+          .navbar-visible { transform: translateY(0); transition: transform .3s ease-in-out; }
+          .nav-link { position: relative; padding-bottom: 4px; transition: color .3s; color: inherit; }
+          .nav-link::after {
+              content: ""; position: absolute; left: 50%; bottom: 0;
+              transform: translateX(-50%) scaleX(0); transform-origin: center;
+              width: 100%; height: 2px; background-color: #c68a1f;
+              transition: transform .4s ease;
+          }
+          .nav-link:hover { color: #c68a1f; }
+          .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
+          #mobile-menu a.nav-link {
+              padding: .5rem 1rem; border: 2px solid transparent; border-radius: .5rem;
+              display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
+          }
+          #mobile-menu a.nav-link:hover {
+              background-color: #facc15; color: #000; border-color: #facc15;
+          }
+          .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
+          @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+          .circle-text {
+              width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
+              transform: translateX(-50%); animation: spin 15s linear infinite;
+          }
+          @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
+          section[id] { scroll-margin-top: 100px; }
+          .social-icons a {
+              display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
+              transition: color .3s;
+          }
+          .social-icons a:hover { color: #c68a1f; }
+      
+          /* New styles for layout adjustments */
+          .hero-inner {
+              display: flex;
+              flex-direction: column;
+              justify-content: center; /* Center everything vertically */
+              align-items: center; /* Center everything horizontally */
+              height: 90%; /* Use more of the hero section's height */
+              padding: 2rem; /* Reduced padding */
+          }
+          .hero-title {
+              margin-bottom: 2rem; /* More space below the title and subtitle */
+          }
+          .hero-button {
+              margin-top: auto;
+              margin-bottom: 4rem; /* More space above the statistics bar */
+          }
+          .statistics-bar {
+              position: absolute;
+              bottom: 10px; /* Position it closer to the bottom */
+              left: 0;
+              right: 0;
+              background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better readability */
+              color: white;
+              text-align: center;
+              padding: 1rem 0;
+              font-size: 1.2rem; /* Larger font size for better visibility */
+          }
+      </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
   <!-- Navbar -->
