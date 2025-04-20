@@ -43,49 +43,69 @@
           }
           .social-icons a:hover { color: #c68a1f; }
       
-          /* New styles for layout adjustments */
-          .hero-inner {
+ /* New styles for layout adjustments */
+/* Adjust the overall hero container */
+.hero-inner {
+    position: relative; /* Ensures absolute positioning is relative to this container */
+    height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center everything vertically */
-    align-items: center; /* Center everything horizontally */
-    height: 90%; /* Use more of the hero section's height */
-    padding: 2rem;
-    padding-top: 10%; /* Increase top padding to push content down */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding-top: 10vh; /* Adds some space at the top */
 }
 
+/* Specific adjustments to the title */
 .hero-title {
-    margin-top: 1rem; /* Adjust the top margin to move the title down */
-    margin-bottom: 2rem; /* Ensure there's space between title and button */
-}
-
-.hero-button {
-    margin-bottom: 5rem; /* Ensure space below the button for statistics */
-}
-
-.statistics-bar {
     position: absolute;
-    bottom: 10px; /* Ensure it's positioned at the bottom */
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Better visibility */
-    color: white;
+    top: 20vh; /* Move down the title */
     text-align: center;
-    padding: 1rem 0;
-    font-size: 1.2rem;
+    width: 100%; /* Ensures text is centered in all screen sizes */
+    z-index: 2; /* Ensures it's above the background */
 }
 
-/* Ensure all social icons are displayed */
+/* Adjustments for the spinning circle */
+.circle-text {
+    position: absolute;
+    top: 30vh; /* Position adjusted to be visually centered around title */
+}
+
+/* Button positioning */
+.hero-button {
+    position: absolute;
+    top: 50vh; /* Lower the button */
+    z-index: 2; /* Make sure it's clickable and above the background */
+}
+
+/* Ensuring visibility and proper alignment of social media icons */
+.social-icons {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 5; /* Ensures icons are always visible */
+}
+
 .social-icons a {
-    display: inline-block; /* Make sure all icons are inline-block */
-    margin: 0 .25rem;
-    font-size: 1.5rem;
-    color: white; /* Ensure icons are white */
-    transition: color .3s;
+    display: inline-block;
+    color: white; /* Icon color */
+    font-size: 1.5rem; /* Icon size */
+    margin: 0 10px; /* Space between icons */
 }
 
 .social-icons a:hover {
-    color: #c68a1f; /* Color change on hover */
+    color: #c68a1f; /* Color on hover */
+}
+
+/* Style for the statistics bar to ensure it's visible and well-placed */
+.statistics-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
 }
       </style>
 </head>
