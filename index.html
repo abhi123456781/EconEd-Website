@@ -10,119 +10,56 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-          html { scroll-behavior: smooth; }
-          .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
-          .navbar-visible { transform: translateY(0); transition: transform .3s ease-in-out; }
-          .nav-link { position: relative; padding-bottom: 4px; transition: color .3s; color: inherit; }
-          .nav-link::after {
-              content: ""; position: absolute; left: 50%; bottom: 0;
-              transform: translateX(-50%) scaleX(0); transform-origin: center;
-              width: 100%; height: 2px; background-color: #c68a1f;
-              transition: transform .4s ease;
-          }
-          .nav-link:hover { color: #c68a1f; }
-          .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
-          #mobile-menu a.nav-link {
-              padding: .5rem 1rem; border: 2px solid transparent; border-radius: .5rem;
-              display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
-          }
-          #mobile-menu a.nav-link:hover {
-              background-color: #facc15; color: #000; border-color: #facc15;
-          }
-          .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
-          @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-          .circle-text {
-              width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
-              transform: translateX(-50%); animation: spin 15s linear infinite;
-          }
-          @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
-          section[id] { scroll-margin-top: 100px; }
-          .social-icons a {
-              display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
-              transition: color .3s;
-          }
-          .social-icons a:hover { color: #c68a1f; }
-      
- /* New styles for layout adjustments */
-/* Adjust the overall hero container */
-.hero-inner {
-    position: relative; /* Ensures absolute positioning is relative to this container */
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    padding-top: 10vh; /* Adds some space at the top */
-}
-
-/* Specific adjustments to the title */
-.hero-title {
-    position: absolute;
-    top: 20vh; /* Move down the title */
-    text-align: center;
-    width: 100%; /* Ensures text is centered in all screen sizes */
-    z-index: 2; /* Ensures it's above the background */
-}
-
-/* Adjustments for the spinning circle */
-.circle-text {
-    position: absolute;
-    top: 30vh; /* Position adjusted to be visually centered around title */
-}
-
-/* Button positioning */
-.hero-button {
-    position: absolute;
-    top: 50vh; /* Lower the button */
-    z-index: 2; /* Make sure it's clickable and above the background */
-}
-
-/* Ensuring visibility and proper alignment of social media icons */
-.social-icons {
-    position: fixed;
-    left: 1rem;
-    bottom: 1rem;
-    z-index: 5; /* Ensures icons are always visible */
-}
-
-.social-icons a {
-    display: inline-block;
-    color: white; /* Icon color */
-    font-size: 1.5rem; /* Icon size */
-    margin: 0 10px; /* Space between icons */
-}
-
-.social-icons a:hover {
-    color: #c68a1f; /* Color on hover */
-}
-
-/* Style for the statistics bar to ensure it's visible and well-placed */
-.statistics-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-}
-      </style>
+    html { scroll-behavior: smooth; }
+    .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
+    .navbar-visible { transform: translateY(0); transition: transform .3s ease-in-out; }
+    .nav-link { position: relative; padding-bottom: 4px; transition: color .3s; color: inherit; }
+    .nav-link::after {
+      content: ""; position: absolute; left: 50%; bottom: 0;
+      transform: translateX(-50%) scaleX(0); transform-origin: center;
+      width: 100%; height: 2px; background-color: #c68a1f;
+      transition: transform .4s ease;
+    }
+    .nav-link:hover { color: #c68a1f; }
+    .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
+    #mobile-menu a.nav-link {
+      padding: .5rem 1rem; border: 2px solid transparent; border-radius: .5rem;
+      display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
+    }
+    #mobile-menu a.nav-link:hover {
+      background-color: #facc15; color: #000; border-color: #facc15;
+    }
+    .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+    .circle-text {
+      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
+      transform: translateX(-50%); animation: spin 15s linear infinite;
+    }
+    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
+    section[id] { scroll-margin-top: 100px; }
+    .social-icons a {
+      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
+      transition: color .3s;
+    }
+    .social-icons a:hover { color: #c68a1f; }
+  </style>
 </head>
+
 <body class="bg-gray-100 text-gray-900">
+
   <!-- Navbar -->
   <header id="navbar" class="bg-white p-6 fixed w-full z-50 navbar-visible shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
-        <a href="index.html" class="nav-link text-yellow-600">HOME</a>
-        <a href="about.html" class="nav-link">ABOUT US</a>
-        <a href="board.html" class="nav-link">BOARD OF DIRECTORS</a>
-        <a href="chapters.html" class="nav-link">CHAPTERS</a>
-        <a href="tutoring.html" class="nav-link">TUTORING</a>
+        <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
+        <a href="about.html"        class="nav-link">ABOUT US</a>
+        <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
+        <a href="chapters.html"     class="nav-link">CHAPTERS</a>
+        <a href="tutoring.html"     class="nav-link">TUTORING</a>
         <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
-        <a href="contact.html" class="nav-link">CONTACT</a>
-        <a href="donate.html" class="nav-link">DONATE</a>
+        <a href="contact.html"      class="nav-link">CONTACT</a>
+        <a href="donate.html"       class="nav-link">DONATE</a>
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,27 +69,29 @@
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
-      <a href="index.html" class="nav-link text-yellow-600">HOME</a>
-      <a href="about.html" class="nav-link">ABOUT US</a>
-      <a href="board.html" class="nav-link">BOARD OF DIRECTORS</a>
-      <a href="chapters.html" class="nav-link">CHAPTERS</a>
-      <a href="tutoring.html" class="nav-link">TUTORING</a>
+      <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
+      <a href="about.html"        class="nav-link">ABOUT US</a>
+      <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
+      <a href="chapters.html"     class="nav-link">CHAPTERS</a>
+      <a href="tutoring.html"     class="nav-link">TUTORING</a>
       <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
-      <a href="contact.html" class="nav-link">CONTACT</a>
-      <a href="donate.html" class="nav-link">DONATE</a>
+      <a href="contact.html"      class="nav-link">CONTACT</a>
+      <a href="donate.html"       class="nav-link">DONATE</a>
     </div>
   </header>
+
   <!-- Floating social icons -->
   <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
     <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="#" target="_blank"><i the="fab fa-youtube"></i></a>
-    <a href="#" target="_blank"><i the="fab fa-instagram"></i></a>
-    <a href="#" target="_blank"><i the="fab fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
-  <!-- Hero Section -->
+
+  <!-- Hero -->
   <section class="relative min-h-screen bg-cover bg-center pt-36"
            style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4 hero-inner">
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
       <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
         <defs>
           <path id="circle"
@@ -164,16 +103,16 @@
           </textPath>
         </text>
       </svg>
-      <div class="space-y-8 hero-title">
+      <div class="mt-[20rem] space-y-8">
         <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
         <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
           Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
         </p>
+        <a href="contact.html"
+           class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+          Apply Now
+        </a>
       </div>
-      <a href="contact.html"
-         class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition hero-button">
-        Apply Now
-      </a>
       <div class="scroll-indicator">
         <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -181,11 +120,9 @@
         </svg>
       </div>
     </div>
-    <div class="statistics-bar">
-      <p>100+ Members | 5 Chapters | 3 Partners</p>
-    </div>
   </section>
-  <!-- Chapters Section -->
+
+  <!-- Chapters -->
   <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
@@ -202,7 +139,8 @@
       </div>
     </div>
   </section>
-  <!-- Our Story Section -->
+
+  <!-- Our Story -->
   <section id="story" class="bg-gray-50 py-16 px-4 text-center" data-aos="fade-up">
     <div class="max-w-3xl mx-auto space-y-8">
       <h2 class="text-3xl font-bold">Our Story</h2>
@@ -212,7 +150,8 @@
       <img src="placeholder-story.jpg" alt="Our Story" class="w-full h-auto rounded-lg shadow" />
     </div>
   </section>
-  <!-- Meet the Team Section -->
+
+  <!-- Meet the Team -->
   <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
@@ -235,10 +174,17 @@
           <p class="text-blue-600 font-semibold">Intern</p>
           <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
         </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="placeholder.jpg" alt="Aarush Potluri" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Arya Somusandaram</h3>
+          <p class="text-blue-600 font-semibold">Intern</p>
+          <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
+        </div>
       </div>
     </div>
   </section>
-  <!-- Footer Section -->
+
+  <!-- Footer -->
   <footer class="bg-white text-black py-6 px-4 text-center border-t">
     <p class="mb-1">
       📧 Email:
@@ -246,21 +192,22 @@
         theelevationproject@gmail.com
       </a>
     </p>
-    <p class="mb-1">📞 Karthik: (603) 852-9473 | Steve: (978) 566-4416</p>
-    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
+    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
+
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800, offset: 100 }); // Initializes AOS library for animations
+      AOS.init({ duration: 800, offset: 100 });
       const nav = document.getElementById("navbar");
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {
         if (window.scrollY > lastY) {
-          nav.classList.replace("navbar-visible", "navbar-hidden");
+          nav.classList.replace("navbar-visible","navbar-hidden");
         } else {
-          nav.classList.replace("navbar-hidden", "navbar-visible");
+          nav.classList.replace("navbar-hidden","navbar-visible");
         }
         lastY = window.scrollY;
       });
@@ -271,5 +218,6 @@
       });
     });
   </script>
+
 </body>
 </html>
