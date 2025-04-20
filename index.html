@@ -45,31 +45,48 @@
       
           /* New styles for layout adjustments */
           .hero-inner {
-              display: flex;
-              flex-direction: column;
-              justify-content: center; /* Center everything vertically */
-              align-items: center; /* Center everything horizontally */
-              height: 90%; /* Use more of the hero section's height */
-              padding: 2rem; /* Reduced padding */
-          }
-          .hero-title {
-              margin-bottom: 2rem; /* More space below the title and subtitle */
-          }
-          .hero-button {
-              margin-top: auto;
-              margin-bottom: 4rem; /* More space above the statistics bar */
-          }
-          .statistics-bar {
-              position: absolute;
-              bottom: 10px; /* Position it closer to the bottom */
-              left: 0;
-              right: 0;
-              background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better readability */
-              color: white;
-              text-align: center;
-              padding: 1rem 0;
-              font-size: 1.2rem; /* Larger font size for better visibility */
-          }
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center everything vertically */
+    align-items: center; /* Center everything horizontally */
+    height: 90%; /* Use more of the hero section's height */
+    padding: 2rem;
+    padding-top: 10%; /* Increase top padding to push content down */
+}
+
+.hero-title {
+    margin-top: 1rem; /* Adjust the top margin to move the title down */
+    margin-bottom: 2rem; /* Ensure there's space between title and button */
+}
+
+.hero-button {
+    margin-bottom: 5rem; /* Ensure space below the button for statistics */
+}
+
+.statistics-bar {
+    position: absolute;
+    bottom: 10px; /* Ensure it's positioned at the bottom */
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Better visibility */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+}
+
+/* Ensure all social icons are displayed */
+.social-icons a {
+    display: inline-block; /* Make sure all icons are inline-block */
+    margin: 0 .25rem;
+    font-size: 1.5rem;
+    color: white; /* Ensure icons are white */
+    transition: color .3s;
+}
+
+.social-icons a:hover {
+    color: #c68a1f; /* Color change on hover */
+}
       </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
