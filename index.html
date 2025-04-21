@@ -42,6 +42,47 @@
       transition: color .3s;
     }
     .social-icons a:hover { color: #c68a1f; }
+    
+    /* New styles for the homepage sections */
+    .section-heading {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .section-heading::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: #c68a1f;
+    }
+    .story-card {
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .team-member {
+      transition: transform 0.3s ease;
+    }
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+    .chapter-card {
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .chapter-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 
@@ -53,8 +94,8 @@
       <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
         <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
-        <a href="about.html"        class="nav-link">ABOUT US</a>
-        <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
+        <a href="about.html"        class="nav-link">ABOUT US</a>
+        <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
         <a href="chapters.html"     class="nav-link">CHAPTERS</a>
         <a href="tutoring.html"     class="nav-link">TUTORING</a>
         <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
@@ -70,8 +111,8 @@
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
       <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
-      <a href="about.html"        class="nav-link">ABOUT US</a>
-      <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
+      <a href="about.html"        class="nav-link">ABOUT US</a>
+      <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
       <a href="chapters.html"     class="nav-link">CHAPTERS</a>
       <a href="tutoring.html"     class="nav-link">TUTORING</a>
       <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
@@ -122,64 +163,169 @@
     </div>
   </section>
 
-  <!-- Chapters -->
-  <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Dallas Chapter</div>
+  <!-- Our Story Section -->
+  <section id="our-story" class="py-20 px-4 bg-white" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold section-heading">Our Story</h2>
+      <p class="text-lg max-w-3xl mx-auto text-gray-700 mb-12">
+        EconEd was founded with a mission to make economic education accessible to all students, 
+        regardless of background or resources. Our journey began with a simple idea: to empower 
+        the next generation with financial literacy and economic understanding.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+        <div class="story-card bg-gray-50 shadow-md p-6 text-left">
+          <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center">
+            <span class="text-gray-500">Foundation Image</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Our Foundation</h3>
+          <p class="text-gray-700">
+            Started by passionate students who recognized the gap in economic education in schools, 
+            EconEd began as a small tutoring initiative that quickly grew into something much larger.
+          </p>
         </div>
-        <div class="p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Acton Chapter</div>
+        
+        <div class="story-card bg-gray-50 shadow-md p-6 text-left">
+          <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center">
+            <span class="text-gray-500">Growth Image</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Our Growth</h3>
+          <p class="text-gray-700">
+            From a single chapter to multiple locations across the country, our organization has 
+            expanded its reach while maintaining its core mission of accessible economic education.
+          </p>
         </div>
-        <div class="p-4 bg-gray-100 rounded shadow hover:scale-105 transition">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Hollis Chapter</div>
+        
+        <div class="story-card bg-gray-50 shadow-md p-6 text-left">
+          <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center">
+            <span class="text-gray-500">Impact Image</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Our Impact</h3>
+          <p class="text-gray-700">
+            Today, EconEd has helped thousands of students develop financial literacy skills, 
+            preparing them for future success in both personal finance and potential careers in economics.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Our Story -->
-  <section id="story" class="bg-gray-50 py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-3xl mx-auto space-y-8">
-      <h2 class="text-3xl font-bold">Our Story</h2>
-      <p class="text-lg text-gray-700">
-        EconEd began as a small student‑led financial literacy initiative in Nashua, NH. Today we bring together bright young minds nationwide—teaching economics, hosting events, and providing free tutoring to empower the next generation of economic leaders.
+  <!-- Chapters Section -->
+  <section id="chapters" class="py-20 px-4 bg-gray-50" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold section-heading">Our Chapters</h2>
+      <p class="text-lg max-w-3xl mx-auto text-gray-700 mb-12">
+        EconEd currently has active chapters in multiple locations, each bringing economic education 
+        to their local communities through dedicated student leaders and volunteers.
       </p>
-      <img src="placeholder-story.jpg" alt="Our Story" class="w-full h-auto rounded-lg shadow" />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="chapter-card bg-white shadow-md overflow-hidden">
+          <div class="h-40 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-500">Dallas Chapter</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Dallas, TX</h3>
+            <p class="text-sm text-gray-600">Established 2022</p>
+          </div>
+        </div>
+        
+        <div class="chapter-card bg-white shadow-md overflow-hidden">
+          <div class="h-40 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-500">Acton Chapter</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Acton, MA</h3>
+            <p class="text-sm text-gray-600">Established 2022</p>
+          </div>
+        </div>
+        
+        <div class="chapter-card bg-white shadow-md overflow-hidden">
+          <div class="h-40 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-500">Hollis Chapter</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Hollis, NH</h3>
+            <p class="text-sm text-gray-600">Established 2023</p>
+          </div>
+        </div>
+        
+        <div class="chapter-card bg-white shadow-md overflow-hidden">
+          <div class="h-40 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-500">Nashua South Chapter</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Nashua South, NH</h3>
+            <p class="text-sm text-gray-600">Established 2023</p>
+          </div>
+        </div>
+      </div>
+      
+      <a href="chapters.html" class="mt-10 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+        Learn More About Our Chapters
+      </a>
     </div>
   </section>
 
-  <!-- Meet the Team -->
-  <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
+  <!-- Meet the Team Section -->
+  <section id="team" class="py-20 px-4 bg-white" data-aos="fade-up">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
+      <h2 class="text-4xl font-bold section-heading">Meet the Team</h2>
+      <p class="text-lg max-w-3xl mx-auto text-gray-700 mb-12">
+        Our dedicated team of student leaders and advisors work tirelessly to bring economic 
+        education to communities across the country.
+      </p>
+      
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Abhi Mareedu" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Abhi Mareedu</h3>
-          <p class="text-blue-600 font-semibold">Tech Development Lead</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in Computer Science.</p>
+        <div class="team-member bg-gray-50 p-6 rounded-lg shadow-md">
+          <img src="placeholder.jpg" alt="Karthik Suresh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Karthik Suresh</h3>
+          <p class="text-yellow-600 font-medium mb-3">Founder & President</p>
+          <p class="text-gray-700 text-sm">
+            Karthik founded EconEd with a vision to make economic education accessible to all students.
+          </p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Harrison Joshi" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Harrison Joshi</h3>
-          <p class="text-blue-600 font-semibold">Social Media Lead</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in Business and Computer Science.</p>
+        
+        <div class="team-member bg-gray-50 p-6 rounded-lg shadow-md">
+          <img src="placeholder.jpg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Steve Guerrera</h3>
+          <p class="text-yellow-600 font-medium mb-3">Co-Founder & Vice President</p>
+          <p class="text-gray-700 text-sm">
+            Steve helps oversee operations and expansion of EconEd chapters across the country.
+          </p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Arya Somusandaram" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Arya Somusandaram</h3>
-          <p class="text-blue-600 font-semibold">Intern</p>
-          <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
+        
+        <div class="team-member bg-gray-50 p-6 rounded-lg shadow-md">
+          <img src="placeholder.jpg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold">Team Member</h3>
+          <p class="text-yellow-600 font-medium mb-3">Director of Education</p>
+          <p class="text-gray-700 text-sm">
+            Responsible for developing our curriculum and educational resources for all chapters.
+          </p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Aarush Potluri" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Arya Somusandaram</h3>
-          <p class="text-blue-600 font-semibold">Intern</p>
-          <p class="text-gray-700">Freshman at Nashua South with interests in Business and Finance.</p>
-        </div>
+      </div>
+      
+      <a href="board.html" class="mt-10 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+        View Full Team
+      </a>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="cta" class="py-20 px-4 bg-gray-900 text-white text-center" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Join the EconEd Movement</h2>
+      <p class="text-lg mb-8">
+        Whether you're a student looking to learn, a volunteer wanting to teach, or a supporter interested in our cause,
+        there's a place for you in the EconEd community.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
+          Apply Now
+        </a>
+        <a href="donate.html" class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+          Support Our Mission
+        </a>
       </div>
     </div>
   </section>
@@ -192,8 +338,8 @@
         theelevationproject@gmail.com
       </a>
     </p>
-    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
-    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
+    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
 
   <!-- Scripts -->
@@ -201,23 +347,20 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       AOS.init({ duration: 800, offset: 100 });
-      const nav = document.getElementById("navbar");
+      const navbar = document.getElementById("navbar");
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {
         if (window.scrollY > lastY) {
-          nav.classList.replace("navbar-visible","navbar-hidden");
+          navbar.classList.replace("navbar-visible","navbar-hidden");
         } else {
-          nav.classList.replace("navbar-hidden","navbar-visible");
+          navbar.classList.replace("navbar-hidden","navbar-visible");
         }
         lastY = window.scrollY;
       });
-      document.getElementById("menu-toggle")
-              .addEventListener("click", () => {
-        document.getElementById("mobile-menu")
-                .classList.toggle("hidden");
+      document.getElementById("menu-toggle").addEventListener("click", () => {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
       });
     });
   </script>
-
 </body>
 </html>
