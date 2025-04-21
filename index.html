@@ -65,14 +65,16 @@
     .stats-container {
       width: 100%;
       padding: 2rem 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
+      /* Removing the transparent background */
+      background-color: transparent;
+      backdrop-filter: none;
     }
     
     .stat-number {
-      font-size: 3.5rem;
+      font-size: 4rem;
       font-weight: 800;
-      color: #facc15;
+      /* Changing to match EconEd gold color */
+      color: #c68a1f;
       margin-bottom: 0.25rem;
       font-family: 'Arial', sans-serif;
     }
