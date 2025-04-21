@@ -29,51 +29,119 @@
     #mobile-menu a.nav-link:hover {
       background-color: #facc15; color: #000; border-color: #facc15;
     }
-    .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
-    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-    .circle-text {
-      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
-      transform: translateX(-50%); animation: spin 15s linear infinite;
-    }
-    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
-    section[id] { scroll-margin-top: 100px; }
-    .social-icons a {
-      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
-      transition: color .3s;
-    }
-    .social-icons a:hover { color: #c68a1f; }
     
     /* Hero section styles */
     .hero-section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      background-color: #000;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.7;
+      z-index: 1;
     }
     
     .hero-content {
-      flex-grow: 1;
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding-top: 6rem;
-      padding-bottom: 2rem;
+      text-align: center;
+      padding: 0 20px;
+      color: white;
     }
     
-    /* Stats styles */
-    .stats-container {
-      width: 100%;
-      padding: 2rem 0;
-      /* Removing the transparent background */
-      background-color: transparent;
-      backdrop-filter: none;
-    }
-    
-    .stat-number {
+    .hero-title {
       font-size: 4rem;
       font-weight: 800;
-      /* Changing to match EconEd gold color */
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .hero-btn-primary {
+      background-color: #facc15;
+      color: #000;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .hero-btn-primary:hover {
+      background-color: #f59e0b;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-btn-secondary {
+      background-color: transparent;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      border: 2px solid #facc15;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .hero-btn-secondary:hover {
+      background-color: rgba(250, 204, 21, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: white;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) translateX(-50%); }
+      50% { transform: translateY(10px) translateX(-50%); }
+    }
+    
+    /* Stat counter styles */
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
       color: #c68a1f;
       margin-bottom: 0.25rem;
       font-family: 'Arial', sans-serif;
