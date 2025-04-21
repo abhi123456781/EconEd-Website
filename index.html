@@ -29,131 +29,19 @@
     #mobile-menu a.nav-link:hover {
       background-color: #facc15; color: #000; border-color: #facc15;
     }
-    
-    /* Hero section styles */
-    .hero-section {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-      background-color: #000;
+    .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+    .circle-text {
+      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
+      transform: translateX(-50%); animation: spin 15s linear infinite;
     }
-    
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.7;
-      z-index: 1;
+    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
+    section[id] { scroll-margin-top: 100px; }
+    .social-icons a {
+      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
+      transition: color .3s;
     }
-    
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      color: white;
-    }
-    
-    .hero-title {
-      font-size: 4rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      line-height: 1.1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    
-    .hero-subtitle {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
-    
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .hero-btn-primary {
-      background-color: #facc15;
-      color: #000;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    .hero-btn-primary:hover {
-      background-color: #f59e0b;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .hero-btn-secondary {
-      background-color: transparent;
-      color: white;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      border: 2px solid #facc15;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    .hero-btn-secondary:hover {
-      background-color: rgba(250, 204, 21, 0.1);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      color: white;
-      animation: bounce 2s infinite;
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0) translateX(-50%); }
-      50% { transform: translateY(10px) translateX(-50%); }
-    }
-    
-    /* Stat counter styles */
-    .stat-value {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #c68a1f;
-      margin-bottom: 0.25rem;
-      font-family: 'Arial', sans-serif;
-    }
-    
-    .stat-label {
-      font-size: 0.9rem;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 300;
-    }
+    .social-icons a:hover { color: #c68a1f; }
     
     /* New styles for the homepage sections */
     .section-heading {
@@ -242,44 +130,35 @@
   </div>
 
   <!-- Hero -->
-  <section id="hero" class="relative hero-section bg-cover bg-center"
+  <section class="relative min-h-screen bg-cover bg-center pt-36"
            style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-between items-center text-white text-center px-4">
-      <div class="hero-content">
-        <div class="space-y-8 mt-10">
-          <h1 class="text-7xl md:text-9xl font-extrabold leading-tight tracking-wide">EconEd</h1>
-          <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide font-light">
-            Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-          </p>
-          <a href="contact.html"
-             class="mt-8 inline-block border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3 rounded-full font-semibold transition">
-            Apply Now
-          </a>
-        </div>
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
+      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
+        <defs>
+          <path id="circle"
+                d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+        </defs>
+        <text font-size="14" fill="currentColor">
+          <textPath xlink:href="#circle">
+            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
+          </textPath>
+        </text>
+      </svg>
+      <div class="mt-[20rem] space-y-8">
+        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
+        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
+          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+        </p>
+        <a href="contact.html"
+           class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+          Apply Now
+        </a>
       </div>
-      
-      <!-- Statistics Section -->
-      <div class="stats-container w-full">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-4 gap-4">
-            <div class="text-center">
-              <div class="stat-number">100+</div>
-              <div class="stat-label">Current Members Nationally</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-number">3</div>
-              <div class="stat-label">Partners</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-number">5</div>
-              <div class="stat-label">Chapters</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-number">17</div>
-              <div class="stat-label">Schools Represented</div>
-            </div>
-          </div>
-        </div>
+      <div class="scroll-indicator">
+        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 9l-7 7-7-7"/>
+        </svg>
       </div>
     </div>
   </section>
@@ -477,11 +356,52 @@
           navbar.classList.replace("navbar-hidden","navbar-visible");
         }
         lastY = window.scrollY;
+
+        // Show stats when scrolled down enough
+        const statsSection = document.getElementById('stats-section');
+        const heroSection = document.getElementById('hero');
+        const heroHeight = heroSection.offsetHeight;
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > heroHeight * 0.6) {
+          statsSection.classList.add('visible');
+          // Start counting animation if not already started
+          if (!window.countingStarted) {
+            startCounting();
+            window.countingStarted = true;
+          }
+        }
       });
       
       document.getElementById("menu-toggle").addEventListener("click", () => {
         document.getElementById("mobile-menu").classList.toggle("hidden");
       });
+      
+      // Function to animate counting
+      function startCounting() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(statNumber => {
+          const targetCount = parseInt(statNumber.getAttribute('data-count'));
+          const duration = 2000; // 2 seconds
+          const frameDuration = 1000 / 60; // 60fps
+          const totalFrames = Math.round(duration / frameDuration);
+          let frame = 0;
+          
+          const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentCount = Math.round(targetCount * progress);
+            
+            statNumber.textContent = currentCount;
+            
+            if (frame === totalFrames) {
+              clearInterval(counter);
+              statNumber.textContent = targetCount;
+            }
+          }, frameDuration);
+        });
+      }
     });
   </script>
 </body>
