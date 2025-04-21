@@ -205,7 +205,6 @@
       padding: 2rem;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
-      pointer-events: auto !important;
     }
     
     .feature-card:hover {
@@ -213,24 +212,19 @@
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
     
-    /* Remove the AOS-related CSS that's causing slowdown */
-    /* [data-aos] {
-      pointer-events: none;
-    }
-    [data-aos].aos-animate {
-      pointer-events: auto;
-    }
-    [data-aos] .feature-card {
-      transition: all 0.3s ease;
-    }
-    [data-aos] .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    } */
-    
     /* Fix for AOS elements to ensure hover works */
     [data-aos] {
       pointer-events: auto !important;
+    }
+    
+    /* Ensure cards inside AOS elements also have hover effect */
+    [data-aos] .feature-card {
+      transition: all 0.3s ease;
+    }
+    
+    [data-aos] .feature-card:hover {
+      transform: translateY(-10px) !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
     }
     
     .feature-icon {
