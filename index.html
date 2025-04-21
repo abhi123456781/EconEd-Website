@@ -130,35 +130,61 @@
   </div>
 
   <!-- Hero -->
-  <section class="relative min-h-screen bg-cover bg-center pt-36"
+  <section id="hero" class="relative min-h-screen bg-cover bg-center hero-section"
            style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
-      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs>
-          <path id="circle"
-                d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
-        </defs>
-        <text font-size="14" fill="currentColor">
-          <textPath xlink:href="#circle">
-            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
-          </textPath>
-        </text>
-      </svg>
-      <div class="mt-[20rem] space-y-8">
-        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
-        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
-          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-        </p>
-        <a href="contact.html"
-           class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-          Apply Now
-        </a>
-      </div>
-      <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7"/>
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-between items-center text-white text-center px-4">
+      <div class="hero-content">
+        <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
+          <defs>
+            <path id="circle"
+                  d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+          </defs>
+          <text font-size="14" fill="currentColor">
+            <textPath xlink:href="#circle">
+              ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
+            </textPath>
+          </text>
         </svg>
+        <div class="mt-[20rem] space-y-8">
+          <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
+          <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
+            Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+          </p>
+          <a href="contact.html"
+             class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
+            Apply Now
+          </a>
+        </div>
+        <div class="scroll-indicator">
+          <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7"/>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Statistics Section -->
+      <div class="stats-container w-full" id="stats-section">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="stat-item">
+              <div class="stat-number" data-count="100">0</div>
+              <div class="stat-label">Current Members</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="3">0</div>
+              <div class="stat-label">Partners</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="5">0</div>
+              <div class="stat-label">Chapters</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="17">0</div>
+              <div class="stat-label">Schools Represented</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
