@@ -51,13 +51,13 @@
     }
     .social-icons a:hover { color: #c68a1f; }
     
-    /* Updated Hero Section - TechPals Style with Yellow */
+    /* Updated Hero Section - TechPals Style with Yellow Gradient */
     .hero-section {
-       background-color: #fef9e7; /* Light yellow background */
-t      color: #1f2937;
-      padding: 10rem 0 18rem 0; /* Reduced top padding to move content up */
+      background: linear-gradient(to right, #f8e8b0, #fef9e7); /* Left-to-right gradient in yellow tones */
+      color: #1f2937;
+      padding: 10rem 0 18rem 0;
       position: relative;
-      overflow: visible; /* Changed from 'hidden' to allow content to overlap */
+      overflow: visible;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -65,7 +65,7 @@ t      color: #1f2937;
     }
     
     .hero-section::before {
-      content: none; /* Remove the background image */
+      content: none;
     }
     
     /* Gradient overlay for transition to white */
@@ -75,7 +75,7 @@ t      color: #1f2937;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 200px; /* Height of gradient */
+      height: 200px;
       background: linear-gradient(to bottom, #fef9e7, white);
       z-index: 1;
     }
