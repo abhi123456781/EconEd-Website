@@ -356,10 +356,52 @@
           navbar.classList.replace("navbar-hidden","navbar-visible");
         }
         lastY = window.scrollY;
+
+        // Show stats when scrolled down enough
+        const statsSection = document.getElementById('stats-section');
+        const heroSection = document.getElementById('hero');
+        const heroHeight = heroSection.offsetHeight;
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > heroHeight * 0.6) {
+          statsSection.classList.add('visible');
+          // Start counting animation if not already started
+          if (!window.countingStarted) {
+            startCounting();
+            window.countingStarted = true;
+          }
+        }
       });
+      
       document.getElementById("menu-toggle").addEventListener("click", () => {
         document.getElementById("mobile-menu").classList.toggle("hidden");
       });
+      
+      // Function to animate counting
+      function startCounting() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(statNumber => {
+          const targetCount = parseInt(statNumber.getAttribute('data-count'));
+          const duration = 2000; // 2 seconds
+          const frameDuration = 1000 / 60; // 60fps
+          const totalFrames = Math.round(duration / frameDuration);
+          let frame = 0;
+          
+          const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentCount = Math.round(targetCount * progress);
+            
+            statNumber.textContent = currentCount;
+            
+            if (frame === totalFrames) {
+              clearInterval(counter);
+              statNumber.textContent = targetCount;
+            }
+          }, frameDuration);
+        });
+      }
     });
   </script>
 </body>
