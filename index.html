@@ -587,7 +587,12 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800, offset: 100 });
+      AOS.init({ 
+        duration: 800,
+        offset: 100,
+        once: true,
+        easing: 'ease-in-out'
+      });
       const navbar = document.getElementById("navbar");
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {
