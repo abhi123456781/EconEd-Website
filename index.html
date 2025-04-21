@@ -55,21 +55,38 @@
     .hero-section {
       background-color: #fef9e7; /* Light yellow background */
       color: #1f2937;
-      padding: 8rem 0;
+      padding: 8rem 0 10rem 0; /* Increased bottom padding for gradient space */
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
     }
     
     .hero-section::before {
       content: none; /* Remove the background image */
     }
     
+    /* Gradient overlay for transition to white */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px; /* Height of gradient */
+      background: linear-gradient(to bottom, #fef9e7, white);
+      z-index: 1;
+    }
+    
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
+      padding: 0 1rem;
     }
     
     .hero-title {
@@ -132,7 +149,7 @@
       background-color: white;
       padding: 3rem 0;
       border-radius: 1rem;
-      margin-top: -2rem;
+      margin-top: -5rem; /* Pull up to overlap with hero gradient */
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
       position: relative;
       z-index: 2;
