@@ -6,13 +6,27 @@
   <title>EconEd | Home</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#c68a1f',
+            secondary: '#facc15',
+            dark: '#1f2937',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    
     .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
     .navbar-visible { transform: translateY(0); transition: transform .3s ease-in-out; }
+    
     .nav-link { position: relative; padding-bottom: 4px; transition: color .3s; color: inherit; }
     .nav-link::after {
       content: ""; position: absolute; left: 50%; bottom: 0;
@@ -22,6 +36,7 @@
     }
     .nav-link:hover { color: #c68a1f; }
     .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
+    
     #mobile-menu a.nav-link {
       padding: .5rem 1rem; border: 2px solid transparent; border-radius: .5rem;
       display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
@@ -29,26 +44,123 @@
     #mobile-menu a.nav-link:hover {
       background-color: #facc15; color: #000; border-color: #facc15;
     }
-    .scroll-indicator { position: absolute; bottom: .5rem; animation: bounce 2s infinite; }
-    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-    .circle-text {
-      width: 240px; height: 240px; position: absolute; top: 12%; left: 50%;
-      transform: translateX(-50%); animation: spin 15s linear infinite;
-    }
-    @keyframes spin { from { transform: translateX(-50%) rotate(0); } to { transform: translateX(-50%) rotate(360deg); } }
-    section[id] { scroll-margin-top: 100px; }
+    
     .social-icons a {
       display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: white;
       transition: color .3s;
     }
     .social-icons a:hover { color: #c68a1f; }
     
-    /* New styles for the homepage sections */
+    .hero-section {
+      background-color: #1f2937;
+      color: white;
+      padding: 8rem 0 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('nashua-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+    
+    .btn-primary {
+      background-color: #c68a1f;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary:hover {
+      background-color: #b57b1e;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: #c68a1f;
+      border: 2px solid #c68a1f;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #c68a1f;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stats-section {
+      background-color: white;
+      padding: 3rem 0;
+      border-radius: 1rem;
+      margin-top: -2rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #c68a1f;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    
     .section-heading {
       position: relative;
       display: inline-block;
       margin-bottom: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f2937;
     }
+    
     .section-heading::after {
       content: "";
       position: absolute;
@@ -59,41 +171,130 @@
       height: 3px;
       background-color: #c68a1f;
     }
-    .story-card {
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    .section-subheading {
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      line-height: 1.6;
     }
-    .story-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    .team-member {
-      transition: transform 0.3s ease;
-    }
-    .team-member:hover {
-      transform: translateY(-5px);
-    }
-    .chapter-card {
-      border-radius: 8px;
-      overflow: hidden;
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
-    .chapter-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      background-color: #fef3c7;
+      color: #c68a1f;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+    
+    .feature-text {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    
+    .cta-section {
+      background-color: #1f2937;
+      color: white;
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('nashua-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer {
+      background-color: white;
+      padding: 3rem 0;
+      color: #4b5563;
+    }
+    
+    .footer-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #c68a1f;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-link {
+      color: #4b5563;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: #c68a1f;
+    }
+    
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #f3f4f6;
+      color: #4b5563;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      background-color: #c68a1f;
+      color: white;
+      transform: translateY(-3px);
     }
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
-
+<body class="bg-gray-50">
   <!-- Navbar -->
   <header id="navbar" class="bg-white p-6 fixed w-full z-50 navbar-visible shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
+      <h1 class="text-2xl font-bold text-primary">EconEd</h1>
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
-        <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
+        <a href="index.html"        class="nav-link text-primary">HOME</a>
         <a href="about.html"        class="nav-link">ABOUT US</a>
         <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
         <a href="chapters.html"     class="nav-link">CHAPTERS</a>
@@ -110,7 +311,7 @@
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
-      <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
+      <a href="index.html"        class="nav-link text-primary">HOME</a>
       <a href="about.html"        class="nav-link">ABOUT US</a>
       <a href="board.html"        class="nav-link">BOARD OF DIRECTORS</a>
       <a href="chapters.html"     class="nav-link">CHAPTERS</a>
@@ -129,81 +330,84 @@
     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
-  <!-- Hero -->
-  <section class="relative min-h-screen bg-cover bg-center pt-36"
-           style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
-      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs>
-          <path id="circle"
-                d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
-        </defs>
-        <text font-size="14" fill="currentColor">
-          <textPath xlink:href="#circle">
-            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
-          </textPath>
-        </text>
-      </svg>
-      <div class="mt-[20rem] space-y-8">
-        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
-        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
-          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container mx-auto px-4">
+      <div class="hero-content text-center">
+        <h1 class="hero-title">Empowering Economic Literacy</h1>
+        <p class="hero-subtitle">
+          EconEd is a student-led nonprofit dedicated to making economic education accessible to all students through peer-to-peer learning and free tutoring.
         </p>
-        <a href="contact.html"
-           class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-          Apply Now
-        </a>
-      </div>
-      <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7"/>
-        </svg>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="btn-primary">Apply Now</a>
+          <a href="about.html" class="btn-secondary">Learn More</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Our Story Section -->
-  <section id="our-story" class="py-20 px-4 bg-white" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold section-heading">Our Story</h2>
-      <p class="text-lg max-w-3xl mx-auto text-gray-700 mb-12">
-        EconEd was founded with a mission to make economic education accessible to all students, 
-        regardless of background or resources. Our journey began with a simple idea: to empower 
-        the next generation with financial literacy and economic understanding.
-      </p>
+  <!-- Stats Section -->
+  <section class="container mx-auto px-4">
+    <div class="stats-section max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Current Members</div>
+        </div>
+        <div>
+          <div class="stat-number">5</div>
+          <div class="stat-label">Chapters</div>
+        </div>
+        <div>
+          <div class="stat-number">17</div>
+          <div class="stat-label">Schools Represented</div>
+        </div>
+        <div>
+          <div class="stat-number">3</div>
+          <div class="stat-label">Partners</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-20 px-4">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <h2 class="section-heading">Our Mission</h2>
+        <p class="section-subheading">
+          We believe that economic education should be accessible to everyone. Our mission is to empower students with the economic literacy skills they need to thrive in today's world through student-led education programs.
+        </p>
+      </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-        <div class="story-card bg-gray-50 shadow-md p-6 text-left">
-          <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center">
-            <span class="text-gray-500">Foundation Image</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">Our Foundation</h3>
-          <p class="text-gray-700">
-            Started by passionate students who recognized the gap in economic education in schools, 
-            EconEd began as a small tutoring initiative that quickly grew into something much larger.
+          <h3 class="feature-title">Student Community</h3>
+          <p class="feature-text">
+            Building a supportive community where students can learn and grow together through shared economic experiences.
           </p>
         </div>
         
-        <div class="story-card bg-gray-50 shadow-md p-6 text-left">
-          <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center">
-            <span class="text-gray-500">Growth Image</span>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-book"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">Our Growth</h3>
-          <p class="text-gray-700">
-            From a single chapter to multiple locations across the country, our organization has 
-            expanded its reach while maintaining its core mission of accessible economic education.
+          <h3 class="feature-title">Economic Education</h3>
+          <p class="feature-text">
+            Providing practical, hands-on economic workshops tailored to students' needs and learning styles.
           </p>
         </div>
         
-        <div class="story-card bg-gray-50 shadow-md p-6 text-left">
-          <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center">
-            <span class="text-gray-500">Impact Image</span>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">Our Impact</h3>
-          <p class="text-gray-700">
-            Today, EconEd has helped thousands of students develop financial literacy skills, 
-            preparing them for future success in both personal finance and potential careers in economics.
+          <h3 class="feature-title">Accessibility</h3>
+          <p class="feature-text">
+            Making economic literacy accessible through local student-led chapters across the country.
           </p>
         </div>
       </div>
@@ -211,135 +415,151 @@
   </section>
 
   <!-- Chapters Section -->
-  <section id="chapters" class="py-20 px-4 bg-gray-50" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold section-heading">Our Chapters</h2>
-      <p class="text-lg max-w-3xl mx-auto text-gray-700 mb-12">
-        EconEd currently has active chapters in multiple locations, each bringing economic education 
-        to their local communities through dedicated student leaders and volunteers.
-      </p>
+  <section class="py-20 px-4 bg-gray-100">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <h2 class="section-heading">Our Chapters</h2>
+        <p class="section-subheading">
+          EconEd currently has active chapters in multiple locations, each bringing economic education to their local communities through dedicated student leaders and volunteers.
+        </p>
+      </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="chapter-card bg-white shadow-md overflow-hidden">
-          <div class="h-40 bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-500">Dallas Chapter</span>
-          </div>
-          <div class="p-4">
-            <h3 class="font-bold text-lg mb-1">Dallas, TX</h3>
-            <p class="text-sm text-gray-600">Established 2022</p>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div class="feature-card">
+          <h3 class="feature-title">Dallas, TX</h3>
+          <p class="feature-text">Established 2022</p>
         </div>
         
-        <div class="chapter-card bg-white shadow-md overflow-hidden">
-          <div class="h-40 bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-500">Acton Chapter</span>
-          </div>
-          <div class="p-4">
-            <h3 class="font-bold text-lg mb-1">Acton, MA</h3>
-            <p class="text-sm text-gray-600">Established 2022</p>
-          </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Acton, MA</h3>
+          <p class="feature-text">Established 2022</p>
         </div>
         
-        <div class="chapter-card bg-white shadow-md overflow-hidden">
-          <div class="h-40 bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-500">Hollis Chapter</span>
-          </div>
-          <div class="p-4">
-            <h3 class="font-bold text-lg mb-1">Hollis, NH</h3>
-            <p class="text-sm text-gray-600">Established 2023</p>
-          </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Hollis, NH</h3>
+          <p class="feature-text">Established 2023</p>
         </div>
         
-        <div class="chapter-card bg-white shadow-md overflow-hidden">
-          <div class="h-40 bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-500">Nashua South Chapter</span>
-          </div>
-          <div class="p-4">
-            <h3 class="font-bold text-lg mb-1">Nashua South, NH</h3>
-            <p class="text-sm text-gray-600">Established 2023</p>
-          </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Nashua South, NH</h3>
+          <p class="feature-text">Established 2023</p>
         </div>
       </div>
       
-      <a href="chapters.html" class="mt-10 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-        Learn More About Our Chapters
-      </a>
+      <div class="text-center mt-12">
+        <a href="chapters.html" class="btn-primary">View All Chapters</a>
+      </div>
     </div>
   </section>
 
-  <!-- Meet the Team Section -->
-  <section id="team" class="py-20 px-4 bg-white" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold section-heading">Meet the Team</h2>
-      <p class="text-lg max-w-3xl mx-auto text-gray-700 mb-12">
-        Our dedicated team of student leaders and advisors work tirelessly to bring economic 
-        education to communities across the country.
-      </p>
+  <!-- Team Section -->
+  <section class="py-20 px-4">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <h2 class="section-heading">Meet the Team</h2>
+        <p class="section-subheading">
+          Our dedicated team of student leaders and advisors work tirelessly to bring economic education to communities across the country.
+        </p>
+      </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="team-member bg-gray-50 p-6 rounded-lg shadow-md">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="feature-card text-center">
           <img src="placeholder.jpg" alt="Karthik Suresh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Karthik Suresh</h3>
-          <p class="text-yellow-600 font-medium mb-3">Founder & President</p>
-          <p class="text-gray-700 text-sm">
+          <h3 class="feature-title">Karthik Suresh</h3>
+          <p class="text-primary font-medium mb-3">Founder & President</p>
+          <p class="feature-text">
             Karthik founded EconEd with a vision to make economic education accessible to all students.
           </p>
         </div>
         
-        <div class="team-member bg-gray-50 p-6 rounded-lg shadow-md">
-          <img src="placeholder.jpg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Steve Guerrera</h3>
-          <p class="text-yellow-600 font-medium mb-3">Co-Founder & Vice President</p>
-          <p class="text-gray-700 text-sm">
+        <div class="feature-card text-center">
+          <img src="placeholder.jpg" alt="Steve Guerrera" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="feature-title">Steve Guerrera</h3>
+          <p class="text-primary font-medium mb-3">Co-Founder & Vice President</p>
+          <p class="feature-text">
             Steve helps oversee operations and expansion of EconEd chapters across the country.
           </p>
         </div>
         
-        <div class="team-member bg-gray-50 p-6 rounded-lg shadow-md">
+        <div class="feature-card text-center">
           <img src="placeholder.jpg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Team Member</h3>
-          <p class="text-yellow-600 font-medium mb-3">Director of Education</p>
-          <p class="text-gray-700 text-sm">
+          <h3 class="feature-title">Team Member</h3>
+          <p class="text-primary font-medium mb-3">Director of Education</p>
+          <p class="feature-text">
             Responsible for developing our curriculum and educational resources for all chapters.
           </p>
         </div>
       </div>
       
-      <a href="board.html" class="mt-10 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-        View Full Team
-      </a>
+      <div class="text-center mt-12">
+        <a href="board.html" class="btn-primary">View Full Team</a>
+      </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section id="cta" class="py-20 px-4 bg-gray-900 text-white text-center" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Join the EconEd Movement</h2>
-      <p class="text-lg mb-8">
-        Whether you're a student looking to learn, a volunteer wanting to teach, or a supporter interested in our cause,
-        there's a place for you in the EconEd community.
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="contact.html" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
-          Apply Now
-        </a>
-        <a href="donate.html" class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-          Support Our Mission
-        </a>
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container mx-auto px-4">
+      <div class="cta-content text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Ready to Make a Difference?</h2>
+        <p class="text-lg mb-8">
+          Join our student-led nonprofit in our mission to empower students with economic literacy skills. Volunteer, donate, or start a chapter in your community.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="btn-primary">Apply Now</a>
+          <a href="donate.html" class="btn-secondary">Support Our Mission</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white text-black py-6 px-4 text-center border-t">
-    <p class="mb-1">
-      📧 Email:
-      <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">
-        theelevationproject@gmail.com
-      </a>
-    </p>
-    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
-    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+  <footer class="footer">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="footer-title">EconEd</h3>
+          <p class="mb-4">Empowering students with practical economic literacy skills</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="chapters.html" class="footer-link">Chapters</a></li>
+            <li><a href="tutoring.html" class="footer-link">Tutoring</a></li>
+            <li><a href="volunteering.html" class="footer-link">Volunteering</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="footer-link">Blog</a></li>
+            <li><a href="#" class="footer-link">FAQ</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="mb-2">📧 Email: <a href="mailto:theelevationproject@gmail.com" class="text-primary">theelevationproject@gmail.com</a></p>
+          <p class="mb-2">📞 Karthik: (603) 852‑9473</p>
+          <p>📞 Steve: (978) 566‑4416</p>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-200 mt-12 pt-8 text-center">
+        <p>&copy; 2025 EconEd. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
   <!-- Scripts -->
@@ -356,52 +576,11 @@
           navbar.classList.replace("navbar-hidden","navbar-visible");
         }
         lastY = window.scrollY;
-
-        // Show stats when scrolled down enough
-        const statsSection = document.getElementById('stats-section');
-        const heroSection = document.getElementById('hero');
-        const heroHeight = heroSection.offsetHeight;
-        const scrollPosition = window.scrollY;
-        
-        if (scrollPosition > heroHeight * 0.6) {
-          statsSection.classList.add('visible');
-          // Start counting animation if not already started
-          if (!window.countingStarted) {
-            startCounting();
-            window.countingStarted = true;
-          }
-        }
       });
       
       document.getElementById("menu-toggle").addEventListener("click", () => {
         document.getElementById("mobile-menu").classList.toggle("hidden");
       });
-      
-      // Function to animate counting
-      function startCounting() {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        statNumbers.forEach(statNumber => {
-          const targetCount = parseInt(statNumber.getAttribute('data-count'));
-          const duration = 2000; // 2 seconds
-          const frameDuration = 1000 / 60; // 60fps
-          const totalFrames = Math.round(duration / frameDuration);
-          let frame = 0;
-          
-          const counter = setInterval(() => {
-            frame++;
-            const progress = frame / totalFrames;
-            const currentCount = Math.round(targetCount * progress);
-            
-            statNumber.textContent = currentCount;
-            
-            if (frame === totalFrames) {
-              clearInterval(counter);
-              statNumber.textContent = targetCount;
-            }
-          }, frameDuration);
-        });
-      }
     });
   </script>
 </body>
