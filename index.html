@@ -35,8 +35,12 @@
       position: relative;
       height: 100vh;
       width: 100%;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       background-color: #000;
+      overflow: hidden;
     }
     
     .hero-bg {
@@ -48,98 +52,58 @@
       background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
       background-size: cover;
       background-position: center;
-      opacity: 0.7;
+      opacity: 0.5;
       z-index: 1;
     }
     
     .hero-content {
       position: relative;
       z-index: 2;
-      height: 100%;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      max-width: 1200px;
+      padding: 0 2rem;
       text-align: center;
-      padding: 0 20px;
-      color: white;
     }
     
     .hero-title {
-      font-size: 4rem;
+      font-size: 5rem;
       font-weight: 800;
-      margin-bottom: 1rem;
-      line-height: 1.1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    
-    .hero-subtitle {
-      font-size: 1.5rem;
-      max-width: 800px;
+      color: white;
       margin-bottom: 2rem;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      line-height: 1;
     }
     
-    .hero-buttons {
+    .hero-cta {
+      display: inline-block;
+      background-color: #c68a1f;
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2.5rem;
+      border-radius: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .hero-cta:hover {
+      background-color: #b57b1e;
+      transform: translateY(-2px);
+    }
+    
+    .stats-container {
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
     }
     
-    .hero-btn-primary {
-      background-color: #facc15;
-      color: #000;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .stat-item {
+      text-align: center;
     }
     
-    .hero-btn-primary:hover {
-      background-color: #f59e0b;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .hero-btn-secondary {
-      background-color: transparent;
-      color: white;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      border: 2px solid #facc15;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    .hero-btn-secondary:hover {
-      background-color: rgba(250, 204, 21, 0.1);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      color: white;
-      animation: bounce 2s infinite;
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0) translateX(-50%); }
-      50% { transform: translateY(10px) translateX(-50%); }
-    }
-    
-    /* Stat counter styles */
-    .stat-value {
+    .stat-number {
       font-size: 2.5rem;
       font-weight: 800;
       color: #c68a1f;
@@ -153,6 +117,22 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 300;
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1.5rem;
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) translateX(-50%); }
+      50% { transform: translateY(10px) translateX(-50%); }
     }
     
     /* New styles for the homepage sections */
@@ -241,46 +221,35 @@
     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
-  <!-- Hero -->
-  <section id="hero" class="relative hero-section bg-cover bg-center"
-           style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-between items-center text-white text-center px-4">
-      <div class="hero-content">
-        <div class="space-y-8 mt-10">
-          <h1 class="text-7xl md:text-9xl font-extrabold leading-tight tracking-wide">EconEd</h1>
-          <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide font-light">
-            Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
-          </p>
-          <a href="contact.html"
-             class="mt-8 inline-block border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3 rounded-full font-semibold transition">
-            Apply Now
-          </a>
-        </div>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">EconEd</h1>
+      <a href="contact.html" class="hero-cta">Apply Now</a>
       
-      <!-- Statistics Section -->
-      <div class="stats-container w-full">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-4 gap-4">
-            <div class="text-center">
-              <div class="stat-number">100+</div>
-              <div class="stat-label">Current Members Nationally</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-number">3</div>
-              <div class="stat-label">Partners</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-number">5</div>
-              <div class="stat-label">Chapters</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-number">17</div>
-              <div class="stat-label">Schools Represented</div>
-            </div>
-          </div>
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Current Members Nationally</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Partners</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Chapters</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">17</div>
+          <div class="stat-label">Schools Represented</div>
         </div>
       </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
     </div>
   </section>
 
