@@ -42,26 +42,6 @@
       transition: color .3s;
     }
     .social-icons a:hover { color: #c68a1f; }
-    .hero-stats {
-      position: absolute;
-      bottom: 10%;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-    .hero-stats.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(to right, #facc15, #ca8a04);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   </style>
 </head>
 
@@ -109,10 +89,10 @@
   </div>
 
   <!-- Hero -->
-<section class="relative min-h-screen bg-cover bg-center pt-36"
-      style="background-image: url('nashua-hero.jpg');">
-  <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
-    <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
+  <section class="relative min-h-screen bg-cover bg-center pt-36"
+           style="background-image: url('nashua-hero.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
+      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
         <defs>
           <path id="circle"
                 d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
@@ -123,7 +103,7 @@
           </textPath>
         </text>
       </svg>
-      <div class="mt-[15rem] space-y-8"> <!-- Reduced margin-top -->
+      <div class="mt-[20rem] space-y-8">
         <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
         <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
           Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
@@ -133,28 +113,29 @@
           Apply Now
         </a>
       </div>
-      <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
-        <div class="max-w-6xl mx-auto grid grid-cols-3 gap-8 text-center">
-          <div>
-            <div class="stat-number" data-count="100">0</div>
-            <div class="text-sm uppercase tracking-wider mt-2">Members Nationally</div>
-          </div>
-          <div>
-            <div class="stat-number" data-count="5">0</div>
-            <div class="text-sm uppercase tracking-wider mt-2">Chapters</div>
-          </div>
-          <div>
-            <div class="stat-number" data-count="250">0</div>
-            <div class="text-sm uppercase tracking-wider mt-2">Past Speakers</div>
-          </div>
-        </div>
-      </div>
-
       <div class="scroll-indicator">
         <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M19 9l-7 7-7-7"/>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-yellow-400 py-8" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+      <div class="p-4">
+        <p class="text-3xl font-bold">100+</p>
+        <p class="text-sm uppercase tracking-wider">Members Nationally</p>
+      </div>
+      <div class="p-4">
+        <p class="text-3xl font-bold">3</p>
+        <p class="text-sm uppercase tracking-wider">Partners</p>
+      </div>
+      <div class="p-4">
+        <p class="text-3xl font-bold">5</p>
+        <p class="text-sm uppercase tracking-wider">Chapters</p>
       </div>
     </div>
   </section>
@@ -271,31 +252,6 @@
         document.getElementById("mobile-menu")
                 .classList.toggle("hidden");
       });
-      // Number counting animation
-      const counters = document.querySelectorAll('.stat-number');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            const target = +entry.target.getAttribute('data-count');
-            const duration = 2000;
-            const startTime = Date.now();
-            const updateNumber = () => {
-              const elapsed = Date.now() - startTime;
-              const progress = Math.min(elapsed / duration, 1);
-              entry.target.textContent = Math.floor(progress * target);
-              
-              if(progress < 1) {
-                requestAnimationFrame(updateNumber);
-              }
-            }
-            
-            requestAnimationFrame(updateNumber);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      counters.forEach(counter => observer.observe(counter));
     });
   </script>
 
