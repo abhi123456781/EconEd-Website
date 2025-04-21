@@ -212,6 +212,21 @@
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
     
+    /* Ensure hover effects work with AOS animations */
+    [data-aos] {
+      pointer-events: none;
+    }
+    [data-aos].aos-animate {
+      pointer-events: auto;
+    }
+    [data-aos] .feature-card {
+      transition: all 0.3s ease;
+    }
+    [data-aos] .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
     .feature-icon {
       background-color: #fef3c7;
       color: #c68a1f;
