@@ -73,12 +73,34 @@
       color: #c68a1f;
     }
     
-    /* Add hover effect for chapter cards */
-    .grid .p-4.bg-gray-100 {
-      transition: transform 0.3s ease;
+    /* TechPals-inspired styles */
+    .hero-section {
+      background-color: #f8fafc;
+      padding: 120px 0 80px;
     }
-    .grid .p-4.bg-gray-100:hover {
+    
+    .about-hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-hero-subtitle {
+      font-size: 1.25rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .team-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .team-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
   </style>
 </head>
@@ -127,54 +149,23 @@
   </div>
 
   <!-- Hero Section (TechPals Style) -->
-  <section class="relative bg-yellow-400 pt-36 pb-16">
+  <section class="hero-section">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">About EconEd</h1>
-      <p class="text-lg max-w-3xl mx-auto text-gray-700">
-        Learn about our mission, our story, and the people behind EconEd.
+      <h1 class="about-hero-title">About EconEd</h1>
+      <p class="about-hero-subtitle">
+        We're on a mission to make economic education accessible to all students.
       </p>
     </div>
   </section>
 
-  <section id="about" class="pt-10 pb-16 px-4 text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">About EconEd</h2>
-    <p class="text-lg max-w-3xl mx-auto text-gray-700">
-      EconEd is a nonprofit organization that invokes financial literacy and basic economic
-      understanding to the youth. We achieve this by going down to local middle and elementary
-      schools weekly and also through our website that offers free tutoring.
-    </p>
-  </section>
-
-  <section id="chapters" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-10">Our Chapters</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Dallas, Acton, Hollis… -->
-        <div class="p-4 bg-gray-100 rounded shadow">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Dallas Chapter Image</div>
-          <h3 class="mt-4 font-semibold text-lg">Dallas Chapter</h3>
-          <p class="text-gray-600">Serving the Dallas metropolitan area</p>
-        </div>
-        <div class="p-4 bg-gray-100 rounded shadow">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Acton Chapter Image</div>
-          <h3 class="mt-4 font-semibold text-lg">Acton Chapter</h3>
-          <p class="text-gray-600">Serving Acton and surrounding communities</p>
-        </div>
-        <div class="p-4 bg-gray-100 rounded shadow">
-          <div class="w-full h-32 bg-gray-300 flex items-center justify-center">Hollis Chapter Image</div>
-          <h3 class="mt-4 font-semibold text-lg">Hollis Chapter</h3>
-          <p class="text-gray-600">Serving the Hollis community</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Team Section (Moved from Home Page) -->
-  <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
+  <section id="team" class="bg-white py-20 px-4" data-aos="fade-up">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
+      <h2 class="text-3xl font-bold mb-3">Our Team</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-12">Meet the dedicated individuals who are working to bring economic education to students everywhere.</p>
+      
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="placeholder.jpg" alt="Karthik Suresh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Karthik Suresh</h3>
           <p class="text-gray-600">Founder & CEO</p>
@@ -182,7 +173,7 @@
             Karthik founded EconEd with a vision to make economic education accessible to all students.
           </p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="placeholder.jpg" alt="Steve Wilkinson" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Steve Wilkinson</h3>
           <p class="text-gray-600">Co-Founder & COO</p>
@@ -190,7 +181,7 @@
             Steve oversees operations and helps develop our educational curriculum.
           </p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="placeholder.jpg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Team Member</h3>
           <p class="text-gray-600">Position</p>
@@ -202,33 +193,6 @@
     </div>
   </section>
 
-  <section id="tutoring" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Free Tutoring</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        We offer free tutoring services to students in need of help with economics and financial literacy.
-        Our tutors are experienced and passionate about helping students succeed.
-      </p>
-      <a href="#"
-         class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
-        Register to Become a Tutor
-      </a>
-    </div>
-  </section>
-
-  <section id="donate" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        Help us continue spreading financial literacy to students by donating to our cause.
-      </p>
-      <a href="#"
-         class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
-        Donate Now
-      </a>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="bg-white text-black py-6 px-4 text-center border-t">
     <p class="mb-1">
@@ -237,7 +201,7 @@
         theelevationproject@gmail.com
       </a>
     </p>
-    <p class="mb-1">📞 Karthik: (603) 852-9473 | Steve: (978) 566-4416</p>
+    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
     <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
 
