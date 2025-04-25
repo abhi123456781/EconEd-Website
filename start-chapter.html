@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EconEd | Start a Chapter</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    .navbar-hidden { transform: translateY(-100%); transition: transform 0.3s ease-in-out; }
+    .navbar-visible { transform: translateY(0); transition: transform 0.3s ease-in-out; }
+    .nav-link {
+      position: relative;
+      padding-bottom: 4px;
+      color: inherit;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      height: 2px;
+      width: 100%;
+      background-color: #c68a1f;
+      transition: transform 0.4s ease;
+    }
+    .nav-link:hover {
+      color: #c68a1f;
+    }
+    .nav-link:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+    #mobile-menu a.nav-link {
+      padding: 0.5rem 1rem;
+      border: 2px solid transparent;
+      border-radius: 0.5rem;
+      display: inline-block;
+      margin: 0.25rem 0;
+      transition: all 0.3s ease-in-out;
+    }
+    #mobile-menu a.nav-link:hover {
+      background-color: #facc15;
+      color: #000;
+      border-color: #facc15;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin: 0 0.25rem;
+      font-size: 1.25rem;
+      color: white;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #c68a1f;
+    }
+    
+    /* Hero section styles */
+    .hero-section {
+      background: linear-gradient(135deg, #fef9e7 0%, #f8e8b0 100%);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: visible;
+    }
+    
+    /* Gradient overlay for transition to white */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(254, 249, 231, 0), white);
+      z-index: 1;
+    }
+    
+    .step-card {
+      border-left: 3px solid #f59e0b;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .step-card::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #f59e0b;
+    }
+    
+    .benefit-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Navbar -->
+  <header id="navbar" class="bg-white p-6 fixed w-full z-50 navbar-visible shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
+      <div class="hidden md:flex space-x-10 text-sm font-semibold">
+        <a href="index.html"        class="nav-link">HOME</a>
+        <a href="about.html"        class="nav-link">ABOUT US</a>
+        <a href="chapters.html"     class="nav-link text-yellow-600">CHAPTERS</a>
+        <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
+        <a href="contact.html"      class="nav-link">CONTACT</a>
+        <a href="donate.html"       class="nav-link">DONATE</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
+      <a href="index.html"        class="nav-link">HOME</a>
+      <a href="about.html"        class="nav-link">ABOUT US</a>
+      <a href="chapters.html"     class="nav-link text-yellow-600">CHAPTERS</a>
+      <a href="tutoring.html"     class="nav-link">TUTORING</a>
+      <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
+      <a href="contact.html"      class="nav-link">CONTACT</a>
+      <a href="donate.html"       class="nav-link">DONATE</a>
+    </div>
+  </header>
+
+  <!-- Floating social icons -->
+  <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
+    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Create an EconEd Chapter</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Bring EconEd to your community and help empower students with economic literacy and financial education skills.
+      </p>
+    </div>
+  </section>
+
+  <!-- How to Start a Chapter Section -->
+  <section class="py-16 px-4 bg-white">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-3xl font-bold mb-12 text-center">How to Start a Chapter</h2>
+      
+      <div class="space-y-12">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <h3 class="text-2xl font-bold mb-3">1. Build Your Team</h3>
+          <p class="text-gray-700">
+            Gather a core team of 3-5 committed volunteers who share your passion for economic education. Look for people with diverse skills, including economic knowledge, teaching experience, and organizational abilities.
+          </p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="step-card">
+          <h3 class="text-2xl font-bold mb-3">2. Identify Venues</h3>
+          <p class="text-gray-700">
+            Find suitable locations for your workshops and events. Schools, libraries, community centers, and religious institutions often have spaces available for educational programs. Look for venues that are accessible and can accommodate your planned activities.
+          </p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="step-card">
+          <h3 class="text-2xl font-bold mb-3">3. Build Local Partnerships</h3>
+          <p class="text-gray-700">
+            Connect with organizations in your community, such as schools, youth centers, and local businesses. These partnerships can help you reach students who would benefit from your programs and potentially provide resources or support.
+          </p>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="step-card">
+          <h3 class="text-2xl font-bold mb-3">4. Contact EconEd Headquarters</h3>
+          <p class="text-gray-700">
+            Reach out to us to officially register your chapter. We'll provide you with our Chapter Starter Kit, which includes curriculum materials, training resources, branding guidelines, and administrative support to help you get started.
+          </p>
+        </div>
+        
+        <!-- Step 5 -->
+        <div class="step-card">
+          <h3 class="text-2xl font-bold mb-3">5. Launch Your Chapter</h3>
+          <p class="text-gray-700">
+            Plan and host your first event or workshop. Start small and focus on quality over quantity. Gather feedback from participants and volunteers to continuously improve your programs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- What We Provide Section -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold mb-12 text-center">What We Provide</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Benefit 1 -->
+        <div class="benefit-card">
+          <h3 class="text-xl font-bold mb-3 text-yellow-600">Comprehensive Curriculum Materials</h3>
+          <p class="text-gray-700">
+            Access to our proven economic and financial literacy curriculum, lesson plans, and teaching resources.
+          </p>
+        </div>
+        
+        <!-- Benefit 2 -->
+        <div class="benefit-card">
+          <h3 class="text-xl font-bold mb-3 text-yellow-600">Training for Chapter Leaders</h3>
+          <p class="text-gray-700">
+            Guidance on how to effectively teach economic concepts and manage your chapter operations.
+          </p>
+        </div>
+        
+        <!-- Benefit 3 -->
+        <div class="benefit-card">
+          <h3 class="text-xl font-bold mb-3 text-yellow-600">Branding and Marketing Materials</h3>
+          <p class="text-gray-700">
+            Professional logos, templates, and promotional materials to establish your chapter's presence.
+          </p>
+        </div>
+        
+        <!-- Benefit 4 -->
+        <div class="benefit-card">
+          <h3 class="text-xl font-bold mb-3 text-yellow-600">Administrative Guidelines</h3>
+          <p class="text-gray-700">
+            Support for setting up and managing your chapter, including best practices for volunteer management.
+          </p>
+        </div>
+        
+        <!-- Benefit 5 -->
+        <div class="benefit-card">
+          <h3 class="text-xl font-bold mb-3 text-yellow-600">National Network Connection</h3>
+          <p class="text-gray-700">
+            Join our community of chapter leaders to share ideas, resources, and success stories.
+          </p>
+        </div>
+        
+        <!-- Benefit 6 -->
+        <div class="benefit-card">
+          <h3 class="text-xl font-bold mb-3 text-yellow-600">Ongoing Support</h3>
+          <p class="text-gray-700">
+            Regular check-ins, troubleshooting assistance, and continuous improvement of resources.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Ready to Get Started Section -->
+  <section class="py-16 px-4 bg-white">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+      <p class="text-xl text-gray-700 mb-8">
+        Send us an email to begin the process of creating an EconEd chapter in your community.
+      </p>
+      <div class="bg-yellow-50 p-8 rounded-xl shadow-md inline-block">
+        <p class="text-lg font-semibold mb-2">Email:</p>
+        <a href="mailto:theelevationproject@gmail.com" class="text-xl text-blue-600 hover:underline">
+          theelevationproject@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+      
+      <div class="space-y-8">
+        <!-- FAQ 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-3">How much time does it take to run a chapter?</h3>
+          <p class="text-gray-700">
+            The time commitment varies depending on the size and frequency of your programs. Most chapter leaders spend 5-10 hours per week on chapter activities, including planning, coordination, and teaching.
+          </p>
+        </div>
+        
+        <!-- FAQ 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-3">Is there a cost to start a chapter?</h3>
+          <p class="text-gray-700">
+            There is no fee to start an EconEd chapter. We provide the curriculum and materials at no cost. Chapters are responsible for securing their own venues and equipment, though many find partners who donate these resources.
+          </p>
+        </div>
+        
+        <!-- FAQ 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-3">How many volunteers do I need?</h3>
+          <p class="text-gray-700">
+            We recommend starting with at least 3-5 core volunteers. As your chapter grows, you may want to recruit more volunteers to accommodate more participants and offer more programs.
+          </p>
+        </div>
+        
+        <!-- FAQ 4 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-3">Do I need economics expertise to start a chapter?</h3>
+          <p class="text-gray-700">
+            While some economic knowledge is helpful, it's not required for all chapter leaders. What's most important is organizational ability, passion for the mission, and the ability to recruit volunteers with the necessary skills.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-black py-6 px-4 text-center border-t">
+    <p class="mb-1">
+      📧 Email:
+      <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">
+        theelevationproject@gmail.com
+      </a>
+    </p>
+    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
+    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800, offset: 100 });
+      const navbar = document.getElementById("navbar");
+      let lastY = window.scrollY;
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > lastY) {
+          navbar.classList.replace("navbar-visible","navbar-hidden");
+        } else {
+          navbar.classList.replace("navbar-hidden","navbar-visible");
+        }
+        lastY = window.scrollY;
+      });
+      document.getElementById("menu-toggle").addEventListener("click", () => {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      });
+    });
+  </script>
+</body>
+</html>
