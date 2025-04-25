@@ -72,6 +72,90 @@
     .social-icons a:hover {
       color: #c68a1f;
     }
+    
+    /* TechPals-inspired styles for hero section */
+    .hero-section {
+      background: linear-gradient(135deg, #fef9e7 0%, #f8e8b0 100%);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: visible;
+    }
+    
+    /* Gradient overlay for transition to white */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(254, 249, 231, 0), white);
+      z-index: 1;
+    }
+    
+    .about-hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    .about-hero-subtitle {
+      font-size: 1.125rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Chapter card styles */
+    .chapter-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .chapter-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .chapter-img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .chapter-content {
+      padding: 1.5rem;
+    }
+    
+    .chapter-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+    }
+    
+    .chapter-location {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+    
+    .chapter-description {
+      font-size: 0.875rem;
+      color: #475569;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
   </style>
 </head>
 
@@ -82,10 +166,10 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
-        <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
+        <a href="index.html"        class="nav-link">HOME</a>
         <a href="about.html"        class="nav-link">ABOUT US</a>
         <!-- Removed Board of Directors link -->
-        <a href="chapters.html"     class="nav-link">CHAPTERS</a>
+        <a href="chapters.html"     class="nav-link text-yellow-600">CHAPTERS</a>
         <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
         <a href="contact.html"      class="nav-link">CONTACT</a>
         <a href="donate.html"       class="nav-link">DONATE</a>
@@ -98,10 +182,9 @@
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
-      <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
-      <a href="about.html"        class="nav-link">ABOUT US</a>
-      
-      <a href="chapters.html"     class="nav-link">CHAPTERS</a>
+      <a href="index.html"        class="nav-link">HOME</a>
+      <a href="about.html"        class="nav-link">ABOUT US</a>
+      <a href="chapters.html"     class="nav-link text-yellow-600">CHAPTERS</a>
       <a href="tutoring.html"     class="nav-link">TUTORING</a>
       <a href="volunteering.html" class="nav-link">VOLUNTEERING</a>
       <a href="contact.html"      class="nav-link">CONTACT</a>
@@ -117,97 +200,140 @@
     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
-  <!-- Hero (identical to home) -->
-  <section class="relative min-h-screen bg-cover bg-center pt-36" style="background-image: url('nashua-hero.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-start items-center text-white text-center px-4">
-      <svg viewBox="0 0 200 200" class="circle-text text-yellow-400 z-10">
-        <defs><path id="circle"
-          d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/></defs>
-        <text font-size="14" fill="currentColor">
-          <textPath xlink:href="#circle">
-            ELEVATING YOUNG ENTREPRENEURS • ELEVATING YOUNG ENTREPRENEURS •
-          </textPath>
-        </text>
-      </svg>
-      <div class="mt-[20rem] space-y-8">
-        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-wide">EconEd</h1>
-        <p class="text-xl md:text-2xl max-w-3xl leading-relaxed tracking-wide">
-          Empowering the Next Generation of Economic Leaders through education, outreach, and free tutoring.
+  <!-- Hero Section - About Us Style -->
+  <section class="hero-section">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="about-hero-title">Our Chapters</h1>
+      <p class="about-hero-subtitle">
+        EconEd is expanding across the country through student-led chapters dedicated to promoting economic literacy and financial education in their communities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Chapters Section - JEC Style -->
+  <section class="py-16 px-4">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Current Chapters</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Our chapters are led by passionate student leaders who organize workshops, tutoring sessions, and community events to promote economic education.
         </p>
-        <a href="#start" class="mt-8 inline-block border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 rounded-full font-semibold transition">
-          Apply Now
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Dallas Chapter -->
+        <div class="chapter-card">
+          <img src="placeholder.jpg" alt="Dallas Chapter" class="chapter-img">
+          <div class="chapter-content">
+            <h3 class="chapter-title">Dallas Chapter</h3>
+            <p class="chapter-location">Dallas, Texas</p>
+            <p class="chapter-description">
+              Established in 2022, our Dallas chapter serves students throughout the Dallas-Fort Worth metroplex with workshops and tutoring sessions.
+            </p>
+            <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+              Learn More
+            </a>
+          </div>
+        </div>
+        
+        <!-- Acton Chapter -->
+        <div class="chapter-card">
+          <img src="placeholder.jpg" alt="Acton Chapter" class="chapter-img">
+          <div class="chapter-content">
+            <h3 class="chapter-title">Acton Chapter</h3>
+            <p class="chapter-location">Acton, Massachusetts</p>
+            <p class="chapter-description">
+              Our Acton chapter was one of the first established in 2022, focusing on bringing economic education to students in the greater Boston area.
+            </p>
+            <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+              Learn More
+            </a>
+          </div>
+        </div>
+        
+        <!-- Hollis Chapter -->
+        <div class="chapter-card">
+          <img src="placeholder.jpg" alt="Hollis Chapter" class="chapter-img">
+          <div class="chapter-content">
+            <h3 class="chapter-title">Hollis Chapter</h3>
+            <p class="chapter-location">Hollis, New Hampshire</p>
+            <p class="chapter-description">
+              Established in 2023, the Hollis chapter has quickly grown to become a hub for economic education in southern New Hampshire.
+            </p>
+            <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+              Learn More
+            </a>
+          </div>
+        </div>
+        
+        <!-- Nashua South Chapter -->
+        <div class="chapter-card">
+          <img src="placeholder.jpg" alt="Nashua South Chapter" class="chapter-img">
+          <div class="chapter-content">
+            <h3 class="chapter-title">Nashua South Chapter</h3>
+            <p class="chapter-location">Nashua, New Hampshire</p>
+            <p class="chapter-description">
+              Our Nashua South chapter works closely with local schools to provide economic education resources and tutoring to students.
+            </p>
+            <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+              Learn More
+            </a>
+          </div>
+        </div>
+        
+        <!-- Westford Chapter (Coming Soon) -->
+        <div class="chapter-card bg-gray-50">
+          <div class="flex items-center justify-center h-[180px] bg-gray-100">
+            <span class="text-gray-500 text-lg font-semibold">Coming Soon</span>
+          </div>
+          <div class="chapter-content">
+            <h3 class="chapter-title">Westford Chapter</h3>
+            <p class="chapter-location">Westford, Massachusetts</p>
+            <p class="chapter-description">
+              Our Westford chapter is currently in development and will be launching soon to serve students in the area.
+            </p>
+            <button disabled class="inline-block bg-gray-300 text-gray-600 font-semibold px-4 py-2 rounded-lg text-sm cursor-not-allowed">
+              Coming Soon
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Start a Chapter Section -->
+  <section class="py-16 px-4 bg-yellow-50">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl font-bold mb-6">Start a Chapter</h2>
+      <p class="text-lg text-gray-700 mb-8">
+        Interested in bringing EconEd to your school or community? Starting a chapter is a great way to make an impact and develop leadership skills.
+      </p>
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-4">How to Start a Chapter</h3>
+        <ol class="text-left text-gray-700 space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
+            <span>Fill out our application form with information about yourself and your school</span>
+          </li>
+          <li class="flex items-start">
+            <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
+            <span>Our team will review your application and schedule an interview</span>
+          </li>
+          <li class="flex items-start">
+            <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
+            <span>Once approved, you'll receive our chapter starter kit and resources</span>
+          </li>
+          <li class="flex items-start">
+            <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
+            <span>Begin recruiting members and planning your first events!</span>
+          </li>
+        </ol>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9DhsnXA43yKs1oI6W_rHHg4633ga9NVR7fnsuVduic7LIYA/viewform" 
+           target="_blank" 
+           class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+          Apply to Start a Chapter
         </a>
       </div>
-      <div class="scroll-indicator">
-        <svg class="w-6 h-6 mt-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chapters -->
-  <section id="chapters" class="pt-10 pb-16 px-4 text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">Our Chapters</h2>
-    <p class="text-lg max-w-3xl mx-auto text-gray-700">
-      EconEd currently has active chapters in Dallas (TX), Acton (MA), Hollis (NH), and Nashua South (NH).
-      Check back soon for details on Westford and other upcoming locations.
-    </p>
-  </section>
-
-  <!-- Remaining sections from about.html -->
-  <section id="team" class="bg-gray-100 py-16 px-4" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Meet the Team</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="placeholder.jpg" alt="Karthik Suresh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-          <h3 class="text-xl font-bold">Karthik Suresh</h3>
-          <p class="text-blue-600 font-semibold">Co-Founder</p>
-          <p class="text-gray-700">Junior at Nashua South with interests in finance and economics.</p>
-        </div>
-        <!-- …other team members… -->
-      </div>
-    </div>
-  </section>
-
-  <section id="start" class="py-16 px-4 text-center bg-yellow-50" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6">How to Start a Chapter</h2>
-    <ol class="text-lg text-gray-700 max-w-2xl mx-auto space-y-4 text-left">
-      <li>1. Fill out the “Start a Chapter” form.</li>
-      <li>2. We’ll review your submission within 2–3 days.</li>
-      <li>3. Once approved, you’ll receive a starter kit & onboarding.</li>
-      <li>4. Begin hosting events, tutoring, and growing your chapter!</li>
-    </ol>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9DhsnXA43yKs1oI6W_rHHg4633ga9NVR7fnsuVduic7LIYA/viewform"
-       target="_blank"
-       class="mt-8 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-lg transition">
-      Start a Chapter
-    </a>
-  </section>
-
-  <section id="tutoring" class="bg-gray-50 py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Online Tutoring</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        We offer online tutoring sessions to promote financial literacy and economics for students of all ages.
-      </p>
-      <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
-        Register to Become a Tutor
-      </a>
-    </div>
-  </section>
-
-  <section id="donate" class="bg-white py-16 px-4 text-center" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Support EconEd</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        Help us continue spreading financial literacy to students by donating to our cause.
-      </p>
-      <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition">
-        Donate Now
-      </a>
     </div>
   </section>
 
@@ -219,8 +345,8 @@
         theelevationproject@gmail.com
       </a>
     </p>
-    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
-    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
+    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
   </footer>
 
   <!-- Scripts -->
