@@ -11,8 +11,8 @@
       theme: {
         extend: {
           colors: {
-            primary: '#c68a1f',
-            secondary: '#facc15',
+            primary: '#2e8b57', /* Changed from #c68a1f to green */
+            secondary: '#4CAF50', /* Changed from #facc15 to lighter green */
             dark: '#1f2937',
           }
         }
@@ -31,10 +31,10 @@
     .nav-link::after {
       content: ""; position: absolute; left: 50%; bottom: 0;
       transform: translateX(-50%) scaleX(0); transform-origin: center;
-      width: 100%; height: 2px; background-color: #c68a1f;
+      width: 100%; height: 2px; background-color: #2e8b57; /* Changed from #c68a1f */
       transition: transform .4s ease;
     }
-    .nav-link:hover { color: #c68a1f; }
+    .nav-link:hover { color: #2e8b57; } /* Changed from #c68a1f */
     .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
     
     #mobile-menu a.nav-link {
@@ -42,18 +42,18 @@
       display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
     }
     #mobile-menu a.nav-link:hover {
-      background-color: #facc15; color: #000; border-color: #facc15;
+      background-color: #4CAF50; color: #fff; border-color: #4CAF50; /* Changed from #facc15 and color to white */
     }
     
     .social-icons a {
-      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: #f8e8b0;
+      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: #c8e6c9; /* Changed from #f8e8b0 to light green */
       transition: color .3s;
     }
-    .social-icons a:hover { color: #c68a1f; }
+    .social-icons a:hover { color: #2e8b57; } /* Changed from #c68a1f */
     
-    /* Updated Hero Section - TechPals Style with Yellow Gradient */
+    /* Updated Hero Section - Green Gradient */
     .hero-section {
-      background: linear-gradient(to right, #f8e8b0, #fef9e7); /* Left-to-right gradient in yellow tones */
+      background: linear-gradient(to right, #c8e6c9, #e8f5e9); /* Changed from yellow tones to green tones */
       color: #1f2937;
       padding: 10rem 0 18rem 0;
       position: relative;
@@ -64,10 +64,6 @@
       min-height: 80vh;
     }
     
-    .hero-section::before {
-      content: none;
-    }
-    
     /* Gradient overlay for transition to white */
     .hero-section::after {
       content: '';
@@ -75,8 +71,8 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 300px; /* Increased height for smoother transition */
-      background: linear-gradient(to bottom, rgba(254, 249, 231, 0), white 90%); /* More gradual fade to white */
+      height: 300px;
+      background: linear-gradient(to bottom, rgba(232, 245, 233, 0), white 90%); /* Changed to match green gradient */
       z-index: 1;
     }
     
@@ -115,7 +111,7 @@
     }
     
     .btn-primary {
-      background-color: #c68a1f;
+      background-color: #2e8b57; /* Changed from #c68a1f */
       color: white;
       padding: 0.75rem 2rem;
       border-radius: 9999px;
@@ -125,61 +121,17 @@
     }
     
     .btn-primary:hover {
-      background-color: #b57b1e;
+      background-color: #1b5e20; /* Changed from #b57b1e to darker green */
       transform: translateY(-3px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-    
-    .btn-secondary {
-      background-color: white;
-      color: #1f2937;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      display: inline-block;
-      border: 1px solid #e5e7eb;
-    }
-    
-    .btn-secondary:hover {
-      background-color: #f9fafb;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-    
-    .stats-section {
-      background-color: white;
-      padding: 3rem 0;
-      border-radius: 1rem;
-      margin-top: -8rem; /* Keep current positioning */
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-      position: relative;
-      z-index: 2;
     }
     
     .stat-number {
       font-size: 3rem;
       font-weight: 800;
-      color: #c68a1f;
+      color: #2e8b57; /* Changed from #c68a1f */
       margin-bottom: 0.5rem;
       line-height: 1;
-    }
-    
-    .stat-label {
-      font-size: 0.9rem;
-      color: #4b5563;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 500;
-    }
-    
-    .section-heading {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 2rem;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1f2937;
     }
     
     .section-heading::after {
@@ -190,7 +142,7 @@
       transform: translateX(-50%);
       width: 50px;
       height: 3px;
-      background-color: #c68a1f;
+      background-color: #2e8b57; /* Changed from #c68a1f */
     }
     
     .section-subheading {
@@ -230,8 +182,8 @@
     }
     
     .feature-icon {
-      background-color: #fef3c7;
-      color: #c68a1f;
+      background-color: #e8f5e9; /* Changed from #fef3c7 to light green */
+      color: #2e8b57; /* Changed from #c68a1f */
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -242,82 +194,19 @@
       font-size: 1.5rem;
     }
     
-    .feature-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-    
-    .feature-text {
-      color: #6b7280;
-      line-height: 1.6;
-    }
-    
-    .cta-section {
-      background-color: #1f2937;
-      color: white;
-      padding: 5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('nashua-hero.jpg');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.1;
-      z-index: 0;
-    }
-    
-    .cta-content {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .footer {
-      background-color: white;
-      padding: 3rem 0;
-      color: #4b5563;
-    }
-    
     .footer-title {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #c68a1f;
+      color: #2e8b57; /* Changed from #c68a1f */
       margin-bottom: 1rem;
     }
     
-    .footer-link {
-      color: #4b5563;
-      transition: color 0.3s ease;
-    }
-    
     .footer-link:hover {
-      color: #c68a1f;
-    }
-    
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #f3f4f6;
-      color: #4b5563;
-      margin-right: 0.5rem;
-      transition: all 0.3s ease;
+      color: #2e8b57; /* Changed from #c68a1f */
     }
     
     .footer-social a:hover {
-      background-color: #c68a1f;
+      background-color: #2e8b57; /* Changed from #c68a1f */
       color: white;
       transform: translateY(-3px);
     }
@@ -328,13 +217,11 @@
   <!-- Navbar -->
   <header id="navbar" class="bg-white p-6 fixed w-full z-50 navbar-visible shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
+      <h1 class="text-2xl font-bold text-green-600">EconEd</h1> <!-- Changed from text-yellow-600 -->
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
-        <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">        <a href="about.html"        class="nav-link">ABOUT US</a>
-        <!-- Removed Board of Directors link -->
+        <a href="index.html"        class="nav-link text-green-600">HOME</a> <!-- Changed from text-yellow-600 -->
+        <a href="about.html"        class="nav-link">ABOUT US</a>
         <a href="chapters.html"     class="nav-link">CHAPTERS</a>
-        
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -344,11 +231,9 @@
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
-      <a href="index.html"        class="nav-link text-yellow-600">HOME</a>
+      <a href="index.html"        class="nav-link text-green-600">HOME</a> <!-- Changed from text-yellow-600 -->
       <a href="about.html"        class="nav-link">ABOUT US</a>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <a href="chapters.html"     class="nav-link">CHAPTERS</a>
-   
     </div>
   </header>
 
