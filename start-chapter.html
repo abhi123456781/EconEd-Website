@@ -6,7 +6,6 @@
   <title>EconEd | Start a Chapter</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html { scroll-behavior: smooth; }
@@ -27,11 +26,11 @@
       transform-origin: center;
       height: 2px;
       width: 100%;
-      background-color: #c68a1f;
+      background-color: #2e8b57; /* Changed to green */
       transition: transform 0.4s ease;
     }
     .nav-link:hover {
-      color: #c68a1f;
+      color: #2e8b57; /* Changed to green */
     }
     .nav-link:hover::after {
       transform: translateX(-50%) scaleX(1);
@@ -45,24 +44,25 @@
       transition: all 0.3s ease-in-out;
     }
     #mobile-menu a.nav-link:hover {
-      background-color: #facc15;
-      color: #000;
-      border-color: #facc15;
+      background-color: #4CAF50; /* Changed to green */
+      color: #fff;
+      border-color: #4CAF50; /* Changed to green */
     }
     .social-icons a {
       display: inline-block;
       margin: 0 0.25rem;
       font-size: 1.25rem;
-      color: #f8e8b0;
+      color: #c8e6c9; /* Changed to light green */
       transition: color 0.3s;
     }
     .social-icons a:hover {
-      color: #c68a1f;
+      color: #2e8b57; /* Changed to green */
     }
     
-    /* Hero section styles */
+    /* Hero section styles - Green Gradient */
     .hero-section {
-      background: linear-gradient(135deg, #fef9e7 0%, #f8e8b0 100%);
+      background: linear-gradient(to right, #c8e6c9, #e8f5e9); /* Changed to green gradient */
+      color: #1f2937;
       padding: 120px 0 80px;
       position: relative;
       overflow: visible;
@@ -76,38 +76,8 @@
       left: 0;
       width: 100%;
       height: 100px;
-      background: linear-gradient(to bottom, rgba(254, 249, 231, 0), white);
+      background: linear-gradient(to bottom, rgba(232, 245, 233, 0), white); /* Changed to match green gradient */
       z-index: 1;
-    }
-    
-    .step-card {
-      border-left: 3px solid #f59e0b;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    
-    .step-card::before {
-      content: '';
-      position: absolute;
-      left: -9px;
-      top: 0;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: #f59e0b;
-    }
-    
-    .benefit-card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
   </style>
 </head>
@@ -117,12 +87,11 @@
   <!-- Navbar -->
   <header id="navbar" class="bg-white p-6 fixed w-full z-50 navbar-visible shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-yellow-600">EconEd</h1>
+      <h1 class="text-2xl font-bold text-green-600">EconEd</h1> <!-- Changed to green -->
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
         <a href="index.html"        class="nav-link">HOME</a>
         <a href="about.html"        class="nav-link">ABOUT US</a>
-        <a href="chapters.html"     class="nav-link text-yellow-600">CHAPTERS</a>
-       
+        <a href="chapters.html"     class="nav-link text-green-600">CHAPTERS</a> <!-- Changed to green -->
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,16 +103,15 @@
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
       <a href="index.html"        class="nav-link">HOME</a>
       <a href="about.html"        class="nav-link">ABOUT US</a>
-      <a href="chapters.html"     class="nav-link text-yellow-600">CHAPTERS</a>
-     
+      <a href="chapters.html"     class="nav-link text-green-600">CHAPTERS</a> <!-- Changed to green -->
     </div>
   </header>
 
   <!-- Floating social icons -->
   <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
-    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.tiktok.com/@the_elevation_project" target="_blank"><i class="fab fa-tiktok"></i></a>
     <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/econ.ed/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
@@ -157,237 +125,11 @@
     </div>
   </section>
 
-  <!-- Success Stories Section -->
-  <section class="py-16 px-4 bg-white">
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="section-heading text-center">Success Stories</h2>
-      <p class="section-subheading text-center">
-        Bring EconEd to your community and help empower students with economic literacy and financial education skills.
-      </p>
-    </div>
-  </section>
-
-  <!-- How to Start a Chapter Section -->
-  <section class="py-16 px-4 bg-white">
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="section-heading text-center">How to Start a Chapter</h2>
-      
-      <div class="space-y-12">
-        <!-- Step 1 -->
-        <div class="step-card">
-          <h3 class="text-2xl font-bold mb-3">1. Build Your Team</h3>
-          <p class="text-gray-700">
-            Gather a core team of 3-5 committed volunteers who share your passion for economic education. Look for people with diverse skills, including economic knowledge, teaching experience, and organizational abilities.
-          </p>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="step-card">
-          <h3 class="text-2xl font-bold mb-3">2. Identify Venues</h3>
-          <p class="text-gray-700">
-            Find suitable locations for your workshops and events. Schools, libraries, community centers, and religious institutions often have spaces available for educational programs. Look for venues that are accessible and can accommodate your planned activities.
-          </p>
-        </div>
-        
-        <!-- Step 3 -->
-        <div class="step-card">
-          <h3 class="text-2xl font-bold mb-3">3. Build Local Partnerships</h3>
-          <p class="text-gray-700">
-            Connect with organizations in your community, such as schools, youth centers, and local businesses. These partnerships can help you reach students who would benefit from your programs and potentially provide resources or support.
-          </p>
-        </div>
-        
-        <!-- Step 4 -->
-        <div class="step-card">
-          <h3 class="text-2xl font-bold mb-3">4. Contact EconEd Headquarters</h3>
-          <p class="text-gray-700">
-            Reach out to us to officially register your chapter. We'll provide you with our Chapter Starter Kit, which includes curriculum materials, training resources, branding guidelines, and administrative support to help you get started.
-          </p>
-        </div>
-        
-        <!-- Step 5 -->
-        <div class="step-card">
-          <h3 class="text-2xl font-bold mb-3">5. Launch Your Chapter</h3>
-          <p class="text-gray-700">
-            Plan and host your first event or workshop. Start small and focus on quality over quantity. Gather feedback from participants and volunteers to continuously improve your programs.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- What We Provide Section - TechPals Style -->
-  <section class="py-16 px-4 bg-yellow-50 rounded-xl mx-4 md:mx-8 my-12">
-    <div class="container mx-auto max-w-6xl">
-      <h2 class="section-heading text-center">What We Provide</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="flex items-start gap-3">
-          <div class="text-yellow-500 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg">Comprehensive curriculum materials</h3>
-            <p class="text-gray-600">Access to our proven economic and financial literacy curriculum, lesson plans, and teaching resources.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3">
-          <div class="text-yellow-500 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg">Training for chapter leaders and volunteers</h3>
-            <p class="text-gray-600">Guidance on how to effectively teach economic concepts and manage your chapter operations.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3">
-          <div class="text-yellow-500 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg">Branding and marketing materials</h3>
-            <p class="text-gray-600">Professional logos, templates, and promotional materials to establish your chapter's presence.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3">
-          <div class="text-yellow-500 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg">Administrative and operational guidance</h3>
-            <p class="text-gray-600">Support for setting up and managing your chapter, including best practices for volunteer management.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3">
-          <div class="text-yellow-500 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg">Connection to our national network of chapters</h3>
-            <p class="text-gray-600">Join our community of chapter leaders to share ideas, resources, and success stories.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3">
-          <div class="text-yellow-500 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg">Ongoing support and resources</h3>
-            <p class="text-gray-600">Regular check-ins, troubleshooting assistance, and continuous improvement of resources.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Ready to Get Started Section - TechPals Style -->
-  <section class="py-16 px-4 bg-white">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="section-heading">Ready to Get Started?</h2>
-      <p class="text-lg text-gray-600 mb-8">
-        Send us an email to begin the process of creating an EconEd chapter in your community.
-      </p>
-      <a href="mailto:theelevationproject@gmail.com" class="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-        Email theelevationproject@gmail.com
-      </a>
-    </div>
-  </section>
-  
-  <!-- FAQ Section -->
-  <section class="py-16 px-4 bg-gray-50">
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="section-heading text-center">Frequently Asked Questions</h2>
-      
-      <div class="space-y-8">
-        <!-- FAQ 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold mb-3">How much time does it take to run a chapter?</h3>
-          <p class="text-gray-700">
-            The time commitment varies depending on the size and frequency of your programs. Most chapter leaders spend 5-10 hours per week on chapter activities, including planning, coordination, and teaching.
-          </p>
-        </div>
-        
-        <!-- FAQ 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold mb-3">Is there a cost to start a chapter?</h3>
-          <p class="text-gray-700">
-            There is no fee to start an EconEd chapter. We provide the curriculum and materials at no cost. Chapters are responsible for securing their own venues and equipment, though many find partners who donate these resources.
-          </p>
-        </div>
-        
-        <!-- FAQ 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold mb-3">How many volunteers do I need?</h3>
-          <p class="text-gray-700">
-            We recommend starting with at least 3-5 core volunteers. As your chapter grows, you may want to recruit more volunteers to accommodate more participants and offer more programs.
-          </p>
-        </div>
-        
-        <!-- FAQ 4 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold mb-3">Do I need economics expertise to start a chapter?</h3>
-          <p class="text-gray-700">
-            While some economic knowledge is helpful, it's not required for all chapter leaders. What's most important is organizational ability, passion for the mission, and the ability to recruit volunteers with the necessary skills.
-          </p>
-        </div>
-        <!-- FAQ 5 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold mb-3">How much time does it take to run a chapter?</h3>
-          <p class="text-gray-700">
-            The time commitment varies depending on the size and frequency of your programs. Most chapter leaders spend 5-10 hours per week on chapter activities, including planning, coordination, and teaching.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Join Our Chapter Network Section -->
-  <section class="py-16 px-4 bg-white">
-    <div class="container mx-auto max-w-6xl">
-      <div class="flex flex-col md:flex-row items-center gap-8">
-        <div class="md:w-1/2">
-          <h2 class="section-heading">Join Our Chapter Network</h2>
-          <p class="text-lg text-gray-700 mb-8">
-            Be part of our growing network of chapters making a difference in communities across the country.
-          </p>
-          <a href="chapters.html" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-full transition">
-            See Our Existing Chapters
-          </a>
-        </div>
-        <div class="md:w-1/2">
-          <div class="rounded-2xl overflow-hidden shadow-lg">
-            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5" alt="Students giving thumbs up" class="w-full h-auto">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="bg-white text-black py-6 px-4 text-center border-t">
     <p class="mb-1">
       📧 Email:
-      <a href="mailto:theelevationproject@gmail.com" class="underline text-blue-500">
+      <a href="mailto:theelevationproject@gmail.com" class="underline text-green-500"> <!-- Changed to green -->
         theelevationproject@gmail.com
       </a>
     </p>
@@ -415,135 +157,5 @@
       });
     });
   </script>
-</body>
-</html>
-
-<style>
-    .section-heading {
-      font-size: 2.5rem; /* Increased from default size */
-      font-weight: 700;
-      position: relative;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      display: inline-block;
-    }
-    
-    .section-heading::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
-      background-color: #c68a1f; /* Match the yellow theme of this page */
-    }
-    
-    .section-subheading {
-      font-size: 1.1rem;
-      color: #4b5563;
-      max-width: 700px;
-      margin: 0 auto 3rem auto;
-      line-height: 1.6;
-    }
-    
-    .nav-link {
-      position: relative;
-      padding-bottom: 4px;
-      color: inherit;
-      transition: color 0.3s;
-    }
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%) scaleX(0);
-      transform-origin: center;
-      height: 2px;
-      width: 100%;
-      background-color: #c68a1f;
-      transition: transform 0.4s ease;
-    }
-    .nav-link:hover {
-      color: #c68a1f;
-    }
-    .nav-link:hover::after {
-      transform: translateX(-50%) scaleX(1);
-    }
-    #mobile-menu a.nav-link {
-      padding: 0.5rem 1rem;
-      border: 2px solid transparent;
-      border-radius: 0.5rem;
-      display: inline-block;
-      margin: 0.25rem 0;
-      transition: all 0.3s ease-in-out;
-    }
-    #mobile-menu a.nav-link:hover {
-      background-color: #facc15;
-      color: #000;
-      border-color: #facc15;
-    }
-    .social-icons a {
-      display: inline-block;
-      margin: 0 0.25rem;
-      font-size: 1.25rem;
-      color: #f8e8b0;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #c68a1f;
-    }
-    
-    /* Hero section styles */
-    .hero-section {
-      background: linear-gradient(135deg, #fef9e7 0%, #f8e8b0 100%);
-      padding: 120px 0 80px;
-      position: relative;
-      overflow: visible;
-    }
-    
-    /* Gradient overlay for transition to white */
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100px;
-      background: linear-gradient(to bottom, rgba(254, 249, 231, 0), white);
-      z-index: 1;
-    }
-    
-    .step-card {
-      border-left: 3px solid #f59e0b;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    
-    .step-card::before {
-      content: '';
-      position: absolute;
-      left: -9px;
-      top: 0;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: #f59e0b;
-    }
-    
-    .benefit-card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-  </style>
 </body>
 </html>
