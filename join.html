@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EconEd | Join Us</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    .navbar-hidden { transform: translateY(-100%); transition: transform 0.3s ease-in-out; }
+    .navbar-visible { transform: translateY(0); transition: transform 0.3s ease-in-out; }
+    .nav-link {
+      position: relative;
+      padding-bottom: 4px;
+      color: inherit;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      height: 2px;
+      width: 100%;
+      background-color: #2e8b57; /* Green underline */
+      transition: transform 0.4s ease;
+    }
+    .nav-link:hover {
+      color: #2e8b57; /* Green text on hover */
+    }
+    .nav-link:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+    #mobile-menu a.nav-link {
+      padding: 0.5rem 1rem;
+      border: 2px solid transparent;
+      border-radius: 0.5rem;
+      display: inline-block;
+      margin: 0.25rem 0;
+      transition: all 0.3s ease-in-out;
+    }
+    #mobile-menu a.nav-link:hover {
+      background-color: #4CAF50; /* Green background on hover */
+      color: #fff;
+      border-color: #4CAF50;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin: 0 0.25rem;
+      font-size: 1.25rem;
+      color: #c8e6c9; /* Light green */
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #2e8b57; /* Green on hover */
+    }
+    
+    /* Hero section styles - Green Gradient */
+    .hero-section {
+      background: linear-gradient(to right, #c8e6c9, #e8f5e9); /* Green gradient */
+      color: #1f2937;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: visible;
+    }
+    
+    /* Gradient overlay for transition to white */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(232, 245, 233, 0), white);
+      z-index: 1;
+    }
+
+    .section-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .section-heading::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: #2e8b57;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Navbar -->
+  <header id="navbar" class="bg-white p-6 fixed w-full z-50 navbar-visible shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-green-600">EconEd</h1>
+      <div class="hidden md:flex space-x-10 text-sm font-semibold">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT US</a>
+        <a href="chapters.html" class="nav-link">CHAPTERS</a>
+        <a href="join.html" class="nav-link text-green-600">JOIN US</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="about.html" class="nav-link">ABOUT US</a>
+      <a href="chapters.html" class="nav-link">CHAPTERS</a>
+      <a href="join.html" class="nav-link text-green-600">JOIN US</a>
+    </div>
+  </header>
+
+  <!-- Floating social icons -->
+  <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
+    <a href="https://www.tiktok.com/@the_elevation_project" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/econ.ed/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Join EconEd</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Become part of our mission to empower students with economic literacy and financial education skills.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-black py-6 px-4 text-center border-t">
+    <p class="mb-1">
+      📧 Email:
+      <a href="mailto:theelevationproject@gmail.com" class="underline text-green-500">
+        theelevationproject@gmail.com
+      </a>
+    </p>
+    <p class="mb-1">📞 Karthik: (603) 852‑9473 | Steve: (978) 566‑4416</p>
+    <p class="text-sm text-gray-500 mt-2">&copy; 2025 EconEd. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800, offset: 100 });
+      const navbar = document.getElementById("navbar");
+      let lastY = window.scrollY;
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > lastY) {
+          navbar.classList.replace("navbar-visible","navbar-hidden");
+        } else {
+          navbar.classList.replace("navbar-hidden","navbar-visible");
+        }
+        lastY = window.scrollY;
+      });
+      document.getElementById("menu-toggle").addEventListener("click", () => {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      });
+    });
+  </script>
+</body>
+</html>
