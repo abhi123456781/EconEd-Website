@@ -198,8 +198,8 @@
   <!-- Hero Section - About Us Style -->
   <section class="hero-section">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="about-hero-title">Our Chapters</h1>
-      <p class="about-hero-subtitle">
+      <h1 class="about-hero-title" data-aos="fade-up">Our Chapters</h1>
+      <p class="about-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
         EconEd is expanding across the country through student-led chapters dedicated to promoting economic literacy and financial education in their communities.
       </p>
     </div>
@@ -208,14 +208,14 @@
   <!-- Chapters Section - Grid Style with City Images -->
   <section class="py-16 px-4 bg-white">
     <div class="container mx-auto max-w-6xl">
-      <div class="text-center mb-12">
+      <div class="text-center mb-12" data-aos="fade-up">
         <h2 class="text-3xl font-bold mb-4">Current Chapters</h2>
         <p class="text-lg text-gray-700 max-w-3xl mx-auto">
           Our chapters are led by passionate student leaders who organize workshops, tutoring sessions, and community events to promote economic education.
         </p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="200">
         <!-- Nashua Chapter -->
         <div class="chapter-card">
           <div class="relative overflow-hidden" style="height: 200px;">
@@ -319,7 +319,12 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800, offset: 100 });
+      AOS.init({ 
+        duration: 800,
+        offset: 100,
+        once: true,
+        easing: 'ease-in-out'
+      });
       const navbar = document.getElementById("navbar");
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {

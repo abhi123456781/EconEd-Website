@@ -126,8 +126,8 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="about-hero-title">About EconEd</h1>
-      <p class="about-hero-subtitle">
+      <h1 class="about-hero-title" data-aos="fade-up">About EconEd</h1>
+      <p class="about-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
         We're on a mission to make economic education accessible to all students.
       </p>
     </div>
@@ -249,7 +249,14 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ 
+        duration: 800,
+        offset: 100,
+        once: true,
+        easing: 'ease-in-out'
+      });
+    });
     // Navbar Scroll
     let lastScrollTop = 0;
     const navbar = document.getElementById('navbar');
