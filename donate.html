@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EconEd | Join Us</title>
+  <title>EconEd | Donate</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -99,6 +99,52 @@
       height: 3px;
       background-color: #2e8b57;
     }
+    
+    .impact-card {
+      background-color: white;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .impact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #e8f5e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .icon-circle i {
+      font-size: 24px;
+      color: #4CAF50;
+    }
+    
+    .donate-button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .donate-button:hover {
+      background-color: #2e8b57;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 
@@ -142,10 +188,57 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold text-gray-800 mb-4">Join EconEd</h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Become part of our mission to empower students with economic literacy and financial education skills.
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Support Our Mission</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        Your donation helps us empower students with the financial literacy skills they need to thrive in today's connected world.
       </p>
+      <a href="https://hcb.hackclub.com/donations/start/econed-27b75e75-bc2b-4efd-ad9c-eecfaf413e2e" class="donate-button">
+        Donate Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Your Impact Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="section-heading">Your Impact</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Impact Card 1 -->
+        <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon-circle">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-3 text-gray-800">Reach More Students</h3>
+          <p class="text-gray-600 text-center">
+            Your donation helps us expand our programs to more communities, reaching students who might otherwise be left behind in the digital age.
+          </p>
+        </div>
+        
+        <!-- Impact Card 2 -->
+        <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon-circle">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-3 text-gray-800">Provide Resources</h3>
+          <p class="text-gray-600 text-center">
+            We use donations to develop curriculum materials, provide technology resources, and create accessible learning environments for students.
+          </p>
+        </div>
+        
+        <!-- Impact Card 3 -->
+        <div class="impact-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon-circle">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-3 text-gray-800">Sustain Programs</h3>
+          <p class="text-gray-600 text-center">
+            Your support ensures the sustainability of our programs, allowing us to provide ongoing support to students as they navigate the financial world.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
