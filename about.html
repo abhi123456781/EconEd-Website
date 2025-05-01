@@ -115,11 +115,19 @@
   </header>
 
   <!-- Social Icons -->
-  <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
-    <a href="https://www.tiktok.com/@the_elevation_project" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.instagram.com/econ.ed/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <div class="fixed bottom-4 left-4 z-50 flex flex-col gap-3">
+    <a href="https://www.tiktok.com/@the_elevation_project" target="_blank" class="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-10 h-10">
+      <i class="fab fa-tiktok text-black"></i>
+    </a>
+    <a href="#" target="_blank" class="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-10 h-10">
+      <i class="fab fa-youtube text-red-600"></i>
+    </a>
+    <a href="https://www.instagram.com/econ.ed/" target="_blank" class="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-10 h-10">
+      <i class="fab fa-instagram text-pink-600"></i>
+    </a>
+    <a href="#" target="_blank" class="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-10 h-10">
+      <i class="fab fa-linkedin text-blue-600"></i>
+    </a>
   </div>
 
   <!-- Hero Section -->
@@ -281,3 +289,26 @@
   
 </body>
 </html>
+<style>
+  /* Social Icons Styling */
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .social-icons i {
+    font-size: 1.25rem;
+  }
+</style>
