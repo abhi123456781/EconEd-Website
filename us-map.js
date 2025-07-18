@@ -62,27 +62,28 @@ document.addEventListener('DOMContentLoaded', function() {
       mapContainer.style.backgroundSize = 'contain';
       mapContainer.style.backgroundPosition = 'center';
       mapContainer.style.backgroundRepeat = 'no-repeat';
+      mapContainer.style.border = 'none'; // Ensure no border is applied
       
-      // Corrected positions for each state based on the image (normalized coordinates from 0-1)
+      // Corrected positions for each state based on the latest image (normalized coordinates from 0-1)
       const statePositions = {
-        'NH': { x: 0.875, y: 0.18 },  // New Hampshire
-        'MA': { x: 0.865, y: 0.21 },  // Massachusetts
-        'ME': { x: 0.895, y: 0.14 },  // Maine
-        'PA': { x: 0.805, y: 0.28 },  // Pennsylvania
-        'CT': { x: 0.855, y: 0.23 },  // Connecticut
-        'NY': { x: 0.825, y: 0.21 },  // New York
-        'NC': { x: 0.795, y: 0.42 },  // North Carolina
-        'VA': { x: 0.795, y: 0.36 },  // Virginia
-        'FL': { x: 0.755, y: 0.72 },  // Florida
-        'GA': { x: 0.745, y: 0.50 },  // Georgia
-        'OH': { x: 0.735, y: 0.30 },  // Ohio
-        'MI': { x: 0.695, y: 0.23 },  // Michigan
-        'SC': { x: 0.775, y: 0.46 },  // South Carolina
-        'NE': { x: 0.485, y: 0.30 },  // Nebraska
-        'CA': { x: 0.10, y: 0.32 },   // California
-        'TX': { x: 0.45, y: 0.62 },   // Texas
-        'NJ': { x: 0.845, y: 0.27 },  // New Jersey
-        'DE': { x: 0.835, y: 0.31 }   // Delaware
+        'NH': { x: 0.875, y: 0.135 },  // New Hampshire
+        'MA': { x: 0.865, y: 0.165 },  // Massachusetts
+        'ME': { x: 0.895, y: 0.105 },  // Maine
+        'PA': { x: 0.805, y: 0.235 },  // Pennsylvania
+        'CT': { x: 0.855, y: 0.185 },  // Connecticut
+        'NY': { x: 0.825, y: 0.175 },  // New York
+        'NC': { x: 0.795, y: 0.385 },  // North Carolina
+        'VA': { x: 0.795, y: 0.325 },  // Virginia
+        'FL': { x: 0.755, y: 0.685 },  // Florida
+        'GA': { x: 0.745, y: 0.465 },  // Georgia
+        'OH': { x: 0.735, y: 0.265 },  // Ohio
+        'MI': { x: 0.695, y: 0.195 },  // Michigan
+        'SC': { x: 0.775, y: 0.425 },  // South Carolina
+        'NE': { x: 0.485, y: 0.265 },  // Nebraska
+        'CA': { x: 0.10, y: 0.285 },   // California
+        'TX': { x: 0.45, y: 0.585 },   // Texas
+        'NJ': { x: 0.845, y: 0.235 },  // New Jersey
+        'DE': { x: 0.835, y: 0.275 }   // Delaware
       };
       
       // Create a div to hold the pins
