@@ -33,17 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     img.onload = function() {
       console.log('SVG image loaded successfully');
       
-      // Create a canvas to draw the image (this is just to verify it loaded)
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      
-      // Since we can't directly access the SVG content due to CORS,
-      // we'll use the existing SVG element and style it
-      placeholder.setAttribute('width', '100%');
-      placeholder.setAttribute('height', '100%');
+      // Remove the empty SVG element since we're using a background image
+      const placeholder = document.getElementById('us-map');
+      if (placeholder) {
+        placeholder.remove();
+      }
       
       // Set a background image on the container instead
       mapContainer.style.backgroundImage = `url(${img.src})`;
@@ -77,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
       pinsContainer.style.width = '100%';
       pinsContainer.style.height = '100%';
       pinsContainer.style.pointerEvents = 'none';
+      pinsContainer.style.zIndex = '5'; // Make sure this is higher than the map image
       mapContainer.appendChild(pinsContainer);
       
       // Add pins for states with chapters
