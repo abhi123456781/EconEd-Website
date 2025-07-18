@@ -1,13 +1,31 @@
 // Chapter data - state abbreviations and chapter information
 const chapters = [
-  { state: 'NH', schools: ['Nashua High School South', 'Bedford High School', 'Hollis-Brookline High School', 'Academy for Science and Design', 'Windham High School'], location: 'New Hampshire' },
-  { state: 'MA', schools: ['Acton-Boxborough Regional High School', 'Lexington High School', 'Grafton High School'], location: 'Massachusetts' },
-  { state: 'CT', schools: ['Plainville High School', 'Trumbull High School'], location: 'Connecticut' },
-  { state: 'TX', schools: ['Wilson High School'], location: 'Dallas, TX' },
-  { state: 'GA', schools: ['Discovery High School'], location: 'Lawrenceville, GA' },
-  { state: 'NE', schools: ['Elkhorn North High School'], location: 'Omaha, NE' },
-  { state: 'FL', schools: ['Allen D. Nease High School', 'Tocoi Creek High School'], location: 'Florida' },
-  { state: 'WA', schools: ['Lincoln High School'], location: 'Tacoma, WA' }
+  // US States
+  { state: 'NH', location: 'New Hampshire' },
+  { state: 'MA', location: 'Massachusetts' },
+  { state: 'ME', location: 'Maine' },
+  { state: 'PA', location: 'Pennsylvania' },
+  { state: 'CT', location: 'Connecticut' },
+  { state: 'NY', location: 'New York' },
+  { state: 'NC', location: 'North Carolina' },
+  { state: 'VA', location: 'Virginia' },
+  { state: 'FL', location: 'Florida' },
+  { state: 'GA', location: 'Georgia' },
+  { state: 'OH', location: 'Ohio' },
+  { state: 'MI', location: 'Michigan' },
+  { state: 'SC', location: 'South Carolina' },
+  { state: 'NE', location: 'Nebraska' },
+  { state: 'CA', location: 'California' },
+  { state: 'TX', location: 'Texas' },
+  { state: 'NJ', location: 'New Jersey' },
+  { state: 'DE', location: 'Delaware' }
+];
+
+// International chapters (will be displayed separately)
+const internationalChapters = [
+  { country: 'Canada', region: 'Ontario' },
+  { country: 'India', region: 'India' },
+  { country: 'UAE', region: 'United Arab Emirates' }
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -45,22 +63,26 @@ document.addEventListener('DOMContentLoaded', function() {
       mapContainer.style.backgroundPosition = 'center';
       mapContainer.style.backgroundRepeat = 'no-repeat';
       
-      // Add pins for states with chapters
-      // Note: Since we can't access the SVG content directly,
-      // we'll need to use approximate positions for the pins
-      const mapWidth = mapContainer.offsetWidth;
-      const mapHeight = mapContainer.offsetHeight;
-      
       // Approximate positions for each state (normalized coordinates from 0-1)
       const statePositions = {
         'NH': { x: 0.86, y: 0.18 },
         'MA': { x: 0.87, y: 0.20 },
+        'ME': { x: 0.89, y: 0.15 },
+        'PA': { x: 0.80, y: 0.28 },
         'CT': { x: 0.85, y: 0.22 },
-        'TX': { x: 0.42, y: 0.68 },
-        'GA': { x: 0.70, y: 0.60 },
-        'NE': { x: 0.45, y: 0.35 },
+        'NY': { x: 0.82, y: 0.20 },
+        'NC': { x: 0.78, y: 0.45 },
+        'VA': { x: 0.80, y: 0.38 },
         'FL': { x: 0.75, y: 0.75 },
-        'WA': { x: 0.15, y: 0.12 }
+        'GA': { x: 0.70, y: 0.60 },
+        'OH': { x: 0.70, y: 0.32 },
+        'MI': { x: 0.65, y: 0.25 },
+        'SC': { x: 0.75, y: 0.52 },
+        'NE': { x: 0.45, y: 0.35 },
+        'CA': { x: 0.10, y: 0.35 },
+        'TX': { x: 0.42, y: 0.68 },
+        'NJ': { x: 0.84, y: 0.26 },
+        'DE': { x: 0.83, y: 0.30 }
       };
       
       // Create a div to hold the pins
@@ -97,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
           pin.style.pointerEvents = 'auto';
           pin.style.cursor = 'pointer';
           pin.style.zIndex = '10';
-          pin.setAttribute('data-schools', chapter.schools.join(', '));
           pin.setAttribute('data-location', chapter.location);
           
           // Add hover effect for pins
@@ -111,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const infoTitle = document.getElementById('info-title');
             const infoLocation = document.getElementById('info-location');
             
-            infoTitle.textContent = this.getAttribute('data-schools');
+            infoTitle.textContent = 'EconEd Chapter';
             infoLocation.textContent = this.getAttribute('data-location');
             
             // Position info box near the mouse
@@ -138,6 +159,24 @@ document.addEventListener('DOMContentLoaded', function() {
           console.warn('Position not found for state:', chapter.state);
         }
       });
+      
+      // Add international chapters section below the map
+      const internationalSection = document.createElement('div');
+      internationalSection.className = 'mt-8';
+      internationalSection.innerHTML = `
+        <h3 class="text-xl font-bold text-center mb-4">International Chapters</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+          ${internationalChapters.map(chapter => `
+            <div class="bg-white p-4 rounded-lg shadow border border-green-500">
+              <h4 class="font-bold">${chapter.country}</h4>
+              <p class="text-sm text-gray-600">${chapter.region}</p>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      
+      // Insert the international section after the map container
+      mapContainer.parentNode.insertBefore(internationalSection, mapContainer.nextSibling);
     };
     
     img.onerror = function() {
