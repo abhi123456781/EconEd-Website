@@ -15,8 +15,17 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch('us-map.svg')
     .then(response => response.text())
     .then(svgData => {
-      // Insert the SVG data
-      document.getElementById('us-map').outerHTML = svgData;
+      // Parse the SVG data to a DOM object
+      const parser = new DOMParser();
+      const svgDoc = parser.parseFromString(svgData, 'image/svg+xml');
+      const svgElement = svgDoc.documentElement;
+      
+      // Set the ID to us-map to ensure we can find it later
+      svgElement.id = 'us-map';
+      
+      // Replace the placeholder SVG with the loaded SVG
+      const placeholder = document.getElementById('us-map');
+      placeholder.parentNode.replaceChild(svgElement, placeholder);
       
       // Get the map element after it's been inserted
       const map = document.getElementById('us-map');
