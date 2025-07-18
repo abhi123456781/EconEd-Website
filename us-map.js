@@ -11,7 +11,7 @@ const chapters = [
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM loaded, attempting to fetch SVG map');
+  console.log('DOM loaded, attempting to load SVG map');
   const mapContainer = document.getElementById('map-container');
   
   if (!mapContainer) {
@@ -19,147 +19,138 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
   
-  // Fetch the US map SVG file
-  fetch('us-map.svg')
-    .then(response => {
-      console.log('SVG fetch response status:', response.status);
-      if (!response.ok) {
-        throw new Error(`Failed to load SVG: ${response.status} ${response.statusText}`);
-      }
-      return response.text();
-    })
-    .then(svgData => {
-      console.log('SVG data received, length:', svgData.length);
+  // Instead of using fetch, use XMLHttpRequest with responseType="document"
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'us-map.svg', true);
+  xhr.responseType = 'document';
+  
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      console.log('SVG loaded successfully');
+      const svgElement = xhr.responseXML.documentElement;
       
-      try {
-        // Parse the SVG data to a DOM object
-        const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svgData, 'image/svg+xml');
+      // Set the ID to us-map to ensure we can find it later
+      svgElement.id = 'us-map';
+      
+      // Replace the placeholder SVG with the loaded SVG
+      const placeholder = document.getElementById('us-map');
+      if (!placeholder) {
+        console.error('Placeholder SVG element not found');
+        mapContainer.innerHTML = '<p class="text-center text-red-500">Error: SVG placeholder not found. Please refresh the page.</p>';
+        return;
+      }
+      
+      placeholder.parentNode.replaceChild(svgElement, placeholder);
+      
+      // Get the map element after it's been inserted
+      const map = document.getElementById('us-map');
+      if (!map) {
+        console.error('Map element not found after insertion');
+        mapContainer.innerHTML = '<p class="text-center text-red-500">Error: Map element not found after insertion. Please refresh the page.</p>';
+        return;
+      }
+      
+      console.log('Map inserted successfully');
+      
+      // Style the states
+      const states = map.querySelectorAll('path');
+      console.log('Number of state paths found:', states.length);
+      
+      states.forEach(state => {
+        // Default styling
+        state.setAttribute('fill', '#e5e7eb'); // Light gray
+        state.setAttribute('stroke', '#ffffff');
+        state.setAttribute('stroke-width', '1');
         
-        // Check for parsing errors
-        const parserError = svgDoc.querySelector('parsererror');
-        if (parserError) {
-          throw new Error('SVG parsing error: ' + parserError.textContent);
-        }
-        
-        const svgElement = svgDoc.documentElement;
-        console.log('SVG element tag name:', svgElement.tagName);
-        
-        // Set the ID to us-map to ensure we can find it later
-        svgElement.id = 'us-map';
-        
-        // Replace the placeholder SVG with the loaded SVG
-        const placeholder = document.getElementById('us-map');
-        if (!placeholder) {
-          throw new Error('Placeholder SVG element not found');
-        }
-        
-        placeholder.parentNode.replaceChild(svgElement, placeholder);
-        
-        // Get the map element after it's been inserted
-        const map = document.getElementById('us-map');
-        if (!map) {
-          throw new Error('Map element not found after insertion');
-        }
-        
-        console.log('Map inserted successfully');
-        
-        // Style the states
-        const states = map.querySelectorAll('path');
-        console.log('Number of state paths found:', states.length);
-        
-        states.forEach(state => {
-          // Default styling
-          state.setAttribute('fill', '#e5e7eb'); // Light gray
-          state.setAttribute('stroke', '#ffffff');
-          state.setAttribute('stroke-width', '1');
-          
-          // Add hover effect
-          state.addEventListener('mouseover', function() {
-            if (!this.classList.contains('has-chapter')) {
-              this.setAttribute('fill', '#d1d5db'); // Darker gray on hover
-            }
-          });
-          
-          state.addEventListener('mouseout', function() {
-            if (!this.classList.contains('has-chapter')) {
-              this.setAttribute('fill', '#e5e7eb'); // Back to light gray
-            }
-          });
-        });
-        
-        // Add pins for states with chapters
-        chapters.forEach(chapter => {
-          console.log('Processing chapter for state:', chapter.state);
-          const stateElement = document.getElementById(chapter.state);
-          
-          if (stateElement) {
-            console.log('Found state element for:', chapter.state);
-            // Mark state as having a chapter
-            stateElement.classList.add('has-chapter');
-            stateElement.setAttribute('fill', '#c8e6c9'); // Light green background
-            
-            // Get state's bounding box to position the pin
-            const bbox = stateElement.getBBox();
-            const pinX = bbox.x + bbox.width/2;
-            const pinY = bbox.y + bbox.height/2;
-            
-            // Create pin
-            const pin = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            pin.setAttribute('cx', pinX);
-            pin.setAttribute('cy', pinY);
-            pin.setAttribute('r', '5');
-            pin.setAttribute('fill', '#2e8b57'); // Green pin
-            pin.setAttribute('stroke', '#ffffff');
-            pin.setAttribute('stroke-width', '1');
-            pin.setAttribute('class', 'chapter-pin');
-            pin.setAttribute('data-schools', chapter.schools.join(', '));
-            pin.setAttribute('data-location', chapter.location);
-            
-            // Add hover effect for pins
-            pin.addEventListener('mouseover', function(e) {
-              // Enlarge pin on hover
-              this.setAttribute('r', '7');
-              
-              // Show info box
-              const infoBox = document.getElementById('chapter-info');
-              const infoTitle = document.getElementById('info-title');
-              const infoLocation = document.getElementById('info-location');
-              
-              infoTitle.textContent = this.getAttribute('data-schools');
-              infoLocation.textContent = this.getAttribute('data-location');
-              
-              // Position info box near the mouse
-              const mapContainer = document.getElementById('map-container');
-              const mapRect = mapContainer.getBoundingClientRect();
-              const mouseX = e.clientX - mapRect.left;
-              const mouseY = e.clientY - mapRect.top;
-              
-              infoBox.style.left = `${mouseX + 15}px`;
-              infoBox.style.top = `${mouseY + 15}px`;
-              infoBox.classList.remove('hidden');
-            });
-            
-            pin.addEventListener('mouseout', function() {
-              // Restore pin size
-              this.setAttribute('r', '5');
-              
-              // Hide info box
-              document.getElementById('chapter-info').classList.add('hidden');
-            });
-            
-            map.appendChild(pin);
-          } else {
-            console.warn('State element not found for:', chapter.state);
+        // Add hover effect
+        state.addEventListener('mouseover', function() {
+          if (!this.classList.contains('has-chapter')) {
+            this.setAttribute('fill', '#d1d5db'); // Darker gray on hover
           }
         });
-      } catch (err) {
-        console.error('Error processing SVG:', err);
-        mapContainer.innerHTML = `<p class="text-center text-red-500">Error processing the map: ${err.message}. Please refresh the page.</p>`;
-      }
-    })
-    .catch(error => {
-      console.error('Error loading the SVG map:', error);
-      mapContainer.innerHTML = `<p class="text-center text-red-500">Error loading the map: ${error.message}. Please refresh the page.</p>`;
-    });
+        
+        state.addEventListener('mouseout', function() {
+          if (!this.classList.contains('has-chapter')) {
+            this.setAttribute('fill', '#e5e7eb'); // Back to light gray
+          }
+        });
+      });
+      
+      // Add pins for states with chapters
+      chapters.forEach(chapter => {
+        console.log('Processing chapter for state:', chapter.state);
+        const stateElement = document.getElementById(chapter.state);
+        
+        if (stateElement) {
+          console.log('Found state element for:', chapter.state);
+          // Mark state as having a chapter
+          stateElement.classList.add('has-chapter');
+          stateElement.setAttribute('fill', '#c8e6c9'); // Light green background
+          
+          // Get state's bounding box to position the pin
+          const bbox = stateElement.getBBox();
+          const pinX = bbox.x + bbox.width/2;
+          const pinY = bbox.y + bbox.height/2;
+          
+          // Create pin
+          const pin = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          pin.setAttribute('cx', pinX);
+          pin.setAttribute('cy', pinY);
+          pin.setAttribute('r', '5');
+          pin.setAttribute('fill', '#2e8b57'); // Green pin
+          pin.setAttribute('stroke', '#ffffff');
+          pin.setAttribute('stroke-width', '1');
+          pin.setAttribute('class', 'chapter-pin');
+          pin.setAttribute('data-schools', chapter.schools.join(', '));
+          pin.setAttribute('data-location', chapter.location);
+          
+          // Add hover effect for pins
+          pin.addEventListener('mouseover', function(e) {
+            // Enlarge pin on hover
+            this.setAttribute('r', '7');
+            
+            // Show info box
+            const infoBox = document.getElementById('chapter-info');
+            const infoTitle = document.getElementById('info-title');
+            const infoLocation = document.getElementById('info-location');
+            
+            infoTitle.textContent = this.getAttribute('data-schools');
+            infoLocation.textContent = this.getAttribute('data-location');
+            
+            // Position info box near the mouse
+            const mapContainer = document.getElementById('map-container');
+            const mapRect = mapContainer.getBoundingClientRect();
+            const mouseX = e.clientX - mapRect.left;
+            const mouseY = e.clientY - mapRect.top;
+            
+            infoBox.style.left = `${mouseX + 15}px`;
+            infoBox.style.top = `${mouseY + 15}px`;
+            infoBox.classList.remove('hidden');
+          });
+          
+          pin.addEventListener('mouseout', function() {
+            // Restore pin size
+            this.setAttribute('r', '5');
+            
+            // Hide info box
+            document.getElementById('chapter-info').classList.add('hidden');
+          });
+          
+          map.appendChild(pin);
+        } else {
+          console.warn('State element not found for:', chapter.state);
+        }
+      });
+    } else {
+      console.error('Error loading the SVG map:', xhr.statusText);
+      mapContainer.innerHTML = `<p class="text-center text-red-500">Error loading the map: ${xhr.statusText}. Please refresh the page.</p>`;
+    }
+  };
+  
+  xhr.onerror = function() {
+    console.error('Error loading the SVG map: Network error');
+    mapContainer.innerHTML = '<p class="text-center text-red-500">Error loading the map: Network error. Please refresh the page.</p>';
+  };
+  
+  xhr.send();
 });
