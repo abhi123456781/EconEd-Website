@@ -63,26 +63,26 @@ document.addEventListener('DOMContentLoaded', function() {
       mapContainer.style.backgroundPosition = 'center';
       mapContainer.style.backgroundRepeat = 'no-repeat';
       
-      // Approximate positions for each state (normalized coordinates from 0-1)
+      // Corrected positions for each state based on the image (normalized coordinates from 0-1)
       const statePositions = {
-        'NH': { x: 0.86, y: 0.18 },
-        'MA': { x: 0.87, y: 0.20 },
-        'ME': { x: 0.89, y: 0.15 },
-        'PA': { x: 0.80, y: 0.28 },
-        'CT': { x: 0.85, y: 0.22 },
-        'NY': { x: 0.82, y: 0.20 },
-        'NC': { x: 0.78, y: 0.45 },
-        'VA': { x: 0.80, y: 0.38 },
-        'FL': { x: 0.75, y: 0.75 },
-        'GA': { x: 0.70, y: 0.60 },
-        'OH': { x: 0.70, y: 0.32 },
-        'MI': { x: 0.65, y: 0.25 },
-        'SC': { x: 0.75, y: 0.52 },
-        'NE': { x: 0.45, y: 0.35 },
-        'CA': { x: 0.10, y: 0.35 },
-        'TX': { x: 0.42, y: 0.68 },
-        'NJ': { x: 0.84, y: 0.26 },
-        'DE': { x: 0.83, y: 0.30 }
+        'NH': { x: 0.875, y: 0.18 },  // New Hampshire
+        'MA': { x: 0.865, y: 0.21 },  // Massachusetts
+        'ME': { x: 0.895, y: 0.14 },  // Maine
+        'PA': { x: 0.805, y: 0.28 },  // Pennsylvania
+        'CT': { x: 0.855, y: 0.23 },  // Connecticut
+        'NY': { x: 0.825, y: 0.21 },  // New York
+        'NC': { x: 0.795, y: 0.42 },  // North Carolina
+        'VA': { x: 0.795, y: 0.36 },  // Virginia
+        'FL': { x: 0.755, y: 0.72 },  // Florida
+        'GA': { x: 0.745, y: 0.50 },  // Georgia
+        'OH': { x: 0.735, y: 0.30 },  // Ohio
+        'MI': { x: 0.695, y: 0.23 },  // Michigan
+        'SC': { x: 0.775, y: 0.46 },  // South Carolina
+        'NE': { x: 0.485, y: 0.30 },  // Nebraska
+        'CA': { x: 0.10, y: 0.32 },   // California
+        'TX': { x: 0.45, y: 0.62 },   // Texas
+        'NJ': { x: 0.845, y: 0.27 },  // New Jersey
+        'DE': { x: 0.835, y: 0.31 }   // Delaware
       };
       
       // Create a div to hold the pins
