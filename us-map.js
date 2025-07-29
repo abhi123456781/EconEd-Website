@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'MA': { x: 0.92,   y: 0.24  },  // Massachusetts
         'ME': { x: 0.95,  y: 0.105 },  // Maine
         'PA': { x: 0.855, y: 0.340 },  // Pennsylvania
-        'CT': { x: 0.903, y: 0.270 },  // Connecticut
+        'CT': { x: 0.925, y: 0.270 },  // Connecticut
         'NY': { x: 0.885, y: 0.235 },  // New York
         'NC': { x: 0.835, y: 0.525 },  // North Carolina
         'VA': { x: 0.850, y: 0.455 },  // Virginia
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'CA': { x: 0.220, y: 0.500 },  // California
         'TX': { x: 0.530, y: 0.750 },  // Texas
         'NJ': { x: 0.885, y: 0.330 },  // New Jersey
-        'DE': { x: 0.870, y: 0.375 }   // Delaware
+        'DE': { x: 0.874, y: 0.375 }   // Delaware
       };
       
       // Create a div to hold the pins
