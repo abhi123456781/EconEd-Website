@@ -64,13 +64,39 @@ document.addEventListener('DOMContentLoaded', function() {
       mapContainer.style.backgroundRepeat = 'no-repeat';
       mapContainer.style.border = 'none'; // Ensure no border is applied
       
+      // Calculate the actual displayed map dimensions
+      let mapAspectRatio = 1000/589; // Original SVG aspect ratio (width/height)
+      let mapDisplayHeight, mapDisplayWidth;
+      
+      // Function to calculate the actual displayed map dimensions
+      const calculateMapDimensions = () => {
+        const containerWidth = mapContainer.offsetWidth;
+        const containerHeight = mapContainer.offsetHeight;
+        
+        // If container is wider than the map would be at full height
+        if (containerWidth / containerHeight > mapAspectRatio) {
+          mapDisplayHeight = containerHeight;
+          mapDisplayWidth = containerHeight * mapAspectRatio;
+        } else {
+          mapDisplayWidth = containerWidth;
+          mapDisplayHeight = containerWidth / mapAspectRatio;
+        }
+        
+        // Calculate the empty space on sides or top/bottom
+        const horizontalMargin = (containerWidth - mapDisplayWidth) / 2;
+        const verticalMargin = (containerHeight - mapDisplayHeight) / 2;
+        
+        return { width: mapDisplayWidth, height: mapDisplayHeight, 
+                horizontalMargin, verticalMargin };
+      };
+      
       // Corrected positions for each state based on the latest image (normalized coordinates from 0-1)
       const statePositions = {
         'NH': { x: 0.905, y: 0.19  },  // New Hampshire
         'MA': { x: 0.9,   y: 0.24  },  // Massachusetts
         'ME': { x: 0.92,  y: 0.105 },  // Maine
         'PA': { x: 0.835, y: 0.340 },  // Pennsylvania
-        'CT': { x: 0.903,   y: 0.270 },  // Connecticut
+        'CT': { x: 0.903, y: 0.270 },  // Connecticut
         'NY': { x: 0.855, y: 0.235 },  // New York
         'NC': { x: 0.835, y: 0.525 },  // North Carolina
         'VA': { x: 0.835, y: 0.455 },  // Virginia
@@ -80,9 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
         'MI': { x: 0.725, y: 0.275 },  // Michigan
         'SC': { x: 0.825, y: 0.575 },  // South Carolina
         'NE': { x: 0.530, y: 0.380 },  // Nebraska
-        'CA': { x: 0.220,  y: 0.500 },   // California
-        'TX': { x: 0.530,  y: 0.750 },   // Texas
-        'NJ': { x: 0.885,   y: 0.330 },  // New Jersey
+        'CA': { x: 0.220, y: 0.500 },  // California
+        'TX': { x: 0.530, y: 0.750 },  // Texas
+        'NJ': { x: 0.885, y: 0.330 },  // New Jersey
         'DE': { x: 0.855, y: 0.375 }   // Delaware
       };
       
@@ -97,105 +123,119 @@ document.addEventListener('DOMContentLoaded', function() {
       pinsContainer.style.zIndex = '5'; // Make sure this is higher than the map image
       mapContainer.appendChild(pinsContainer);
       
-      // Add pins for states with chapters
-      chapters.forEach(chapter => {
-        console.log('Processing chapter for state:', chapter.state);
-        const statePos = statePositions[chapter.state];
+      // Function to position all pins correctly
+      const positionPins = () => {
+        // Remove existing pins
+        while (pinsContainer.firstChild) {
+          pinsContainer.removeChild(pinsContainer.firstChild);
+        }
         
-        if (statePos) {
-          console.log('Found position for state:', chapter.state);
+        // Get current map dimensions
+        const mapDimensions = calculateMapDimensions();
+        
+        // Add pins for states with chapters
+        chapters.forEach(chapter => {
+          const statePos = statePositions[chapter.state];
           
-          // Create pin
-          const pin = document.createElement('div');
-          pin.className = 'chapter-pin';
-          pin.style.position = 'absolute';
-          pin.style.left = `${statePos.x * 100}%`;
-          pin.style.top = `${statePos.y * 100}%`;
-          
-          // Make pin size responsive based on container width
-          const setResponsivePinSize = () => {
+          if (statePos) {
+            // Create pin
+            const pin = document.createElement('div');
+            pin.className = 'chapter-pin';
+            pin.style.position = 'absolute';
+            
+            // Calculate position based on actual map dimensions and margins
+            const pinLeft = mapDimensions.horizontalMargin + (statePos.x * mapDimensions.width);
+            const pinTop = mapDimensions.verticalMargin + (statePos.y * mapDimensions.height);
+            
+            pin.style.left = `${pinLeft}px`;
+            pin.style.top = `${pinTop}px`;
+            
+            // Make pin size responsive based on container width
             const containerWidth = mapContainer.offsetWidth;
-            const basePinSize = Math.max(6, Math.min(10, containerWidth / 80)); // Adjust size based on container width
+            const basePinSize = Math.max(6, Math.min(10, containerWidth / 80));
             pin.style.width = `${basePinSize}px`;
             pin.style.height = `${basePinSize}px`;
-          };
-          
-          // Set initial size
-          setResponsivePinSize();
-          
-          // Update pin size when window resizes
-          window.addEventListener('resize', setResponsivePinSize);
-          
-          pin.style.borderRadius = '50%';
-          pin.style.backgroundColor = '#2e8b57';
-          pin.style.border = '1px solid #ffffff';
-          pin.style.transform = 'translate(-50%, -50%)';
-          pin.style.pointerEvents = 'auto';
-          pin.style.cursor = 'pointer';
-          pin.style.zIndex = '10';
-          pin.setAttribute('data-location', chapter.location);
-          
-          // Add hover/touch effect for pins
-          pin.addEventListener('mouseover', function(e) {
-            // Enlarge pin on hover
-            const containerWidth = mapContainer.offsetWidth;
-            const hoverPinSize = Math.max(8, Math.min(14, containerWidth / 60));
-            this.style.width = `${hoverPinSize}px`;
-            this.style.height = `${hoverPinSize}px`;
             
-            // Show info box
-            const infoBox = document.getElementById('chapter-info');
-            const infoTitle = document.getElementById('info-title');
-            const infoLocation = document.getElementById('info-location');
+            pin.style.borderRadius = '50%';
+            pin.style.backgroundColor = '#2e8b57';
+            pin.style.border = '1px solid #ffffff';
+            pin.style.transform = 'translate(-50%, -50%)';
+            pin.style.pointerEvents = 'auto';
+            pin.style.cursor = 'pointer';
+            pin.style.zIndex = '10';
+            pin.setAttribute('data-location', chapter.location);
             
-            infoTitle.textContent = 'EconEd Chapter';
-            infoLocation.textContent = this.getAttribute('data-location');
-            
-            // Position info box near the mouse/touch point
-            const mapRect = mapContainer.getBoundingClientRect();
-            const mouseX = e.clientX - mapRect.left;
-            const mouseY = e.clientY - mapRect.top;
-            
-            // Ensure info box stays within container bounds
-            const infoBoxWidth = 150; // Approximate width
-            const rightEdgePosition = Math.min(mouseX + 15, mapRect.width - infoBoxWidth);
-            
-            infoBox.style.left = `${rightEdgePosition}px`;
-            infoBox.style.top = `${mouseY + 15}px`;
-            infoBox.classList.remove('hidden');
-          });
-          
-          pin.addEventListener('mouseout', function() {
-            // Restore pin size
-            setResponsivePinSize();
-            
-            // Hide info box
-            document.getElementById('chapter-info').classList.add('hidden');
-          });
-          
-          // Add touch support for mobile
-          pin.addEventListener('touchstart', function(e) {
-            e.preventDefault(); // Prevent default touch behavior
-            
-            // Trigger the same behavior as mouseover
-            const mouseEvent = new MouseEvent('mouseover', {
-              clientX: e.touches[0].clientX,
-              clientY: e.touches[0].clientY
+            // Add hover effect for pins
+            pin.addEventListener('mouseover', function(e) {
+              // Enlarge pin on hover
+              const hoverPinSize = Math.max(8, Math.min(14, containerWidth / 60));
+              this.style.width = `${hoverPinSize}px`;
+              this.style.height = `${hoverPinSize}px`;
+              
+              // Show info box
+              const infoBox = document.getElementById('chapter-info');
+              const infoTitle = document.getElementById('info-title');
+              const infoLocation = document.getElementById('info-location');
+              
+              infoTitle.textContent = 'EconEd Chapter';
+              infoLocation.textContent = this.getAttribute('data-location');
+              
+              // Position info box near the mouse
+              const mapRect = mapContainer.getBoundingClientRect();
+              const mouseX = e.clientX - mapRect.left;
+              const mouseY = e.clientY - mapRect.top;
+              
+              // Ensure info box stays within container bounds
+              const infoBoxWidth = 150; // Approximate width
+              const rightEdgePosition = Math.min(mouseX + 15, mapRect.width - infoBoxWidth);
+              
+              infoBox.style.left = `${rightEdgePosition}px`;
+              infoBox.style.top = `${mouseY + 15}px`;
+              infoBox.classList.remove('hidden');
             });
-            this.dispatchEvent(mouseEvent);
             
-            // Auto-hide after 3 seconds for mobile
-            setTimeout(() => {
+            pin.addEventListener('mouseout', function() {
+              // Restore pin size
+              const containerWidth = mapContainer.offsetWidth;
+              const basePinSize = Math.max(6, Math.min(10, containerWidth / 80));
+              this.style.width = `${basePinSize}px`;
+              this.style.height = `${basePinSize}px`;
+              
+              // Hide info box
               document.getElementById('chapter-info').classList.add('hidden');
-              setResponsivePinSize();
-            }, 3000);
-          });
-          
-          pinsContainer.appendChild(pin);
-        } else {
-          console.warn('Position not found for state:', chapter.state);
-        }
-      });
+            });
+            
+            // Add touch support for mobile
+            pin.addEventListener('touchstart', function(e) {
+              e.preventDefault(); // Prevent default touch behavior
+              
+              // Trigger the same behavior as mouseover
+              const mouseEvent = new MouseEvent('mouseover', {
+                clientX: e.touches[0].clientX,
+                clientY: e.touches[0].clientY
+              });
+              this.dispatchEvent(mouseEvent);
+              
+              // Auto-hide after 3 seconds for mobile
+              setTimeout(() => {
+                document.getElementById('chapter-info').classList.add('hidden');
+                const containerWidth = mapContainer.offsetWidth;
+                const basePinSize = Math.max(6, Math.min(10, containerWidth / 80));
+                this.style.width = `${basePinSize}px`;
+                this.style.height = `${basePinSize}px`;
+              }, 3000);
+            });
+            
+            pinsContainer.appendChild(pin);
+          }
+        });
+      };
+      
+      // Initial positioning
+      positionPins();
+      
+      // Reposition pins when window resizes
+      window.addEventListener('resize', positionPins);
       
       // Add international chapters section below the map
       const internationalSection = document.createElement('div');
