@@ -92,14 +92,14 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Corrected positions for each state based on the latest image (normalized coordinates from 0-1)
       const statePositions = {
-        'NH': { x: 0.905, y: 0.19  },  // New Hampshire
-        'MA': { x: 0.9,   y: 0.24  },  // Massachusetts
-        'ME': { x: 0.92,  y: 0.105 },  // Maine
-        'PA': { x: 0.835, y: 0.340 },  // Pennsylvania
+        'NH': { x: 0.923, y: 0.19  },  // New Hampshire
+        'MA': { x: 0.92,   y: 0.24  },  // Massachusetts
+        'ME': { x: 0.95,  y: 0.105 },  // Maine
+        'PA': { x: 0.855, y: 0.340 },  // Pennsylvania
         'CT': { x: 0.903, y: 0.270 },  // Connecticut
-        'NY': { x: 0.855, y: 0.235 },  // New York
+        'NY': { x: 0.885, y: 0.235 },  // New York
         'NC': { x: 0.835, y: 0.525 },  // North Carolina
-        'VA': { x: 0.835, y: 0.455 },  // Virginia
+        'VA': { x: 0.850, y: 0.455 },  // Virginia
         'FL': { x: 0.835, y: 0.800 },  // Florida
         'GA': { x: 0.800, y: 0.650 },  // Georgia
         'OH': { x: 0.765, y: 0.380 },  // Ohio
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'CA': { x: 0.220, y: 0.500 },  // California
         'TX': { x: 0.530, y: 0.750 },  // Texas
         'NJ': { x: 0.885, y: 0.330 },  // New Jersey
-        'DE': { x: 0.855, y: 0.375 }   // Delaware
+        'DE': { x: 0.870, y: 0.375 }   // Delaware
       };
       
       // Create a div to hold the pins
