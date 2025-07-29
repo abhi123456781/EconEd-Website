@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Corrected positions for each state based on the latest image (normalized coordinates from 0-1)
       const statePositions = {
-        'NH': { x: 0.895, y: 0.19 },  // New Hampshire
+        'NH': { x: 0.91, y: 0.19 },  // New Hampshire
         'MA': { x: 0.93, y: 0.165 },  // Massachusetts
         'ME': { x: 0.895, y: 0.105 },  // Maine
         'PA': { x: 0.805, y: 0.235 },  // Pennsylvania
