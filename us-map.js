@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Corrected positions for each state based on the latest image (normalized coordinates from 0-1)
       const statePositions = {
-        'NH': { x: 0.923, y: 0.19  },  // New Hampshire
+        'NH': { x: 0.93, y: 0.19  },  // New Hampshire
         'MA': { x: 0.92,   y: 0.24  },  // Massachusetts
         'ME': { x: 0.95,  y: 0.105 },  // Maine
         'PA': { x: 0.855, y: 0.340 },  // Pennsylvania
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'VA': { x: 0.850, y: 0.455 },  // Virginia
         'FL': { x: 0.835, y: 0.800 },  // Florida
         'GA': { x: 0.800, y: 0.650 },  // Georgia
-        'OH': { x: 0.765, y: 0.380 },  // Ohio
+        'OH': { x: 0.785, y: 0.380 },  // Ohio
         'MI': { x: 0.725, y: 0.275 },  // Michigan
         'SC': { x: 0.825, y: 0.575 },  // South Carolina
         'NE': { x: 0.530, y: 0.380 },  // Nebraska
