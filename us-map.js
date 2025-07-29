@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'MA': { x: 0.9,   y: 0.24  },  // Massachusetts
         'ME': { x: 0.92,  y: 0.105 },  // Maine
         'PA': { x: 0.805, y: 0.235 },  // Pennsylvania
-        'CT': { x: 0.855, y: 0.185 },  // Connecticut
+        'CT': { x: 0.9,   y: 0.275 },  // Connecticut
         'NY': { x: 0.855, y: 0.235 },  // New York
         'NC': { x: 0.795, y: 0.385 },  // North Carolina
         'VA': { x: 0.795, y: 0.325 },  // Virginia
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'NE': { x: 0.485, y: 0.265 },  // Nebraska
         'CA': { x: 0.10,  y: 0.285 },   // California
         'TX': { x: 0.45,  y: 0.585 },   // Texas
-        'NJ': { x: 0.9,   y: 0.275 },  // New Jersey
+        'NJ': { x: 0.88,   y: 0.330 },  // New Jersey
         'DE': { x: 0.835, y: 0.275 }   // Delaware
       };
       
