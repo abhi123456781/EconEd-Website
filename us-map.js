@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'MA': { x: 0.9,   y: 0.24  },  // Massachusetts
         'ME': { x: 0.92,  y: 0.105 },  // Maine
         'PA': { x: 0.805, y: 0.235 },  // Pennsylvania
-        'CT': { x: 0.9,   y: 0.275 },  // Connecticut
+        'CT': { x: 0.9,   y: 0.270 },  // Connecticut
         'NY': { x: 0.855, y: 0.235 },  // New York
         'NC': { x: 0.795, y: 0.385 },  // North Carolina
         'VA': { x: 0.795, y: 0.325 },  // Virginia
