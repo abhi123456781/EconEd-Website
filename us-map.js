@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'NC': { x: 0.835, y: 0.525 },  // North Carolina
         'VA': { x: 0.835, y: 0.455 },  // Virginia
         'FL': { x: 0.835, y: 0.800 },  // Florida
-        'GA': { x: 0.745, y: 0.465 },  // Georgia
+        'GA': { x: 0.800, y: 0.700 },  // Georgia
         'OH': { x: 0.735, y: 0.265 },  // Ohio
         'MI': { x: 0.695, y: 0.195 },  // Michigan
         'SC': { x: 0.825, y: 0.575 },  // South Carolina
