@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'CA': { x: 0.10,  y: 0.285 },   // California
         'TX': { x: 0.45,  y: 0.585 },   // Texas
         'NJ': { x: 0.88,   y: 0.330 },  // New Jersey
-        'DE': { x: 0.835, y: 0.275 }   // Delaware
+        'DE': { x: 0.855, y: 0.330 }   // Delaware
       };
       
       // Create a div to hold the pins
