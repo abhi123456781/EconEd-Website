@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'OH': { x: 0.765, y: 0.380 },  // Ohio
         'MI': { x: 0.725, y: 0.275 },  // Michigan
         'SC': { x: 0.825, y: 0.575 },  // South Carolina
-        'NE': { x: 0.485, y: 0.265 },  // Nebraska
+        'NE': { x: 0.530, y: 0.380 },  // Nebraska
         'CA': { x: 0.10,  y: 0.285 },   // California
         'TX': { x: 0.530,  y: 0.750 },   // Texas
         'NJ': { x: 0.885,   y: 0.330 },  // New Jersey
