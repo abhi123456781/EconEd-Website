@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'PA': { x: 0.835, y: 0.340 },  // Pennsylvania
         'CT': { x: 0.903,   y: 0.270 },  // Connecticut
         'NY': { x: 0.855, y: 0.235 },  // New York
-        'NC': { x: 0.835, y: 0.535 },  // North Carolina
+        'NC': { x: 0.835, y: 0.525 },  // North Carolina
         'VA': { x: 0.835, y: 0.455 },  // Virginia
         'FL': { x: 0.755, y: 0.685 },  // Florida
         'GA': { x: 0.745, y: 0.465 },  // Georgia
