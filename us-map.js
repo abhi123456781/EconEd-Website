@@ -111,8 +111,21 @@ document.addEventListener('DOMContentLoaded', function() {
           pin.style.position = 'absolute';
           pin.style.left = `${statePos.x * 100}%`;
           pin.style.top = `${statePos.y * 100}%`;
-          pin.style.width = '10px';
-          pin.style.height = '10px';
+          
+          // Make pin size responsive based on container width
+          const setResponsivePinSize = () => {
+            const containerWidth = mapContainer.offsetWidth;
+            const basePinSize = Math.max(6, Math.min(10, containerWidth / 80)); // Adjust size based on container width
+            pin.style.width = `${basePinSize}px`;
+            pin.style.height = `${basePinSize}px`;
+          };
+          
+          // Set initial size
+          setResponsivePinSize();
+          
+          // Update pin size when window resizes
+          window.addEventListener('resize', setResponsivePinSize);
+          
           pin.style.borderRadius = '50%';
           pin.style.backgroundColor = '#2e8b57';
           pin.style.border = '1px solid #ffffff';
@@ -122,11 +135,13 @@ document.addEventListener('DOMContentLoaded', function() {
           pin.style.zIndex = '10';
           pin.setAttribute('data-location', chapter.location);
           
-          // Add hover effect for pins
+          // Add hover/touch effect for pins
           pin.addEventListener('mouseover', function(e) {
             // Enlarge pin on hover
-            this.style.width = '14px';
-            this.style.height = '14px';
+            const containerWidth = mapContainer.offsetWidth;
+            const hoverPinSize = Math.max(8, Math.min(14, containerWidth / 60));
+            this.style.width = `${hoverPinSize}px`;
+            this.style.height = `${hoverPinSize}px`;
             
             // Show info box
             const infoBox = document.getElementById('chapter-info');
@@ -136,23 +151,44 @@ document.addEventListener('DOMContentLoaded', function() {
             infoTitle.textContent = 'EconEd Chapter';
             infoLocation.textContent = this.getAttribute('data-location');
             
-            // Position info box near the mouse
+            // Position info box near the mouse/touch point
             const mapRect = mapContainer.getBoundingClientRect();
             const mouseX = e.clientX - mapRect.left;
             const mouseY = e.clientY - mapRect.top;
             
-            infoBox.style.left = `${mouseX + 15}px`;
+            // Ensure info box stays within container bounds
+            const infoBoxWidth = 150; // Approximate width
+            const rightEdgePosition = Math.min(mouseX + 15, mapRect.width - infoBoxWidth);
+            
+            infoBox.style.left = `${rightEdgePosition}px`;
             infoBox.style.top = `${mouseY + 15}px`;
             infoBox.classList.remove('hidden');
           });
           
           pin.addEventListener('mouseout', function() {
             // Restore pin size
-            this.style.width = '10px';
-            this.style.height = '10px';
+            setResponsivePinSize();
             
             // Hide info box
             document.getElementById('chapter-info').classList.add('hidden');
+          });
+          
+          // Add touch support for mobile
+          pin.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Prevent default touch behavior
+            
+            // Trigger the same behavior as mouseover
+            const mouseEvent = new MouseEvent('mouseover', {
+              clientX: e.touches[0].clientX,
+              clientY: e.touches[0].clientY
+            });
+            this.dispatchEvent(mouseEvent);
+            
+            // Auto-hide after 3 seconds for mobile
+            setTimeout(() => {
+              document.getElementById('chapter-info').classList.add('hidden');
+              setResponsivePinSize();
+            }, 3000);
           });
           
           pinsContainer.appendChild(pin);
