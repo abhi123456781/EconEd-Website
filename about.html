@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,15 +23,27 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    html { scroll-behavior: smooth; }
-    .navbar-hidden { transform: translateY(-100%); transition: transform 0.3s ease-in-out; }
-    .navbar-visible { transform: translateY(0); transition: transform 0.3s ease-in-out; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .navbar-hidden {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-visible {
+      transform: translateY(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
     .nav-link {
       position: relative;
       padding-bottom: 4px;
       color: inherit;
       transition: color 0.3s;
     }
+
     .nav-link::after {
       content: "";
       position: absolute;
@@ -40,11 +53,20 @@
       transform-origin: center;
       height: 2px;
       width: 100%;
-      background-color: #2e8b57; /* Changed from #c68a1f to green */
+      background-color: #2e8b57;
+      /* Changed from #c68a1f to green */
       transition: transform 0.4s ease;
     }
-    .nav-link:hover { color: #2e8b57; } /* Changed from #c68a1f to green */
-    .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
+
+    .nav-link:hover {
+      color: #2e8b57;
+    }
+
+    /* Changed from #c68a1f to green */
+    .nav-link:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
     #mobile-menu a.nav-link {
       padding: 0.5rem 1rem;
       border: 2px solid transparent;
@@ -53,17 +75,24 @@
       margin: 0.25rem 0;
       transition: all 0.3s ease-in-out;
     }
+
     #mobile-menu a.nav-link:hover {
-      background-color: #4CAF50; /* Changed from #facc15 to green */
-      color: #fff; /* Changed to white for better contrast */
-      border-color: #4CAF50; /* Changed from #facc15 to green */
+      background-color: #4CAF50;
+      /* Changed from #facc15 to green */
+      color: #fff;
+      /* Changed to white for better contrast */
+      border-color: #4CAF50;
+      /* Changed from #facc15 to green */
     }
+
     .hero-section {
-      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); /* Changed from yellow to green tones */
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      /* Changed from yellow to green tones */
       padding: 120px 0 80px;
       position: relative;
       overflow: visible;
     }
+
     .hero-section::after {
       content: '';
       position: absolute;
@@ -71,9 +100,11 @@
       left: 0;
       width: 100%;
       height: 100px;
-      background: linear-gradient(to bottom, rgba(200,230,201,0), white); /* Changed to match green gradient */
+      background: linear-gradient(to bottom, rgba(200, 230, 201, 0), white);
+      /* Changed to match green gradient */
       z-index: 1;
     }
+
     .about-hero-title {
       font-size: 2.5rem;
       font-weight: 700;
@@ -82,6 +113,7 @@
       position: relative;
       z-index: 2;
     }
+
     .about-hero-subtitle {
       font-size: 1.125rem;
       color: #64748b;
@@ -91,23 +123,28 @@
       position: relative;
       z-index: 2;
     }
+
     .team-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .team-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    
+
     .social-icons a {
       display: inline-block;
       margin: 0 .25rem;
       font-size: 1.5rem;
-      color: #c8e6c9; /* Changed from #f8e8b0 to light green */
+      color: #c8e6c9;
+      /* Changed from #f8e8b0 to light green */
       transition: color .3s;
     }
+
     .social-icons a:hover {
-      color: #2e8b57; /* Changed from #c68a1f to green */
+      color: #2e8b57;
+      /* Changed from #c68a1f to green */
     }
   </style>
 </head>
@@ -119,31 +156,30 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-green-600">EconEd</h1> <!-- Changed from text-yellow-600 -->
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
-        <a href="index.html"        class="nav-link">HOME</a>
-        <a href="about.html"        class="nav-link text-green-600">ABOUT US</a> <!-- Changed from text-yellow-600 -->
-        <a href="chapters.html"     class="nav-link">CHAPTERS</a>
-        <a href="join.html"         class="nav-link">JOIN US</a>
-        <a href="donate.html"         class="nav-link">DONATE</a>
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link text-green-600">ABOUT US</a> <!-- Changed from text-yellow-600 -->
+        <a href="chapters.html" class="nav-link">CHAPTERS</a>
+        <a href="join.html" class="nav-link">JOIN US</a>
+        <a href="donate.html" class="nav-link">DONATE</a>
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
-      <a href="index.html"        class="nav-link">HOME</a>
-      <a href="about.html"        class="nav-link text-green-600">ABOUT US</a> <!-- Changed from text-yellow-600 -->
-      <a href="chapters.html"     class="nav-link">CHAPTERS</a>
-      <a href="join.html"         class="nav-link">JOIN US</a>
-      <a href="donate.html"         class="nav-link">DONATE</a>
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="about.html" class="nav-link text-green-600">ABOUT US</a> <!-- Changed from text-yellow-600 -->
+      <a href="chapters.html" class="nav-link">CHAPTERS</a>
+      <a href="join.html" class="nav-link">JOIN US</a>
+      <a href="donate.html" class="nav-link">DONATE</a>
     </div>
-   
+
     </div>
   </header>
 
- 
+
   <!-- Social Icons -->
   <div class="fixed bottom-4 left-4 z-50 social-icons flex gap-3 sm:flex-col">
     <a href="https://www.tiktok.com/@the_elevation_project" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -169,16 +205,23 @@
         <div class="md:w-1/2">
           <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Our Story</h2>
           <p class="text-gray-700 mb-4" data-aos="fade-up" data-aos-delay="100">
-            EconEd began when we noticed many of our classmates didn’t know how to manage their money. We saw friends spend their savings on takeout and small purchases, then rely on their parents for more. It wasn’t their fault because no one had ever taught them.
+            EconEd began when we noticed many of our classmates didn’t know how to manage their money. We saw friends
+            spend their savings on takeout and small purchases, then rely on their parents for more. It wasn’t their
+            fault because no one had ever taught them.
           </p>
           <p class="text-gray-700 mb-4" data-aos="fade-up" data-aos-delay="200">
-            We started EconEd, a student-led 501(c)(3) nonprofit, to help change that. We teach financial literacy to younger students through in-school lessons and free online tutoring. Our sessions focus on saving, budgeting, and smart spending in a way that is simple, practical, and easy to understand.
+            We started EconEd, a student-led 501(c)(3) nonprofit, to help change that. We teach financial literacy to
+            younger students through in-school lessons and free online tutoring. Our sessions focus on saving,
+            budgeting, and smart spending in a way that is simple, practical, and easy to understand.
           </p>
           <p class="text-gray-700" data-aos="fade-up" data-aos-delay="300">
-            By reaching students early, we hope to prevent bad habits before they form and give kids the tools they need to make smart financial choices for life. Our goal is to build a generation that understands money and feels confident using it.
+            By reaching students early, we hope to prevent bad habits before they form and give kids the tools they need
+            to make smart financial choices for life. Our goal is to build a generation that understands money and feels
+            confident using it.
           </p>
         </div>
-        <div class="md:w-1/2 bg-white rounded-lg flex items-center justify-center" style="height: 400px;" data-aos="fade-up" data-aos-delay="400">
+        <div class="md:w-1/2 bg-white rounded-lg flex items-center justify-center" style="height: 400px;"
+          data-aos="fade-up" data-aos-delay="400">
           <img src="DSC_0141 (1).JPG">
         </div>
       </div>
@@ -191,47 +234,53 @@
       <h2 class="text-3xl font-bold mb-3">Our Values</h2>
       <p class="text-gray-600 max-w-2xl mx-auto mb-12">The core principles that guide our work and mission.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
+
         <!-- Value Card 1 -->
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-green-500 mb-4 text-4xl"><i class="fas fa-hand-holding-usd"></i></div>
           <h3 class="font-bold text-xl mb-2">Financial Empowerment</h3>
-          <p class="text-gray-600">We believe that every student deserves the knowledge and confidence to make smart financial decisions that lead to a stronger future.</p>
+          <p class="text-gray-600">We believe that every student deserves the knowledge and confidence to make smart
+            financial decisions that lead to a stronger future.</p>
         </div>
 
         <!-- Value Card 2 -->
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-green-500 mb-4 text-4xl"><i class="fas fa-users"></i></div>
           <h3 class="font-bold text-xl mb-2">Community Impact</h3>
-          <p class="text-gray-600">We are committed to making a meaningful difference in our local communities by bringing financial education directly to schools and families.</p>
+          <p class="text-gray-600">We are committed to making a meaningful difference in our local communities by
+            bringing financial education directly to schools and families.</p>
         </div>
 
         <!-- Value Card 3 -->
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-green-500 mb-4 text-4xl"><i class="fas fa-universal-access"></i></div>
           <h3 class="font-bold text-xl mb-2">Accessibility</h3>
-          <p class="text-gray-600">We design our lessons to be easy to understand and available to all students, offering both in-person workshops and free online tutoring.</p>
+          <p class="text-gray-600">We design our lessons to be easy to understand and available to all students,
+            offering both in-person workshops and free online tutoring.</p>
         </div>
-        
+
         <!-- Value Card 4 -->
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-green-500 mb-4 text-4xl"><i class="fas fa-user-graduate"></i></div>
           <h3 class="font-bold text-xl mb-2">Youth-Driven Leadership</h3>
-          <p class="text-gray-600">We are led by students who take initiative, inspire change, and prove that young people can lead with purpose and create real impact.</p>
+          <p class="text-gray-600">We are led by students who take initiative, inspire change, and prove that young
+            people can lead with purpose and create real impact.</p>
         </div>
-        
+
         <!-- Value Card 5 -->
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-green-500 mb-4 text-4xl"><i class="fas fa-chalkboard-teacher"></i></div>
           <h3 class="font-bold text-xl mb-2">Engaging Education</h3>
-          <p class="text-gray-600">We make financial literacy fun, interactive, and practical so students can build real-world money skills that stick.</p>
+          <p class="text-gray-600">We make financial literacy fun, interactive, and practical so students can build
+            real-world money skills that stick.</p>
         </div>
-        
+
         <!-- Value Card 6 (Added from old values) -->
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-green-500 mb-4 text-4xl"><i class="fas fa-handshake"></i></div>
           <h3 class="font-bold text-xl mb-2">Peer-to-Peer Learning</h3>
-          <p class="text-gray-600">We believe in the power of students teaching students, creating relatable learning experiences that foster deeper understanding and connection.</p>
+          <p class="text-gray-600">We believe in the power of students teaching students, creating relatable learning
+            experiences that foster deeper understanding and connection.</p>
         </div>
 
       </div>
@@ -253,54 +302,66 @@
           <img src="Karthiks PFP.png" alt=" " class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Karthik Suresh</h3>
           <p class="text-gray-600">Co-founder</p>
-          <p class="mt-2 text-gray-700">Karthik's deep passion for economics and finance drives EconEd's mission and strategic vision.</p>
+          <p class="mt-2 text-gray-700">Karthik's deep passion for economics and finance drives EconEd's mission and
+            strategic vision.</p>
         </div>
 
-          <div class="team-card bg-white p-6 rounded-lg shadow">
+        <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="Steve PFP.png" alt=" " class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Steve Long</h3>
           <p class="text-gray-600">Co-founder</p>
-          <p class="mt-2 text-gray-700">Steve's experience in finance and business allows him to effectively run and manage EconEd to help dissimenate finacial literacy.</p>
+          <p class="mt-2 text-gray-700">Steve's experience in finance and business allows him to effectively run and
+            manage EconEd to help dissimenate finacial literacy.</p>
         </div>
 
         <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="Arya PFP.png" alt=" " class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Arya Somasundaram</h3>
           <p class="text-gray-600">Co-founder</p>
-          <p class="mt-2 text-gray-700">EconEd’s unofficial mascot, Arya leads social media outreach and is widely recognized as the energetic and familiar face behind much of the organization’s online presence.</p>
+          <p class="mt-2 text-gray-700">EconEd’s unofficial mascot, Arya leads social media outreach and is widely
+            recognized as the energetic and familiar face behind much of the organization’s online presence.</p>
         </div>
 
         <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="Aarush PFP.png" alt=" " class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Aarush Potluri</h3>
           <p class="text-gray-600">Vice President</p>
-          <p class="mt-2 text-gray-700"> EconEd's Newest Vice President, Aarush's public speaking and worldwide network allow EconEd to start developing on a global scale.</p>
+          <p class="mt-2 text-gray-700"> EconEd's Newest Vice President, Aarush's public speaking and worldwide network
+            allow EconEd to start developing on a global scale.</p>
+        </div>
+
+        <div class="team-card bg-white p-6 rounded-lg shadow">
+          <img src="Nithin PFP.png" alt="Nithin Venkatramanan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+            style="object-position: center 20%;">
+          <h3 class="text-xl font-bold">Nithin Venkatramanan</h3>
+          <p class="text-gray-600">Chief Policy & Financial Officer</p>
+          <p class="mt-2 text-gray-700">Nithin's expertise in policy formulation & proposal, combined with his financial
+            and analytical skills, helps EconEd maintain fiscal responsibility while advocating for our mission in the
+            political sphere.</p>
         </div>
 
         <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="Abhi PFP.png" alt=" " class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Abhi Mareedu</h3>
           <p class="text-gray-600">Software Lead</p>
-          <p class="mt-2 text-gray-700">Tech Lead and Developer at EconEd, responsible for building and maintaining the organization’s web infrastructure and digital tools that support its nationwide expansion and tutoring services.</p>
+          <p class="mt-2 text-gray-700">Tech Lead and Developer at EconEd, responsible for building and maintaining the
+            organization's web infrastructure and digital tools that support its nationwide expansion and tutoring
+            services.</p>
         </div>
 
-         
+
+
 
         <div class="team-card bg-white p-6 rounded-lg shadow">
-          <img src="Nithin PFP.png" alt="Nithin Venkatramanan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" style="object-position: center 20%;">
-          <h3 class="text-xl font-bold">Nithin Venkatramanan</h3>
-          <p class="text-gray-600">CFO</p>
-          <p class="mt-2 text-gray-700">Nithin's financial expertise and analytical skills ensure our organization maintains fiscal responsibility while strategically allocating resources to maximize our educational impact.</p>
-        </div>
-  
-          <div class="team-card bg-white p-6 rounded-lg shadow">
           <img src="IMG_1768_(1) (1).jpg" alt="Pranav" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold">Pranav Dasari</h3>
           <p class="text-gray-600">Volunteer Coordinator</p>
-          <p class="mt-2 text-gray-700">Pranav leads our HR Department, expertly managing volunteer recruitment, placement, and engagement while developing new volunteering opportunities to expand our organization's reach.</p>
+          <p class="mt-2 text-gray-700">Pranav leads our HR Department, expertly managing volunteer recruitment,
+            placement, and engagement while developing new volunteering opportunities to expand our organization's
+            reach.</p>
         </div>
-        
-      
+
+
 
         <!-- (other members remain unchanged) -->
         ...
@@ -313,7 +374,8 @@
   <footer class="bg-white text-black py-6 px-4 text-center border-t">
     <p class="mb-1">
       📧 Email:
-      <a href="mailto:theelevationproject@gmail.com" class="underline text-green-500"> <!-- Changed from text-blue-500 -->
+      <a href="mailto:theelevationproject@gmail.com" class="underline text-green-500">
+        <!-- Changed from text-blue-500 -->
         theelevationproject@gmail.com
       </a>
     </p>
@@ -325,7 +387,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ 
+      AOS.init({
         duration: 800,
         offset: 100,
         once: true,
@@ -354,19 +416,21 @@
       mobileMenu.classList.toggle('hidden');
     });
   </script>
-  
+
 </body>
+
 </html>
 <style>
   .section-heading {
-    font-size: 2.5rem; /* Increased from default size */
+    font-size: 2.5rem;
+    /* Increased from default size */
     font-weight: 700;
     position: relative;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     display: inline-block;
   }
-  
+
   .section-heading::after {
     content: "";
     position: absolute;
@@ -375,6 +439,7 @@
     transform: translateX(-50%);
     width: 50px;
     height: 3px;
-    background-color: #2e8b57; /* Changed from #c68a1f */
+    background-color: #2e8b57;
+    /* Changed from #c68a1f */
   }
 </style>

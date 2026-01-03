@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,39 +22,89 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    
-    .navbar-hidden { transform: translateY(-100%); transition: transform .3s ease-in-out; }
-    .navbar-visible { transform: translateY(0); transition: transform .3s ease-in-out; }
-    
-    .nav-link { position: relative; padding-bottom: 4px; transition: color .3s; color: inherit; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .navbar-hidden {
+      transform: translateY(-100%);
+      transition: transform .3s ease-in-out;
+    }
+
+    .navbar-visible {
+      transform: translateY(0);
+      transition: transform .3s ease-in-out;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 4px;
+      transition: color .3s;
+      color: inherit;
+    }
+
     .nav-link::after {
-      content: ""; position: absolute; left: 50%; bottom: 0;
-      transform: translateX(-50%) scaleX(0); transform-origin: center;
-      width: 100%; height: 2px; background-color: #2e8b57; /* Changed from #c68a1f */
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      width: 100%;
+      height: 2px;
+      background-color: #2e8b57;
+      /* Changed from #c68a1f */
       transition: transform .4s ease;
     }
-    .nav-link:hover { color: #2e8b57; } /* Changed from #c68a1f */
-    .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
-    
+
+    .nav-link:hover {
+      color: #2e8b57;
+    }
+
+    /* Changed from #c68a1f */
+    .nav-link:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
     #mobile-menu a.nav-link {
-      padding: .5rem 1rem; border: 2px solid transparent; border-radius: .5rem;
-      display: inline-block; margin: .25rem 0; transition: all .3s ease-in-out;
+      padding: .5rem 1rem;
+      border: 2px solid transparent;
+      border-radius: .5rem;
+      display: inline-block;
+      margin: .25rem 0;
+      transition: all .3s ease-in-out;
     }
+
     #mobile-menu a.nav-link:hover {
-      background-color: #4CAF50; color: #fff; border-color: #4CAF50; /* Changed from #facc15 and color to white */
+      background-color: #4CAF50;
+      color: #fff;
+      border-color: #4CAF50;
+      /* Changed from #facc15 and color to white */
     }
-    
+
     .social-icons a {
-      display: inline-block; margin: 0 .25rem; font-size: 1.5rem; color: #c8e6c9; /* Changed from #f8e8b0 to light green */
+      display: inline-block;
+      margin: 0 .25rem;
+      font-size: 1.5rem;
+      color: #c8e6c9;
+      /* Changed from #f8e8b0 to light green */
       transition: color .3s;
     }
-    .social-icons a:hover { color: #2e8b57; } /* Changed from #c68a1f */
-    
+
+    .social-icons a:hover {
+      color: #2e8b57;
+    }
+
+    /* Changed from #c68a1f */
+
     /* Updated Hero Section - Green Gradient */
     .hero-section {
-      background: linear-gradient(to right, #c8e6c9, #e8f5e9); /* Changed from yellow tones to green tones */
+      background: linear-gradient(to right, #c8e6c9, #e8f5e9);
+      /* Changed from yellow tones to green tones */
       color: #1f2937;
       padding: 10rem 0 18rem 0;
       position: relative;
@@ -63,7 +114,7 @@
       justify-content: center;
       min-height: 80vh;
     }
-    
+
     /* Gradient overlay for transition to white */
     .hero-section::after {
       content: '';
@@ -72,10 +123,11 @@
       left: 0;
       width: 100%;
       height: 300px;
-      background: linear-gradient(to bottom, rgba(232, 245, 233, 0), white 90%); /* Changed to match green gradient */
+      background: linear-gradient(to bottom, rgba(232, 245, 233, 0), white 90%);
+      /* Changed to match green gradient */
       z-index: 1;
     }
-    
+
     .hero-content {
       position: relative;
       z-index: 2;
@@ -83,35 +135,40 @@
       margin: 0 auto;
       text-align: center;
       padding: 0 1rem;
-      margin-top: 0; /* Removed margin to move content up */
+      margin-top: 0;
+      /* Removed margin to move content up */
     }
-    
+
     .hero-title {
-      font-size: 5rem; /* Increased from 3.2rem to make it more prominent */
+      font-size: 5rem;
+      /* Increased from 3.2rem to make it more prominent */
       font-weight: 800;
       color: #1f2937;
       margin-bottom: 1.5rem;
       line-height: 1.2;
-      padding: 1.5rem 0; /* Added padding to take up more vertical space */
+      padding: 1.5rem 0;
+      /* Added padding to take up more vertical space */
     }
-    
+
     .hero-subtitle {
-      font-size: 1.2rem; /* Slightly reduced from 1.25rem */
+      font-size: 1.2rem;
+      /* Slightly reduced from 1.25rem */
       max-width: 700px;
       margin: 0 auto 2.5rem auto;
       line-height: 1.6;
       color: #4b5563;
     }
-    
+
     .hero-buttons {
       display: flex;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
-    
+
     .btn-primary {
-      background-color: #2e8b57; /* Changed from #c68a1f */
+      background-color: #2e8b57;
+      /* Changed from #c68a1f */
       color: white;
       padding: 0.75rem 2rem;
       border-radius: 9999px;
@@ -119,13 +176,14 @@
       transition: all 0.3s ease;
       display: inline-block;
     }
-    
+
     .btn-primary:hover {
-      background-color: #1b5e20; /* Changed from #b57b1e to darker green */
+      background-color: #1b5e20;
+      /* Changed from #b57b1e to darker green */
       transform: translateY(-3px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
-    
+
     .btn-secondary {
       background-color: transparent;
       color: #2e8b57;
@@ -136,30 +194,32 @@
       display: inline-block;
       border: 2px solid #2e8b57;
     }
-    
+
     .btn-secondary:hover {
       background-color: rgba(46, 139, 87, 0.1);
       transform: translateY(-3px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
-    
+
     .stat-number {
       font-size: 3rem;
       font-weight: 800;
-      color: #2e8b57; /* Changed from #c68a1f */
+      color: #2e8b57;
+      /* Changed from #c68a1f */
       margin-bottom: 0.5rem;
       line-height: 1;
     }
-    
+
     .section-heading {
-      font-size: 2.5rem; /* Increased from default size */
+      font-size: 2.5rem;
+      /* Increased from default size */
       font-weight: 700;
       position: relative;
       margin-bottom: 2rem;
       padding-bottom: 1rem;
       display: inline-block;
     }
-    
+
     .section-heading::after {
       content: "";
       position: absolute;
@@ -168,9 +228,10 @@
       transform: translateX(-50%);
       width: 50px;
       height: 3px;
-      background-color: #2e8b57; /* Changed from #c68a1f */
+      background-color: #2e8b57;
+      /* Changed from #c68a1f */
     }
-    
+
     .section-subheading {
       font-size: 1.1rem;
       color: #4b5563;
@@ -178,7 +239,7 @@
       margin: 0 auto 3rem auto;
       line-height: 1.6;
     }
-    
+
     .feature-card {
       background-color: white;
       border-radius: 1rem;
@@ -186,30 +247,32 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
-    
+
     .feature-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
-    
+
     /* Fix for AOS elements to ensure hover works */
     [data-aos] {
       pointer-events: auto !important;
     }
-    
+
     /* Ensure cards inside AOS elements also have hover effect */
     [data-aos] .feature-card {
       transition: all 0.3s ease;
     }
-    
+
     [data-aos] .feature-card:hover {
       transform: translateY(-10px) !important;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
     }
-    
+
     .feature-icon {
-      background-color: #e8f5e9; /* Changed from #fef3c7 to light green */
-      color: #2e8b57; /* Changed from #c68a1f */
+      background-color: #e8f5e9;
+      /* Changed from #fef3c7 to light green */
+      color: #2e8b57;
+      /* Changed from #c68a1f */
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -219,20 +282,23 @@
       margin-bottom: 1.5rem;
       font-size: 1.5rem;
     }
-    
+
     .footer-title {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #2e8b57; /* Changed from #c68a1f */
+      color: #2e8b57;
+      /* Changed from #c68a1f */
       margin-bottom: 1rem;
     }
-    
+
     .footer-link:hover {
-      color: #2e8b57; /* Changed from #c68a1f */
+      color: #2e8b57;
+      /* Changed from #c68a1f */
     }
-    
+
     .footer-social a:hover {
-      background-color: #2e8b57; /* Changed from #c68a1f */
+      background-color: #2e8b57;
+      /* Changed from #c68a1f */
       color: white;
       transform: translateY(-3px);
     }
@@ -245,25 +311,24 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-green-600">EconEd</h1> <!-- Changed from text-yellow-600 -->
       <div class="hidden md:flex space-x-10 text-sm font-semibold">
-        <a href="index.html"        class="nav-link text-green-600">HOME</a> <!-- Changed from text-yellow-600 -->
-        <a href="about.html"        class="nav-link">ABOUT US</a>
-        <a href="chapters.html"     class="nav-link">CHAPTERS</a>
-        <a href="join.html"         class="nav-link">JOIN US</a>
-        <a href="donate.html"         class="nav-link">DONATE</a>
+        <a href="index.html" class="nav-link text-green-600">HOME</a> <!-- Changed from text-yellow-600 -->
+        <a href="about.html" class="nav-link">ABOUT US</a>
+        <a href="chapters.html" class="nav-link">CHAPTERS</a>
+        <a href="join.html" class="nav-link">JOIN US</a>
+        <a href="donate.html" class="nav-link">DONATE</a>
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex-col text-center space-y-2 mt-2 text-sm">
-      <a href="index.html"        class="nav-link text-green-600">HOME</a> <!-- Changed from text-yellow-600 -->
-      <a href="about.html"        class="nav-link">ABOUT US</a>
-      <a href="chapters.html"     class="nav-link">CHAPTERS</a>
-      <a href="join.html"         class="nav-link">JOIN US</a>
-      <a href="donate.html"         class="nav-link">DONATE</a>
+      <a href="index.html" class="nav-link text-green-600">HOME</a> <!-- Changed from text-yellow-600 -->
+      <a href="about.html" class="nav-link">ABOUT US</a>
+      <a href="chapters.html" class="nav-link">CHAPTERS</a>
+      <a href="join.html" class="nav-link">JOIN US</a>
+      <a href="donate.html" class="nav-link">DONATE</a>
     </div>
   </header>
 
@@ -293,14 +358,15 @@
 
   <!-- Stats Section -->
   <section class="container mx-auto px-4 -mt-24 relative z-10">
-    <div class="stats-section max-w-5xl mx-auto bg-white rounded-lg shadow-xl p-8" data-aos="fade-up" data-aos-delay="200">
+    <div class="stats-section max-w-5xl mx-auto bg-white rounded-lg shadow-xl p-8" data-aos="fade-up"
+      data-aos-delay="200">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div class="flex flex-col items-center justify-center" data-aos="fade-up" data-aos-delay="300">
           <div class="stat-number">2000+</div>
           <div class="stat-label">CURRENT MEMBERS NATIONALLY</div>
         </div>
         <div class="flex flex-col items-center justify-center" data-aos="fade-up" data-aos-delay="400">
-          <div class="stat-number">50+</div>
+          <div class="stat-number">60+</div>
           <div class="stat-label">CHAPTERS</div>
         </div>
         <div class="flex flex-col items-center justify-center" data-aos="fade-up" data-aos-delay="500">
@@ -317,10 +383,12 @@
       <div class="text-center">
         <h2 class="section-heading">Our Mission</h2>
         <p class="section-subheading">
-          EconEd is a student-led nonprofit dedicated to making financial literacy accessible and engaging for young students. By teaching the fundamentals of budgeting, saving, and responsible spending early on, we empower the next generation to build strong financial habits before poor ones take in place.
+          EconEd is a student-led nonprofit dedicated to making financial literacy accessible and engaging for young
+          students. By teaching the fundamentals of budgeting, saving, and responsible spending early on, we empower the
+          next generation to build strong financial habits before poor ones take in place.
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
         <div class="feature-card">
           <div class="feature-icon">
@@ -328,10 +396,11 @@
           </div>
           <h3 class="feature-title">Student Community</h3>
           <p class="feature-text">
-            Building a supportive community where students can learn and grow together through shared economic experiences.
+            Building a supportive community where students can learn and grow together through shared economic
+            experiences.
           </p>
         </div>
-        
+
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-book"></i>
@@ -341,7 +410,7 @@
             Providing practical, hands-on economic workshops tailored to students' needs and learning styles.
           </p>
         </div>
-        
+
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-globe"></i>
@@ -397,7 +466,8 @@
   <footer class="bg-white text-black py-6 px-4 text-center border-t">
     <p class="mb-1">
       📧 Email:
-      <a href="mailto:theelevationproject@gmail.com" class="underline text-green-500"> <!-- Changed from text-blue-500 -->
+      <a href="mailto:theelevationproject@gmail.com" class="underline text-green-500">
+        <!-- Changed from text-blue-500 -->
         theelevationproject@gmail.com
       </a>
     </p>
@@ -409,7 +479,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ 
+      AOS.init({
         duration: 800,
         offset: 100,
         once: true,
@@ -419,17 +489,18 @@
       let lastY = window.scrollY;
       window.addEventListener("scroll", () => {
         if (window.scrollY > lastY) {
-          navbar.classList.replace("navbar-visible","navbar-hidden");
+          navbar.classList.replace("navbar-visible", "navbar-hidden");
         } else {
-          navbar.classList.replace("navbar-hidden","navbar-visible");
+          navbar.classList.replace("navbar-hidden", "navbar-visible");
         }
         lastY = window.scrollY;
       });
-      
+
       document.getElementById("menu-toggle").addEventListener("click", () => {
         document.getElementById("mobile-menu").classList.toggle("hidden");
       });
     });
   </script>
 </body>
+
 </html>
