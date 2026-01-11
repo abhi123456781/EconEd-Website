@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EconEd | Recognition</title>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2e8b57',
+            secondary: '#4CAF50',
+            dark: '#1f2937',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .nav-link { font-weight: 600; }
+    .section-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      display: inline-block;
+    }
+    .section-heading::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: #2e8b57;
+    }
+    .section-subheading {
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+
+<!-- Navbar -->
+<header class="bg-white p-6 fixed w-full z-50 shadow-md">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-green-600">EconEd</h1>
+
+    <div class="hidden md:flex space-x-10 text-sm font-semibold">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="about.html" class="nav-link">ABOUT US</a>
+      <a href="chapters.html" class="nav-link">CHAPTERS</a>
+      <a href="recognition.html" class="nav-link text-green-600">RECOGNITION</a>
+      <a href="join.html" class="nav-link">JOIN US</a>
+      <a href="donate.html" class="nav-link">DONATE</a>
+    </div>
+  </div>
+</header>
+
+<!-- Page Spacer -->
+<div class="h-32"></div>
+
+<!-- Recognition Section -->
+<section class="py-20 px-4" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="section-heading">Recognition</h2>
+      <p class="section-subheading">
+        Honoring the students and chapters creating lasting impact through financial literacy.
+      </p>
+    </div>
+
+    <!-- Student of the Year -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-green-600">Student of the Year</h3>
+        <p class="text-gray-700 leading-relaxed">
+          The Student of the Year award recognizes an individual whose leadership, initiative, and commitment to financial literacy have transformed their community. Through workshops, mentorship, and advocacy, this student embodies EconEd’s mission of empowerment and access.
+        </p>
+      </div>
+      <div class="flex justify-center">
+        <img src="student-of-the-year.jpeg" class="rounded-2xl shadow-lg max-w-sm w-full" alt="Student of the Year">
+      </div>
+    </div>
+
+    <!-- Chapter of the Year -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+      <div class="order-2 md:order-1 flex justify-center">
+        <img src="chapter-of-the-year.jpeg" class="rounded-2xl shadow-lg max-w-sm w-full" alt="Chapter of the Year">
+      </div>
+      <div class="order-1 md:order-2">
+        <h3 class="text-2xl font-bold mb-4 text-green-600">Chapter of the Year</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Chapter of the Year honors a chapter that has gone above and beyond to expand access to financial education. Through consistent programming, outreach, and student leadership, this chapter has made a measurable impact locally.
+        </p>
+      </div>
+    </div>
+
+    <!-- Students of the Month -->
+    <div>
+      <h3 class="text-2xl font-bold mb-8 text-center text-green-600">Students of the Month</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="font-bold">Student Name</h4>
+          <p class="text-sm text-gray-600 mt-2">Recognized for outstanding leadership and community engagement.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="font-bold">Student Name</h4>
+          <p class="text-sm text-gray-600 mt-2">Honored for innovation in financial literacy outreach.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="font-bold">Student Name</h4>
+          <p class="text-sm text-gray-600 mt-2">Acknowledged for mentoring and peer education.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="font-bold">Student Name</h4>
+          <p class="text-sm text-gray-600 mt-2">Recognized for expanding access to financial education.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="font-bold">Student Name</h4>
+          <p class="text-sm text-gray-600 mt-2">Honored for dedication and consistent impact.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="font-bold">Student Name</h4>
+          <p class="text-sm text-gray-600 mt-2">Celebrated for leadership and initiative.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>
