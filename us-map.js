@@ -1,66 +1,111 @@
 // Chapter data - cities with their locations
 const chapters = [
+  // New Hampshire (4)
   { city: 'Nashua', state: 'NH', location: 'Nashua, New Hampshire' },
   { city: 'Bedford', state: 'NH', location: 'Bedford, New Hampshire' },
-  { city: 'Trumbull', state: 'CT', location: 'Trumbull, Connecticut' },
-  { city: 'Walpole', state: 'MA', location: 'Walpole, Massachusetts' },
+  { city: 'Durham', state: 'NH', location: 'Durham, New Hampshire' },
+  { city: 'Hollis', state: 'NH', location: 'Hollis, New Hampshire' },
+  // Massachusetts (4)
   { city: 'Sharon', state: 'MA', location: 'Sharon, Massachusetts' },
-  { city: 'Atlanta', state: 'GA', location: 'Atlanta, Georgia' },
   { city: 'Lexington', state: 'MA', location: 'Lexington, Massachusetts' },
-  { city: 'Brooklyn', state: 'NY', location: 'Brooklyn, New York' },
-  { city: 'Manhattan', state: 'NY', location: 'Manhattan, New York' },
-  { city: 'Long Island', state: 'NY', location: 'Long Island, New York' },
   { city: 'Westford', state: 'MA', location: 'Westford, Massachusetts' },
-  { city: 'Jacksonville', state: 'FL', location: 'Jacksonville, Florida' },
-  { city: 'Cumming', state: 'GA', location: 'Cumming, Georgia' },
-  { city: 'Omaha', state: 'NE', location: 'Omaha, Nebraska' },
+  { city: 'Chelmsford', state: 'MA', location: 'Chelmsford, Massachusetts' },
+  // Connecticut (1)
+  { city: 'Trumbull', state: 'CT', location: 'Trumbull, Connecticut' },
+  // New York (2)
+  { city: 'Brooklyn', state: 'NY', location: 'Brooklyn, New York' },
+  { city: 'Long Island', state: 'NY', location: 'Long Island, New York' },
+  // California (5)
   { city: 'Los Angeles', state: 'CA', location: 'Los Angeles, California' },
   { city: 'San Francisco', state: 'CA', location: 'San Francisco, California' },
-  { city: 'Sacramento', state: 'CA', location: 'Sacramento, California' },
   { city: 'San Diego', state: 'CA', location: 'San Diego, California' },
-  { city: 'Bakersfield', state: 'CA', location: 'Bakersfield, California' },
   { city: 'Palo Alto', state: 'CA', location: 'Palo Alto, California' },
   { city: 'Fremont', state: 'CA', location: 'Fremont, California' },
-  { city: 'Grand Rapids', state: 'MI', location: 'Grand Rapids, Michigan' },
-  { city: 'Hollis', state: 'NH', location: 'Hollis, New Hampshire' },
-  { city: 'Chelmsford', state: 'MA', location: 'Chelmsford, Massachusetts' },
-  { city: 'Rockland', state: 'ME', location: 'Rockland, Maine' },
-  { city: 'Wilmington', state: 'DE', location: 'Wilmington, Delaware' },
+  // Texas (4)
   { city: 'Austin', state: 'TX', location: 'Austin, Texas' },
   { city: 'Dallas', state: 'TX', location: 'Dallas, Texas' },
-  { city: 'Tulsa', state: 'OK', location: 'Tulsa, Oklahoma' },
-  { city: 'Mt. Juliet', state: 'TN', location: 'Mt. Juliet, Tennessee' },
-  { city: 'Jonesboro', state: 'AR', location: 'Jonesboro, Arkansas' },
-  { city: 'Akron', state: 'OH', location: 'Akron, Ohio' },
-  { city: 'Fallon', state: 'NV', location: 'Fallon, Nevada' },
-  { city: 'Durham', state: 'NC', location: 'Durham, North Carolina' },
-  { city: 'Asheville', state: 'NC', location: 'Asheville, North Carolina' },
-  { city: 'Charleston', state: 'SC', location: 'Charleston, South Carolina' },
-  { city: 'Clemson', state: 'SC', location: 'Clemson, South Carolina' },
-  { city: 'Maple Grove', state: 'MN', location: 'Maple Grove, Minnesota' },
-  { city: 'Philadelphia', state: 'PA', location: 'Philadelphia, Pennsylvania' },
-  { city: 'Hershey', state: 'PA', location: 'Hershey, Pennsylvania' },
-  { city: 'Lexington', state: 'KY', location: 'Lexington, Kentucky' },
-  { city: 'Baton Rouge', state: 'LA', location: 'Baton Rouge, Louisiana' },
-  { city: 'Alexandria', state: 'LA', location: 'Alexandria, Louisiana' },
-  { city: 'Annapolis', state: 'MD', location: 'Annapolis, Maryland' },
   { city: 'Houston', state: 'TX', location: 'Houston, Texas' },
   { city: 'Fort Worth', state: 'TX', location: 'Fort Worth, Texas' },
-  { city: 'Amarillo', state: 'TX', location: 'Amarillo, Texas' },
-  { city: 'Seattle', state: 'WA', location: 'Seattle, Washington' },
-  { city: 'Roseburg', state: 'OR', location: 'Roseburg, Oregon' },
-  { city: 'Stowe', state: 'VT', location: 'Stowe, Vermont' },
-  { city: 'Manchester', state: 'VT', location: 'Manchester, Vermont' },
-  { city: 'Bangor', state: 'ME', location: 'Bangor, Maine' },
-  { city: 'Huntsville', state: 'AL', location: 'Huntsville, Alabama' },
-  { city: 'Boise', state: 'ID', location: 'Boise, Idaho' },
-  { city: 'Colorado Springs', state: 'CO', location: 'Colorado Springs, Colorado' },
-  { city: 'Charlottesville', state: 'VA', location: 'Charlottesville, Virginia' },
-  { city: 'Williamsburg', state: 'VA', location: 'Williamsburg, Virginia' },
-  { city: 'Chesapeake', state: 'VA', location: 'Chesapeake, Virginia' },
+  // Florida (1)
+  { city: 'Jacksonville', state: 'FL', location: 'Jacksonville, Florida' },
+  // Georgia (2)
+  { city: 'Atlanta', state: 'GA', location: 'Atlanta, Georgia' },
+  { city: 'Cumming', state: 'GA', location: 'Cumming, Georgia' },
+  // Illinois (2)
   { city: 'Chicago', state: 'IL', location: 'Chicago, Illinois' },
   { city: 'Naperville', state: 'IL', location: 'Naperville, Illinois' },
-  { city: 'Providence', state: 'RI', location: 'Providence, Rhode Island' }
+  // Pennsylvania (2)
+  { city: 'Harrisburg', state: 'PA', location: 'Harrisburg, Pennsylvania' },
+  { city: 'Hershey', state: 'PA', location: 'Hershey, Pennsylvania' },
+  // North Carolina (2)
+  { city: 'Durham', state: 'NC', location: 'Durham, North Carolina' },
+  { city: 'Asheville', state: 'NC', location: 'Asheville, North Carolina' },
+  // South Carolina (1)
+  { city: 'Clemson', state: 'SC', location: 'Clemson, South Carolina' },
+  // Virginia (2)
+  { city: 'Charlottesville', state: 'VA', location: 'Charlottesville, Virginia' },
+  { city: 'Williamsburg', state: 'VA', location: 'Williamsburg, Virginia' },
+  // Washington (1)
+  { city: 'Seattle', state: 'WA', location: 'Seattle, Washington' },
+  // Colorado (1)
+  { city: 'Colorado Springs', state: 'CO', location: 'Colorado Springs, Colorado' },
+  // Minnesota (1)
+  { city: 'Maple Grove', state: 'MN', location: 'Maple Grove, Minnesota' },
+  // Ohio (1)
+  { city: 'Akron', state: 'OH', location: 'Akron, Ohio' },
+  // Kentucky (1)
+  { city: 'Lexington', state: 'KY', location: 'Lexington, Kentucky' },
+  // Louisiana (2)
+  { city: 'Baton Rouge', state: 'LA', location: 'Baton Rouge, Louisiana' },
+  { city: 'Alexandria', state: 'LA', location: 'Alexandria, Louisiana' },
+  // Maryland (1)
+  { city: 'Annapolis', state: 'MD', location: 'Annapolis, Maryland' },
+  // Oregon (1)
+  { city: 'Roseburg', state: 'OR', location: 'Roseburg, Oregon' },
+  // Vermont (1)
+  { city: 'Stowe', state: 'VT', location: 'Stowe, Vermont' },
+  // Alabama (1)
+  { city: 'Huntsville', state: 'AL', location: 'Huntsville, Alabama' },
+  // Idaho (1)
+  { city: 'Boise', state: 'ID', location: 'Boise, Idaho' },
+  // Michigan (1)
+  { city: 'Grand Rapids', state: 'MI', location: 'Grand Rapids, Michigan' },
+  // Maine (2)
+  { city: 'Rockland', state: 'ME', location: 'Rockland, Maine' },
+  { city: 'Bangor', state: 'ME', location: 'Bangor, Maine' },
+  // Delaware (2)
+  { city: 'Wilmington', state: 'DE', location: 'Wilmington, Delaware' },
+  { city: 'Middletown', state: 'DE', location: 'Middletown, Delaware' },
+  // Oklahoma (1)
+  { city: 'Tulsa', state: 'OK', location: 'Tulsa, Oklahoma' },
+  // Tennessee (1)
+  { city: 'Mt. Juliet', state: 'TN', location: 'Mt. Juliet, Tennessee' },
+  // Arkansas (1)
+  { city: 'Jonesboro', state: 'AR', location: 'Jonesboro, Arkansas' },
+  // Nevada (1)
+  { city: 'Fallon', state: 'NV', location: 'Fallon, Nevada' },
+  // Nebraska (1)
+  { city: 'Omaha', state: 'NE', location: 'Omaha, Nebraska' },
+  // Rhode Island (1)
+  { city: 'Providence', state: 'RI', location: 'Providence, Rhode Island' },
+  // Wisconsin (1)
+  { city: 'Madison', state: 'WI', location: 'Madison, Wisconsin' },
+  // Arizona (1)
+  { city: 'Tempe', state: 'AZ', location: 'Tempe, Arizona' },
+  // Missouri (1)
+  { city: 'Columbia', state: 'MO', location: 'Columbia, Missouri' },
+  // New Jersey (1)
+  { city: 'Princeton', state: 'NJ', location: 'Princeton, New Jersey' },
+  // Utah (1)
+  { city: 'Provo', state: 'UT', location: 'Provo, Utah' },
+  // Indiana (1)
+  { city: 'Bloomington', state: 'IN', location: 'Bloomington, Indiana' },
+  // Iowa (1)
+  { city: 'Iowa City', state: 'IA', location: 'Iowa City, Iowa' },
+  // Kansas (1)
+  { city: 'Lawrence', state: 'KS', location: 'Lawrence, Kansas' },
+  // New Mexico (1)
+  { city: 'Albuquerque', state: 'NM', location: 'Albuquerque, New Mexico' }
 ];
 
 // International chapters (will be displayed separately)
@@ -135,102 +180,114 @@ document.addEventListener('DOMContentLoaded', function () {
       };
 
       // City positions on the US map (normalized coordinates from 0-1, x=west to east, y=north to south)
-      // Coordinates adjusted for accurate placement on typical US map SVG
+      // Coordinates precisely adjusted for accurate geographic placement
       const cityPositions = {
-        // New Hampshire
+        // New Hampshire (4)
         'Nashua, New Hampshire': { x: 0.920, y: 0.200 },
         'Bedford, New Hampshire': { x: 0.919, y: 0.202 },
+        'Durham, New Hampshire': { x: 0.921, y: 0.198 },
         'Hollis, New Hampshire': { x: 0.919, y: 0.201 },
-        // Connecticut
-        'Trumbull, Connecticut': { x: 0.910, y: 0.275 },
-        // Massachusetts
-        'Walpole, Massachusetts': { x: 0.915, y: 0.250 },
+        // Massachusetts (4)
         'Sharon, Massachusetts': { x: 0.916, y: 0.252 },
         'Lexington, Massachusetts': { x: 0.914, y: 0.245 },
         'Westford, Massachusetts': { x: 0.913, y: 0.240 },
         'Chelmsford, Massachusetts': { x: 0.913, y: 0.242 },
-        // New York
+        // Connecticut (1)
+        'Trumbull, Connecticut': { x: 0.910, y: 0.275 },
+        // New York (2)
         'Brooklyn, New York': { x: 0.905, y: 0.285 },
-        'Manhattan, New York': { x: 0.904, y: 0.280 },
         'Long Island, New York': { x: 0.907, y: 0.282 },
-        // Maine
-        'Rockland, Maine': { x: 0.930, y: 0.155 },
-        'Bangor, Maine': { x: 0.928, y: 0.125 },
-        // Vermont
-        'Stowe, Vermont': { x: 0.918, y: 0.185 },
-        'Manchester, Vermont': { x: 0.917, y: 0.190 },
-        // Rhode Island
-        'Providence, Rhode Island': { x: 0.912, y: 0.265 },
-        // Pennsylvania
-        'Philadelphia, Pennsylvania': { x: 0.890, y: 0.345 },
-        'Hershey, Pennsylvania': { x: 0.880, y: 0.350 },
-        // Delaware
-        'Wilmington, Delaware': { x: 0.895, y: 0.365 },
-        // Maryland
-        'Annapolis, Maryland': { x: 0.895, y: 0.385 },
-        // Virginia
-        'Charlottesville, Virginia': { x: 0.875, y: 0.455 },
-        'Williamsburg, Virginia': { x: 0.890, y: 0.465 },
-        'Chesapeake, Virginia': { x: 0.895, y: 0.470 },
-        // North Carolina
-        'Durham, North Carolina': { x: 0.880, y: 0.525 },
-        'Asheville, North Carolina': { x: 0.850, y: 0.545 },
-        // South Carolina
-        'Charleston, South Carolina': { x: 0.870, y: 0.600 },
-        'Clemson, South Carolina': { x: 0.840, y: 0.575 },
-        // Georgia
-        'Atlanta, Georgia': { x: 0.820, y: 0.625 },
-        'Cumming, Georgia': { x: 0.815, y: 0.620 },
-        // Florida
-        'Jacksonville, Florida': { x: 0.870, y: 0.780 },
-        // Alabama
-        'Huntsville, Alabama': { x: 0.780, y: 0.640 },
-        // Tennessee
-        'Mt. Juliet, Tennessee': { x: 0.760, y: 0.580 },
-        // Kentucky
-        'Lexington, Kentucky': { x: 0.800, y: 0.500 },
-        // Ohio
-        'Akron, Ohio': { x: 0.830, y: 0.375 },
-        // Michigan
-        'Grand Rapids, Michigan': { x: 0.780, y: 0.305 },
-        // Illinois
-        'Chicago, Illinois': { x: 0.750, y: 0.355 },
-        'Naperville, Illinois': { x: 0.748, y: 0.357 },
-        // Minnesota
-        'Maple Grove, Minnesota': { x: 0.680, y: 0.285 },
-        // Nebraska
-        'Omaha, Nebraska': { x: 0.600, y: 0.385 },
-        // Arkansas
-        'Jonesboro, Arkansas': { x: 0.720, y: 0.620 },
-        // Louisiana
-        'Baton Rouge, Louisiana': { x: 0.720, y: 0.700 },
-        'Alexandria, Louisiana': { x: 0.700, y: 0.720 },
-        // Texas
-        'Dallas, Texas': { x: 0.640, y: 0.680 },
-        'Fort Worth, Texas': { x: 0.635, y: 0.678 },
-        'Austin, Texas': { x: 0.620, y: 0.720 },
-        'Houston, Texas': { x: 0.680, y: 0.750 },
-        'Amarillo, Texas': { x: 0.580, y: 0.600 },
-        // Oklahoma
-        'Tulsa, Oklahoma': { x: 0.650, y: 0.550 },
-        // Nevada
-        'Fallon, Nevada': { x: 0.280, y: 0.400 },
-        // California
+        // California (5)
+        'Los Angeles, California': { x: 0.210, y: 0.580 },
         'San Francisco, California': { x: 0.180, y: 0.420 },
-        'Sacramento, California': { x: 0.190, y: 0.400 },
+        'San Diego, California': { x: 0.215, y: 0.620 },
         'Palo Alto, California': { x: 0.185, y: 0.430 },
         'Fremont, California': { x: 0.187, y: 0.428 },
-        'Bakersfield, California': { x: 0.200, y: 0.520 },
-        'Los Angeles, California': { x: 0.210, y: 0.580 },
-        'San Diego, California': { x: 0.215, y: 0.620 },
-        // Oregon
-        'Roseburg, Oregon': { x: 0.200, y: 0.320 },
-        // Washington
+        // Texas (4)
+        'Austin, Texas': { x: 0.620, y: 0.720 },
+        'Dallas, Texas': { x: 0.640, y: 0.680 },
+        'Houston, Texas': { x: 0.680, y: 0.750 },
+        'Fort Worth, Texas': { x: 0.635, y: 0.678 },
+        // Florida (1)
+        'Jacksonville, Florida': { x: 0.870, y: 0.780 },
+        // Georgia (2)
+        'Atlanta, Georgia': { x: 0.820, y: 0.625 },
+        'Cumming, Georgia': { x: 0.815, y: 0.620 },
+        // Illinois (2)
+        'Chicago, Illinois': { x: 0.750, y: 0.355 },
+        'Naperville, Illinois': { x: 0.748, y: 0.357 },
+        // Pennsylvania (2)
+        'Harrisburg, Pennsylvania': { x: 0.875, y: 0.345 },
+        'Hershey, Pennsylvania': { x: 0.880, y: 0.350 },
+        // North Carolina (2)
+        'Durham, North Carolina': { x: 0.880, y: 0.525 },
+        'Asheville, North Carolina': { x: 0.850, y: 0.545 },
+        // South Carolina (1)
+        'Clemson, South Carolina': { x: 0.840, y: 0.575 },
+        // Virginia (2)
+        'Charlottesville, Virginia': { x: 0.875, y: 0.455 },
+        'Williamsburg, Virginia': { x: 0.890, y: 0.465 },
+        // Washington (1)
         'Seattle, Washington': { x: 0.220, y: 0.200 },
-        // Idaho
+        // Colorado (1)
+        'Colorado Springs, Colorado': { x: 0.520, y: 0.480 },
+        // Minnesota (1)
+        'Maple Grove, Minnesota': { x: 0.680, y: 0.285 },
+        // Ohio (1)
+        'Akron, Ohio': { x: 0.830, y: 0.375 },
+        // Kentucky (1)
+        'Lexington, Kentucky': { x: 0.800, y: 0.500 },
+        // Louisiana (2)
+        'Baton Rouge, Louisiana': { x: 0.720, y: 0.700 },
+        'Alexandria, Louisiana': { x: 0.700, y: 0.720 },
+        // Maryland (1)
+        'Annapolis, Maryland': { x: 0.895, y: 0.385 },
+        // Oregon (1)
+        'Roseburg, Oregon': { x: 0.200, y: 0.320 },
+        // Vermont (1)
+        'Stowe, Vermont': { x: 0.918, y: 0.185 },
+        // Alabama (1)
+        'Huntsville, Alabama': { x: 0.780, y: 0.640 },
+        // Idaho (1)
         'Boise, Idaho': { x: 0.350, y: 0.350 },
-        // Colorado
-        'Colorado Springs, Colorado': { x: 0.520, y: 0.480 }
+        // Michigan (1)
+        'Grand Rapids, Michigan': { x: 0.780, y: 0.305 },
+        // Maine (2)
+        'Rockland, Maine': { x: 0.930, y: 0.155 },
+        'Bangor, Maine': { x: 0.928, y: 0.125 },
+        // Delaware (2)
+        'Wilmington, Delaware': { x: 0.895, y: 0.365 },
+        'Middletown, Delaware': { x: 0.893, y: 0.370 },
+        // Oklahoma (1)
+        'Tulsa, Oklahoma': { x: 0.650, y: 0.550 },
+        // Tennessee (1)
+        'Mt. Juliet, Tennessee': { x: 0.760, y: 0.580 },
+        // Arkansas (1)
+        'Jonesboro, Arkansas': { x: 0.720, y: 0.620 },
+        // Nevada (1)
+        'Fallon, Nevada': { x: 0.280, y: 0.400 },
+        // Nebraska (1)
+        'Omaha, Nebraska': { x: 0.600, y: 0.385 },
+        // Rhode Island (1)
+        'Providence, Rhode Island': { x: 0.912, y: 0.265 },
+        // Wisconsin (1)
+        'Madison, Wisconsin': { x: 0.730, y: 0.320 },
+        // Arizona (1)
+        'Tempe, Arizona': { x: 0.380, y: 0.580 },
+        // Missouri (1)
+        'Columbia, Missouri': { x: 0.700, y: 0.480 },
+        // New Jersey (1)
+        'Princeton, New Jersey': { x: 0.900, y: 0.330 },
+        // Utah (1)
+        'Provo, Utah': { x: 0.400, y: 0.450 },
+        // Indiana (1)
+        'Bloomington, Indiana': { x: 0.780, y: 0.420 },
+        // Iowa (1)
+        'Iowa City, Iowa': { x: 0.680, y: 0.380 },
+        // Kansas (1)
+        'Lawrence, Kansas': { x: 0.640, y: 0.480 },
+        // New Mexico (1)
+        'Albuquerque, New Mexico': { x: 0.480, y: 0.600 }
       };
 
       // Create a div to hold the pins
